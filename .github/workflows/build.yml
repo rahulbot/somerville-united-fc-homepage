@@ -1,26 +1,40 @@
-name: Build on Tag
+name: Build Release
 
 on:
+  # Trigger when a new tag is pushed
   push:
     tags:
-      - '*'
+      - 'v[0-9]+.[0-9]+.[0-9]+'
 
 jobs:
-  build:
+  build-release:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20'
-        cache: 'npm'
+      - name: Checkout code
+        uses: actions/checkout@v3
+        
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
 
-    - name: Install dependencies
-      run: npm install
+      - name: Build Svelte app
+        run: |
+          npm install
+          npm run build
 
-    - name: Build project
-      run: npm run build
+      # Commit and push any changes made by the script if exit code is 0
+      - name: Commit and push changes and new release tag
+        if: steps.update_script.outputs.exit_code == '0'
+        run: |
+            git config --local user.email "action@github.com"
+            git config --local user.name "GitHub Action"
+            git add .
+            git diff --staged --quiet || git commit -m "GH-Bot: Rebuild Svelte app for release"
+            git push origin HEAD:main
+            TAG_NAME=$(git describe --tags --abbrev=0)
+            RELEASE_TAG="${TAG_NAME}-release"
+            git tag "$RELEASE_TAG"
+            git push origin "$RELEASE_TAG"

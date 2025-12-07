@@ -28,7 +28,7 @@ export default defineConfig({
   },
   base: "./",
   build: {
-    outDir: path.resolve(process.cwd(), "dist/public"),
+    outDir: path.resolve(process.cwd(), "docs"),
     emptyOutDir: true,
   },
   server: {
