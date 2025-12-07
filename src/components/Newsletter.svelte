@@ -2,16 +2,11 @@
   <div class="container">
     <h2 class="newsletter-heading">Let’s build something historic together. ⚽️🔥</h2>
     <p class="newsletter-text">
-      Sign up for updates on tryouts, match schedules, and community events. Be part of the movement from day one.
+      Sign up for updates on tryouts, sponsorship opportunities, match schedules, and community events. Be part of the movement from day one.
     </p>
     <div class="newsletter-form">
-      <input 
-        type="email" 
-        placeholder="Enter your email address" 
-        class="newsletter-input"
-      />
       <button class="btn btn-white newsletter-btn">
-        Subscribe
+        <a href="https://forms.gle/DSFMAaQivR5U1ZR77">Signup for Our Newsletter!</a>
       </button>
     </div>
   </div>
@@ -53,7 +48,7 @@
     flex-direction: column;
     gap: 1rem;
     justify-content: center;
-    max-width: 28rem;
+    max-width: 40rem;
     margin: 0 auto;
   }
 
@@ -85,6 +80,18 @@
 
   .newsletter-btn {
     height: 3rem;
-    padding: 0 2rem;
+    padding: 2rem;
+    font-size: 1.5rem;
+    transition: box-shadow 0.2s ease;
+    
+    a {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+    }
+  }
+
+  .newsletter-btn:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   }
 </style>
