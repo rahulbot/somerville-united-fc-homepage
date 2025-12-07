@@ -2,27 +2,103 @@
   import logoImage from "@assets/logo.png";
 </script>
 
-<section id="community" class="py-24 bg-muted/30">
-  <div class="container mx-auto px-4">
-    <div class="grid md:grid-cols-2 gap-12 items-center">
-      <div class="text-left">
-        <h2 class="text-primary text-lg font-bold uppercase tracking-widest mb-2">Join The Family</h2>
-        <h3 class="text-4xl md:text-5xl font-heading font-bold mb-6 text-secondary leading-tight">
+<section id="community" class="section-py community-section">
+  <div class="container">
+    <div class="community-grid">
+      <div class="community-content">
+        <h2 class="section-eyebrow">Join The Family</h2>
+        <h3 class="section-heading">
           Somerville Is Our Home. <br/>
           You Are Our Team.
         </h3>
-        <p class="text-lg text-muted-foreground">
-          We are building something special right here in Somerville.
-          <br/><br/>
-          If you’re a player, coach, parent, business, or supporter … this is your club too!
-          <br/>
-          <strong>Welcome to the beginning.</strong>
-        </p>
+        <div class="community-text">
+          <p class="text-lg">
+            We are building something special right here in Somerville.
+            <br/><br/>
+            If you’re a player, coach, parent, business, or supporter … this is your club too!
+            <br/>
+            <strong>Welcome to the beginning.</strong>
+          </p>
+        </div>
       </div>
       
-      <div class="flex justify-center md:justify-end">
-        <img src={logoImage} alt="Somerville United FC Logo" class="w-64 h-64 md:w-80 md:h-80 object-contain drop-shadow-xl" />
+      <div class="community-image">
+        <img src={logoImage} alt="Somerville United FC Logo" class="logo-large" />
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  .community-section {
+    background-color: rgba(241, 245, 249, 0.3); /* muted/30 */
+  }
+
+  .community-grid {
+    display: grid;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .community-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .section-eyebrow {
+    color: var(--primary);
+    font-size: 1.125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-heading);
+  }
+
+  .section-heading {
+    font-family: var(--font-heading);
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--secondary);
+    line-height: 1.2;
+  }
+
+  @media (min-width: 768px) {
+    .section-heading {
+      font-size: 3rem;
+    }
+  }
+
+  .community-text {
+    color: var(--muted-foreground);
+    font-size: 1.125rem;
+    line-height: 1.6;
+  }
+
+  .community-image {
+    display: flex;
+    justify-content: center;
+  }
+
+  @media (min-width: 768px) {
+    .community-image {
+      justify-content: flex-end;
+    }
+  }
+
+  .logo-large {
+    width: 16rem;
+    height: 16rem;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 13px rgba(0, 0, 0, 0.1));
+  }
+
+  @media (min-width: 768px) {
+    .logo-large {
+      width: 20rem;
+      height: 20rem;
+    }
+  }
+</style>

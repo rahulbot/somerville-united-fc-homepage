@@ -16,7 +16,7 @@
   }
 </script>
 
-<div class="min-h-screen flex flex-col font-sans">
+<div class="page-wrapper">
   <Navbar {scrollTo} />
   <Hero {scrollTo} />
   <Mission />
@@ -25,3 +25,12 @@
   <Newsletter />
   <Footer />
 </div>
+
+<style>
+  .page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-sans);
+  }
+</style>
