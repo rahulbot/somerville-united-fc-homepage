@@ -1,18 +1,20 @@
 <script>
   import logoImage from "@assets/logo.png";
-  let { scrollTo } = $props();
 </script>
 
 <nav class="navbar">
   <div class="container navbar-content">
     <div class="navbar-brand">
-      <img src={logoImage} alt="Somerville United FC Logo" class="logo" />
-      <span class="brand-name">SOMERVILLE UNITED FC</span>
+      <a href="/">
+        <img src={logoImage} alt="Somerville United FC Logo" class="logo" />
+        <span class="brand-name">SOMERVILLE UNITED FC</span>
+      </a>
     </div>
     <div class="navbar-links">
-      <button onclick={() => scrollTo('mission')} class="nav-link">Mission</button>
-      <button onclick={() => scrollTo('community')} class="nav-link">Community</button>
-      <button onclick={() => scrollTo('get-involved')} class="btn btn-primary btn-sm">Get Involved</button>
+      <a href="/" class="nav-link">Home</a>
+      <a href="/team" class="nav-link">Team</a>
+      <a href="/board" class="nav-link">Board</a>
+      <a href="/about" class="nav-link">About</a>
     </div>
   </div>
 </nav>
@@ -36,10 +38,11 @@
     justify-content: space-between;
   }
 
-  .navbar-brand {
+  .navbar-brand a {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    text-decoration: none;
   }
 
   .logo {
@@ -69,20 +72,14 @@
   }
 
   .nav-link {
-    background: transparent;
-    border: none;
     font-weight: 500;
     font-size: 0.875rem;
     color: var(--foreground);
+    text-decoration: none;
     transition: color 0.2s;
   }
 
   .nav-link:hover {
     color: var(--primary);
-  }
-
-  .btn-sm {
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
   }
 </style>
