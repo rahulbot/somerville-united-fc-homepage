@@ -35,10 +35,18 @@
   .page-title {
     font-family: var(--font-heading);
     font-size: 3rem;
-    font-weight: 700;
+    font-weight: 900;
     color: var(--primary);
     text-align: center;
     margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: -0.025em;
+  }
+
+  @media (min-width: 768px) {
+    .page-title {
+      font-size: 4rem;
+    }
   }
 
   .page-subtitle {
