@@ -82,31 +82,6 @@
     }
   }
 
-  .section-eyebrow {
-    color: var(--primary);
-    font-size: 1.125rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 0.5rem;
-    font-family: var(--font-heading);
-  }
-
-  .section-heading {
-    font-family: var(--font-heading);
-    font-size: 2.25rem;
-    font-weight: 700;
-    color: var(--secondary);
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-  }
-
-  @media (min-width: 768px) {
-    .section-heading {
-      font-size: 3rem;
-    }
-  }
-
   .mission-text {
     font-size: 1.125rem;
     color: var(--muted-foreground);
