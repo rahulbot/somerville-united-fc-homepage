@@ -1,8 +1,16 @@
 <script>
   import logoImage from "@assets/logo.png";
   import { Menu, X } from "lucide-svelte";
+  import { page } from "$app/stores";
   
   let mobileMenuOpen = $state(false);
+  
+  const navLinks = [
+    { href: "/", label: "Home" },
+    { href: "/team", label: "Team" },
+    { href: "/board", label: "Board" },
+    { href: "/about", label: "About" }
+  ];
   
   function toggleMenu() {
     mobileMenuOpen = !mobileMenuOpen;
@@ -23,10 +31,15 @@
     </div>
     
     <div class="navbar-links desktop-links">
-      <a href="/" class="nav-link">Home</a>
-      <a href="/team" class="nav-link">Team</a>
-      <a href="/board" class="nav-link">Board</a>
-      <a href="/about" class="nav-link">About</a>
+      {#each navLinks as link}
+        <a 
+          href={link.href} 
+          class="nav-link"
+          class:active={$page.url.pathname === link.href}
+        >
+          {link.label}
+        </a>
+      {/each}
     </div>
     
     <button class="hamburger" onclick={toggleMenu} aria-label="Toggle menu">
@@ -40,10 +53,16 @@
   
   {#if mobileMenuOpen}
     <div class="mobile-menu">
-      <a href="/" class="mobile-nav-link" onclick={closeMenu}>Home</a>
-      <a href="/team" class="mobile-nav-link" onclick={closeMenu}>Team</a>
-      <a href="/board" class="mobile-nav-link" onclick={closeMenu}>Board</a>
-      <a href="/about" class="mobile-nav-link" onclick={closeMenu}>About</a>
+      {#each navLinks as link}
+        <a 
+          href={link.href} 
+          class="mobile-nav-link"
+          class:active={$page.url.pathname === link.href}
+          onclick={closeMenu}
+        >
+          {link.label}
+        </a>
+      {/each}
     </div>
   {/if}
 </nav>
@@ -111,6 +130,11 @@
     color: var(--primary);
   }
 
+  .nav-link.active {
+    color: var(--primary);
+    font-weight: 700;
+  }
+
   .hamburger {
     display: flex;
     align-items: center;
@@ -160,5 +184,11 @@
   .mobile-nav-link:hover {
     background-color: rgba(var(--primary-rgb), 0.1);
     color: var(--primary);
+  }
+
+  .mobile-nav-link.active {
+    background-color: rgba(var(--primary-rgb), 0.1);
+    color: var(--primary);
+    font-weight: 700;
   }
 </style>
