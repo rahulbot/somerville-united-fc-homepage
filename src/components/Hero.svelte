@@ -1,5 +1,4 @@
 <script>
-  import { fade } from "svelte/transition";
   import heroImage from "@assets/generated_images/soccer_team_of_young_men_huddling.png";
   
   let { scrollTo } = $props();
@@ -18,17 +17,17 @@
 
   <div class="container hero-content-wrapper">
     <div class="hero-content">
-      <div in:fade={{ duration: 800, delay: 200 }} class="hero-badge">
+      <div class="hero-badge animate-fade-in" style="--delay: 0.2s">
         Est. 2025 • Massachusetts
       </div>
-      <h1 in:fade={{ duration: 800, delay: 400 }} class="hero-title">
+      <h1 class="hero-title animate-fade-in" style="--delay: 0.4s">
         More Than <br/>
         <span class="highlight-text">Just A Game</span>
       </h1>
-      <p in:fade={{ duration: 800, delay: 600 }} class="hero-subtitle">
+      <p class="hero-subtitle animate-fade-in" style="--delay: 0.6s">
         Redefining soccer in Massachusetts by proving that passion, community, and opportunity can coexist sustainably.
       </p>
-      <div in:fade={{ duration: 800, delay: 800 }} class="hero-actions">
+      <div class="hero-actions animate-fade-in" style="--delay: 0.8s">
         <button onclick={() => scrollTo('get-involved')} class="btn btn-primary hero-btn">
           Join the Movement
         </button>
@@ -41,6 +40,23 @@
 </section>
 
 <style>
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: var(--delay, 0s);
+  }
+
   .hero {
     position: relative;
     height: 90vh;
@@ -83,7 +99,7 @@
   }
 
   .hero-content {
-    max-width: 56rem; /* max-w-4xl */
+    max-width: 56rem;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -114,7 +130,7 @@
 
   @media (min-width: 768px) {
     .hero-title {
-      font-size: 6rem; /* text-8xl */
+      font-size: 6rem;
     }
   }
 
