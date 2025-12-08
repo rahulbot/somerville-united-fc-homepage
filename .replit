@@ -1,9 +1,9 @@
-modules = ["nodejs-20", "web", "postgresql-16"]
+modules = ["nodejs-20", "web"]
 run = "npm run dev"
 hidden = [".config", ".git", "generated-icon.png", "node_modules", "dist"]
 
 [nix]
-channel = "stable-24_05"
+channel = "stable-25_05"
 
 [deployment]
 deploymentTarget = "static"
@@ -21,6 +21,10 @@ externalPort = 3001
 [[ports]]
 localPort = 35245
 externalPort = 3000
+
+[[ports]]
+localPort = 46125
+externalPort = 3002
 
 [env]
 PORT = "5000"
@@ -48,3 +52,4 @@ waitForPort = 5000
 
 [agent]
 mockupState = "MOCKUP"
+expertMode = true
