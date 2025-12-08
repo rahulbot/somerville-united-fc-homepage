@@ -1,11 +1,18 @@
-<footer class="footer">
-  <div class="container footer-content">
-    <div class="footer-brand">
-      <div class="brand-name">SOMERVILLE UNITED FC</div>
-      <p class="copyright">© 2025 Somerville United FC. All rights reserved.</p>
-    </div>
-    <div class="footer-links">
-      <a href="https://www.instagram.com/somerville_fc/" class="footer-link">Instagram</a>
+<script>
+import Newsletter from "./Newsletter.svelte";
+</script>
+
+<footer>
+  <Newsletter />
+  <div class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <div class="brand-name">SOMERVILLE UNITED FC</div>
+        <p class="copyright">© 2025 Somerville United FC. All rights reserved.</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/somerville_fc/" class="footer-link">Instagram</a>
+      </div>
     </div>
   </div>
 </footer>

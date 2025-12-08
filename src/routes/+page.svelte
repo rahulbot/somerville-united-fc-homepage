@@ -23,4 +23,3 @@
 <Mission />
 <Values />
 <Community />
-<Newsletter />
