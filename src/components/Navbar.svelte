@@ -9,7 +9,6 @@
     { href: "/", label: "Home" },
     { href: "/team", label: "Team" },
     { href: "/board", label: "Board" },
-    { href: "/about", label: "About" }
   ];
   
   function toggleMenu() {
