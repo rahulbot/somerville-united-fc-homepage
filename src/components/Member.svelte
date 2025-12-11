@@ -40,6 +40,7 @@
     aspect-ratio: 3/4;
     overflow: hidden;
     background-color: var(--muted);
+    flex-shrink: 0;
   }
 
   .member-image {
@@ -95,5 +96,23 @@
 
   .member-description :global(p:last-child) {
     margin-bottom: 0;
+  }
+
+  @media (min-width: 640px) {
+    .member-card {
+      flex-direction: row;
+    }
+
+    .member-image-wrapper {
+      width: 200px;
+      aspect-ratio: 3/4;
+    }
+
+    .member-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
   }
 </style>
