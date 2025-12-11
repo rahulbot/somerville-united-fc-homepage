@@ -111,7 +111,7 @@
   }
 
   .stat-card {
-    text-center;
+    text-align: center;
     padding: 1rem;
     background-color: rgba(var(--secondary-rgb), 0.05);
     border-radius: var(--radius);
