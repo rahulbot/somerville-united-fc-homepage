@@ -1,0 +1,286 @@
+{
+  ".svelte-kit/generated/client-optimized/app.js": {
+    "file": "_app/immutable/entry/app.D5s60rYR.js",
+    "name": "entry/app",
+    "src": ".svelte-kit/generated/client-optimized/app.js",
+    "isEntry": true,
+    "imports": [
+      "_D7vZdRf8.js",
+      "_C--ZFUzQ.js",
+      "_Dm0lbLVj.js",
+      "_CBGfb6Ky.js",
+      "_BwAkkW-z.js",
+      "_C07XrPB8.js"
+    ],
+    "dynamicImports": [
+      ".svelte-kit/generated/client-optimized/nodes/0.js",
+      ".svelte-kit/generated/client-optimized/nodes/1.js",
+      ".svelte-kit/generated/client-optimized/nodes/2.js",
+      ".svelte-kit/generated/client-optimized/nodes/3.js",
+      ".svelte-kit/generated/client-optimized/nodes/4.js"
+    ]
+  },
+  ".svelte-kit/generated/client-optimized/nodes/0.js": {
+    "file": "_app/immutable/nodes/0.Dz9vGKnN.js",
+    "name": "nodes/0",
+    "src": ".svelte-kit/generated/client-optimized/nodes/0.js",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_Dm0lbLVj.js",
+      "_BakxOcxD.js",
+      "_D7vZdRf8.js",
+      "_C5Lmx5cn.js",
+      "_C--ZFUzQ.js",
+      "_BwAkkW-z.js",
+      "_fd-YmQf2.js",
+      "_Dc5h6h_B.js",
+      "_C07XrPB8.js",
+      "_CAqBEpXB.js"
+    ],
+    "css": [
+      "_app/immutable/assets/0.CX6ZYsJe.css"
+    ]
+  },
+  ".svelte-kit/generated/client-optimized/nodes/1.js": {
+    "file": "_app/immutable/nodes/1.BSN0Ip2y.js",
+    "name": "nodes/1",
+    "src": ".svelte-kit/generated/client-optimized/nodes/1.js",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_Dm0lbLVj.js",
+      "_BakxOcxD.js",
+      "_D7vZdRf8.js",
+      "_C--ZFUzQ.js",
+      "_BnxWgzhy.js",
+      "_CAqBEpXB.js"
+    ]
+  },
+  ".svelte-kit/generated/client-optimized/nodes/2.js": {
+    "file": "_app/immutable/nodes/2.DsTzvicS.js",
+    "name": "nodes/2",
+    "src": ".svelte-kit/generated/client-optimized/nodes/2.js",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_Dm0lbLVj.js",
+      "_BakxOcxD.js",
+      "_D7vZdRf8.js",
+      "_CMM1JThY.js",
+      "_Dc5h6h_B.js",
+      "_fd-YmQf2.js",
+      "_C5Lmx5cn.js",
+      "_C07XrPB8.js"
+    ],
+    "css": [
+      "_app/immutable/assets/2.DfNiH5La.css"
+    ],
+    "assets": [
+      "_app/immutable/assets/soccer_team_of_young_men_huddling.KJgajEe-.png",
+      "_app/immutable/assets/soccer_ball_on_grass_with_stadium_lights.DP2rz08o.png"
+    ]
+  },
+  ".svelte-kit/generated/client-optimized/nodes/3.js": {
+    "file": "_app/immutable/nodes/3.D-D6Jd2n.js",
+    "name": "nodes/3",
+    "src": ".svelte-kit/generated/client-optimized/nodes/3.js",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_Dm0lbLVj.js",
+      "_BakxOcxD.js",
+      "_D7vZdRf8.js",
+      "_fd-YmQf2.js",
+      "_CMM1JThY.js",
+      "_C--ZFUzQ.js",
+      "_BwAkkW-z.js",
+      "_C07XrPB8.js"
+    ],
+    "css": [
+      "_app/immutable/assets/3.ltvffO9l.css"
+    ],
+    "assets": [
+      "_app/immutable/assets/robert-sifa-onjiko.D3Lsi1Pa.jpg",
+      "_app/immutable/assets/alesandra-onjiko.CuzKYSD0.jpg",
+      "_app/immutable/assets/eyerusalem-alemu.DSLtpg1Y.jpg",
+      "_app/immutable/assets/francisco-jair-santos-landaverde.murWq1ul.jpg",
+      "_app/immutable/assets/john-massaquoi.Bi3Wuh5m.jpg"
+    ]
+  },
+  ".svelte-kit/generated/client-optimized/nodes/4.js": {
+    "file": "_app/immutable/nodes/4.CnuOrx6d.js",
+    "name": "nodes/4",
+    "src": ".svelte-kit/generated/client-optimized/nodes/4.js",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_Dm0lbLVj.js",
+      "_BakxOcxD.js",
+      "_D7vZdRf8.js",
+      "_CMM1JThY.js"
+    ],
+    "css": [
+      "_app/immutable/assets/4.CmnTzPin.css"
+    ]
+  },
+  "_BakxOcxD.js": {
+    "file": "_app/immutable/chunks/BakxOcxD.js",
+    "name": "legacy",
+    "imports": [
+      "_D7vZdRf8.js"
+    ]
+  },
+  "_BnxWgzhy.js": {
+    "file": "_app/immutable/chunks/BnxWgzhy.js",
+    "name": "lifecycle",
+    "imports": [
+      "_D7vZdRf8.js"
+    ]
+  },
+  "_BwAkkW-z.js": {
+    "file": "_app/immutable/chunks/BwAkkW-z.js",
+    "name": "if",
+    "imports": [
+      "_D7vZdRf8.js",
+      "_C07XrPB8.js"
+    ]
+  },
+  "_C--ZFUzQ.js": {
+    "file": "_app/immutable/chunks/C--ZFUzQ.js",
+    "name": "render",
+    "imports": [
+      "_D7vZdRf8.js",
+      "_Dc5h6h_B.js",
+      "_Dm0lbLVj.js"
+    ]
+  },
+  "_C07XrPB8.js": {
+    "file": "_app/immutable/chunks/C07XrPB8.js",
+    "name": "props",
+    "imports": [
+      "_D7vZdRf8.js",
+      "_NbAgTvdW.js"
+    ]
+  },
+  "_C5Lmx5cn.js": {
+    "file": "_app/immutable/chunks/C5Lmx5cn.js",
+    "name": "Newsletter.svelte_svelte_type_style_lang",
+    "imports": [
+      "_Dm0lbLVj.js",
+      "_BakxOcxD.js",
+      "_D7vZdRf8.js",
+      "_fd-YmQf2.js",
+      "_Dc5h6h_B.js",
+      "_C07XrPB8.js",
+      "_BnxWgzhy.js"
+    ],
+    "css": [
+      "_app/immutable/assets/Newsletter.Cb3MPKgw.css"
+    ],
+    "assets": [
+      "_app/immutable/assets/logo.CQDorr8t.png"
+    ]
+  },
+  "_CAqBEpXB.js": {
+    "file": "_app/immutable/chunks/CAqBEpXB.js",
+    "name": "entry",
+    "imports": [
+      "_D7vZdRf8.js",
+      "_NbAgTvdW.js",
+      "_CBGfb6Ky.js"
+    ]
+  },
+  "_CBGfb6Ky.js": {
+    "file": "_app/immutable/chunks/CBGfb6Ky.js",
+    "name": "index-client",
+    "imports": [
+      "_D7vZdRf8.js"
+    ]
+  },
+  "_CMM1JThY.js": {
+    "file": "_app/immutable/chunks/CMM1JThY.js",
+    "name": "svelte-head",
+    "imports": [
+      "_D7vZdRf8.js"
+    ]
+  },
+  "_D7vZdRf8.js": {
+    "file": "_app/immutable/chunks/D7vZdRf8.js",
+    "name": "runtime"
+  },
+  "_Dc5h6h_B.js": {
+    "file": "_app/immutable/chunks/Dc5h6h_B.js",
+    "name": "events",
+    "imports": [
+      "_D7vZdRf8.js"
+    ]
+  },
+  "_Dm0lbLVj.js": {
+    "file": "_app/immutable/chunks/Dm0lbLVj.js",
+    "name": "disclose-version",
+    "imports": [
+      "_D7vZdRf8.js"
+    ]
+  },
+  "_NbAgTvdW.js": {
+    "file": "_app/immutable/chunks/NbAgTvdW.js",
+    "name": "index",
+    "imports": [
+      "_D7vZdRf8.js"
+    ]
+  },
+  "_Newsletter.Cb3MPKgw.css": {
+    "file": "_app/immutable/assets/Newsletter.Cb3MPKgw.css",
+    "src": "_Newsletter.Cb3MPKgw.css"
+  },
+  "_fd-YmQf2.js": {
+    "file": "_app/immutable/chunks/fd-YmQf2.js",
+    "name": "attributes",
+    "imports": [
+      "_D7vZdRf8.js",
+      "_Dc5h6h_B.js"
+    ]
+  },
+  "attached_assets/alesandra-onjiko.jpg": {
+    "file": "_app/immutable/assets/alesandra-onjiko.CuzKYSD0.jpg",
+    "src": "attached_assets/alesandra-onjiko.jpg"
+  },
+  "attached_assets/eyerusalem-alemu.jpg": {
+    "file": "_app/immutable/assets/eyerusalem-alemu.DSLtpg1Y.jpg",
+    "src": "attached_assets/eyerusalem-alemu.jpg"
+  },
+  "attached_assets/francisco-jair-santos-landaverde.jpg": {
+    "file": "_app/immutable/assets/francisco-jair-santos-landaverde.murWq1ul.jpg",
+    "src": "attached_assets/francisco-jair-santos-landaverde.jpg"
+  },
+  "attached_assets/generated_images/soccer_ball_on_grass_with_stadium_lights.png": {
+    "file": "_app/immutable/assets/soccer_ball_on_grass_with_stadium_lights.DP2rz08o.png",
+    "src": "attached_assets/generated_images/soccer_ball_on_grass_with_stadium_lights.png"
+  },
+  "attached_assets/generated_images/soccer_team_of_young_men_huddling.png": {
+    "file": "_app/immutable/assets/soccer_team_of_young_men_huddling.KJgajEe-.png",
+    "src": "attached_assets/generated_images/soccer_team_of_young_men_huddling.png"
+  },
+  "attached_assets/john-massaquoi.jpg": {
+    "file": "_app/immutable/assets/john-massaquoi.Bi3Wuh5m.jpg",
+    "src": "attached_assets/john-massaquoi.jpg"
+  },
+  "attached_assets/logo.png": {
+    "file": "_app/immutable/assets/logo.CQDorr8t.png",
+    "src": "attached_assets/logo.png"
+  },
+  "attached_assets/robert-sifa-onjiko.jpg": {
+    "file": "_app/immutable/assets/robert-sifa-onjiko.D3Lsi1Pa.jpg",
+    "src": "attached_assets/robert-sifa-onjiko.jpg"
+  },
+  "node_modules/@sveltejs/kit/src/runtime/client/entry.js": {
+    "file": "_app/immutable/entry/start.-d9K5unB.js",
+    "name": "entry/start",
+    "src": "node_modules/@sveltejs/kit/src/runtime/client/entry.js",
+    "isEntry": true,
+    "imports": [
+      "_CAqBEpXB.js"
+    ]
+  }
+}
