@@ -12,7 +12,9 @@ const config = {
 			precompress: false,
 			strict: true
 		}),
-		paths: '' // custom domain so leave empty
+		paths: {
+			relative: false
+		}
 	}
 };
 

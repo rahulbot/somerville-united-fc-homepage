@@ -58,26 +58,6 @@
     }
   }
 
-  .newsletter-input {
-    height: 3rem;
-    padding: 0 1rem;
-    border-radius: 0.25rem;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: white;
-    width: 100%;
-    font-family: inherit;
-  }
-
-  .newsletter-input::placeholder {
-    color: rgba(255, 255, 255, 0.5);
-  }
-
-  .newsletter-input:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
-  }
-
   .newsletter-btn {
     height: 3rem;
     padding: 2rem;
