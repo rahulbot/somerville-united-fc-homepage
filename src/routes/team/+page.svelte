@@ -8,12 +8,12 @@
     <section class="section">
       <h1 class="page-title">Our Team</h1>
       <p class="page-subtitle">
-        Meet the players and staff who make Somerville United FC a success.
+        Meet our the players and coaching staff.
       </p>
 
       <div class="content-placeholder">
         <h2>Team Roster</h2>
-        <p>Coming soon - meet our players, coaches, and staff members who bring passion and dedication to the field.</p>
+        <p>🚧 Coming soon</p>
       </div>
     </section>
   </div>
