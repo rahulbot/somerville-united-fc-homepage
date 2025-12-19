@@ -11,7 +11,7 @@ import Newsletter from "./Newsletter.svelte";
         <p class="copyright">© 2025 Somerville United FC. All rights reserved.</p>
       </div>
       <div class="footer-links">
-        <a href="https://www.instagram.com/somerville_fc/" class="footer-link">Instagram</a>
+        <a href="https://www.instagram.com/somervilleunitedfc/" class="footer-link">Instagram</a>
       </div>
     </div>
   </div>
