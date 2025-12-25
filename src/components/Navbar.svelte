@@ -68,9 +68,9 @@
           {link.label}
         </a>
       {/each}
-      <button class="btn btn-white signup-btn">
-        <a href="https://forms.gle/DSFMAaQivR5U1ZR77">Sign Up!</a>
-      </button>
+      <a href="https://forms.gle/DSFMAaQivR5U1ZR77">
+        <button class="btn btn-white signup-btn">Sign Up!</button>
+      </a>
     </div>
   {/if}
 </nav>
@@ -202,13 +202,10 @@
 
   .signup-btn {
     transition: box-shadow 0.2s ease;
-    background-color: var(--primary);
-    
-    a {
-      color: #fff;
-      font-weight: 600;
-      text-decoration: none;
-    }
+    background-color: var(--primary);  
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
 
     &:hover {
       background-color: var(--primary);
