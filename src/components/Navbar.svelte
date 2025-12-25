@@ -7,8 +7,11 @@
   
   const navLinks = [
     { href: "/", label: "Home" },
+    { href: "/schedule", label: "Schedule" },
+    { href: "/tickets", label: "Tickets" },
     { href: "/team", label: "Team" },
-    { href: "/about", label: "About Us" },
+    { href: "/shop", label: "Shop" },
+    { href: "/about", label: "About" },
   ];
   
   function toggleMenu() {
@@ -39,6 +42,9 @@
           {link.label}
         </a>
       {/each}
+      <button class="btn btn-white signup-btn">
+        <a href="https://forms.gle/DSFMAaQivR5U1ZR77">Sign Up!</a>
+      </button>
     </div>
     
     <button class="hamburger" onclick={toggleMenu} aria-label="Toggle menu">
@@ -62,6 +68,9 @@
           {link.label}
         </a>
       {/each}
+      <button class="btn btn-white signup-btn">
+        <a href="https://forms.gle/DSFMAaQivR5U1ZR77">Sign Up!</a>
+      </button>
     </div>
   {/if}
 </nav>
@@ -189,5 +198,21 @@
     background-color: rgba(var(--primary-rgb), 0.1);
     color: var(--primary);
     font-weight: 700;
+  }
+
+  .signup-btn {
+    transition: box-shadow 0.2s ease;
+    background-color: var(--primary);
+    
+    a {
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    &:hover {
+      background-color: var(--primary);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
   }
 </style>
