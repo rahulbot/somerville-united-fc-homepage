@@ -43,7 +43,7 @@
         </a>
       {/each}
       <button class="btn btn-white signup-btn">
-        <a href="https://forms.gle/DSFMAaQivR5U1ZR77">Sign Up!</a>
+        <a href="https://forms.gle/DSFMAaQivR5U1ZR77">Sign Up</a>
       </button>
     </div>
     
@@ -69,7 +69,7 @@
         </a>
       {/each}
       <a href="https://forms.gle/DSFMAaQivR5U1ZR77">
-        <button class="btn btn-white signup-btn">Sign Up!</button>
+        <button class="btn btn-white signup-btn">Sign Up</button>
       </a>
     </div>
   {/if}
@@ -210,6 +210,11 @@
     &:hover {
       background-color: var(--primary);
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    a {
+      color: white !important;
+      text-decoration: none;
     }
   }
 </style>
