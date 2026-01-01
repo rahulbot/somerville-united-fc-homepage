@@ -166,10 +166,14 @@
   }
 
   @media (min-width: 1280px) {
-    .mgmt-grid, .about-grid {
+    .mgmt-grid {
       grid-template-columns: repeat(3, 1fr);
     }
+    .about-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
+
   .about-item {
     padding: 20px;
   }
