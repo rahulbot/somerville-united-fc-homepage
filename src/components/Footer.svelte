@@ -1,5 +1,11 @@
 <script>
 import Newsletter from "./Newsletter.svelte";
+
+import fifa from "@assets/fifa.gif";
+import usaSoccer from "@assets/usa-soccer.gif";
+import concacaf from "@assets/CONCACAF.gif";
+import apsl from "@assets/APSL.gif";
+
 </script>
 
 <footer>
@@ -11,7 +17,13 @@ import Newsletter from "./Newsletter.svelte";
         <p class="copyright">© 2025 Somerville United FC. All rights reserved.</p>
       </div>
       <div class="footer-links">
-        <a href="https://www.instagram.com/somervilleunitedfc/" class="footer-link">Instagram</a>
+        <!-- <a href="https://www.instagram.com/somervilleunitedfc/" class="footer-link">Instagram</a> -->
+        <div class="logo-container">
+          <a href="https://apslsoccer.com/APSL/Team/131978"><img src="{apsl}" alt="APSL" class="footer-logo" /></a>
+          <a href="https://www.ussoccer.com"><img src="{usaSoccer}" alt="US Soccer" class="footer-logo" /></a>
+          <a href="https://www.concacaf.com"><img src="{concacaf}" alt="CONCACAF" class="footer-logo" /></a>
+          <a href="https://www.fifa.com/en"><img src="{fifa}" alt="FIFA" class="footer-logo" /></a>
+        </div>
       </div>
     </div>
   </div>
@@ -73,5 +85,11 @@ import Newsletter from "./Newsletter.svelte";
 
   .footer-link:hover {
     color: white;
+  }
+
+  .footer-logo {
+    height: 40px;
+    margin-right: 20px;
+    display: inline-block;
   }
 </style>
