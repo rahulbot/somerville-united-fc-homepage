@@ -258,3 +258,8 @@ button {
   .hidden { display: none; }
   .md\:block { display: block; }
 }
+
+
+a {
+  color: var(--secondary);
+}
