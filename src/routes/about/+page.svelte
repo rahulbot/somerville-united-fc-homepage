@@ -9,6 +9,8 @@
   import headshotJG from "@assets/judd-galloway.jpg";
   import headshotCJ from "@assets/cassandra-joyce.jpg";
   import headshotTW from "@assets/ty-wilhelmsen.jpg";
+  import dilboyField from "@assets/dilboy-field.jpg";
+  import DecoratedImage from "../../components/DecoratedImage.svelte";
 
   const people = [
     {
@@ -78,10 +80,37 @@
   <div class="container">
     <section class="section">
       <h1 class="page-title">About Us</h1>
+      <div class="about-grid">
+        <div class="about-item">
+        <h3 class="section-heading">
+          Somerville's Team
+        </h3>
+          <p class="text-lg">
+            Somerville United FC is based in Somerville, MA. Our inaugural season kicks off in Spring 2026 as part of the 
+            <a href="https://apslsoccer.com">American Premier Soccer League</a>, a nationwide league focused on 
+            community engagement and player development. We are a nonprofit organization dedicated to 
+            expanding access to soccer in Somerville through community-partnerships, easy access for players, a focus on player
+            development, . Our mission is to build a club that reflects the diversity and spirit of our city, while 
+            providing high-quality, competitive soccer opportunities for players.
+            <br /><br />
+            Somerville United FC Women is set to compete beginning mid 2026. This will be the first women's team of its kind 
+            in the area, marking a historic milestone for both our club and the community.
+            This initiative reflects our commitment to expanding opportunities for women in the game and 
+            growing the sport at every level. Somerville United FC Women will represent our city with 
+            passion, ambition, and community driven values as we begin this exciting new chapter together.
+          </p>
+        </div>
+        <div class="about-image">
+          <DecoratedImage src={dilboyField} alt="Dilboy Field in Somerville, MA" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="management-team">
+      <h3 class="section-heading">Our Management Team</h3> 
       <p class="page-subtitle">
         Meet the group of dedicated individuals who are committed to the growth and success of Somerville United FC.
       </p>
-
       <div class="mgmt-grid">
         {#each people as person}
           <Member 
@@ -97,8 +126,25 @@
 </div>
 
 <style>
+  h1 {
+    margin-bottom: 4rem;
+  }
+
   .section {
     padding: 2rem 0;
+  }
+
+  #management-team {
+    margin-top: 4rem;
+    h3 {
+      text-align: center;
+    }
+  }
+
+  .about-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr;
   }
 
   .mgmt-grid {
@@ -113,9 +159,22 @@
     }
   }
 
+  @media (min-width: 960px) {
+    .about-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
   @media (min-width: 1280px) {
-    .mgmt-grid {
+    .mgmt-grid, .about-grid {
       grid-template-columns: repeat(3, 1fr);
     }
+  }
+  .about-item {
+    padding: 20px;
+  }
+  .about-image {
+    margin-top: 40px;
+    padding: 20px;
   }
 </style>
