@@ -1,11 +1,13 @@
 <script>
   import Navbar from "../components/Navbar.svelte";
   import Footer from "../components/Footer.svelte";
+  import Banner from "../components/Banner.svelte";
   import "../index.css";
 </script>
 
 <div class="page-wrapper">
   <Navbar />
+  <Banner />
   <main>
     <slot />
   </main>
