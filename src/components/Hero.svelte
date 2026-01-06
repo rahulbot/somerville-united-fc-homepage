@@ -25,16 +25,9 @@
         <span class="highlight-text">Just A Game</span>
       </h1>
       <p class="hero-subtitle animate-fade-in" style="--delay: 0.6s">
-        Redefining soccer in Massachusetts by proving that passion, community, and opportunity can coexist sustainably.
+        Redefining soccer in Massachusetts by proving that passion, community, and opportunity can 
+        coexist sustainably. Joining the APSL in Spring of 2026.
       </p>
-      <div class="hero-actions animate-fade-in" style="--delay: 0.8s">
-        <button onclick={() => scrollTo('get-involved')} class="btn btn-primary hero-btn">
-          Join the Movement
-        </button>
-        <button onclick={() => scrollTo('mission')} class="btn btn-outline-white hero-btn">
-          Our Mission
-        </button>
-      </div>
     </div>
   </div>
 </section>
