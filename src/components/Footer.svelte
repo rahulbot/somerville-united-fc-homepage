@@ -1,5 +1,6 @@
 <script>
 import Newsletter from "./Newsletter.svelte";
+import SocialLinks from "./SocialLinks.svelte";
 
 import fifa from "@assets/fifa.gif";
 import usaSoccer from "@assets/usa-soccer.gif";
@@ -15,6 +16,7 @@ import apsl from "@assets/APSL.gif";
       <div class="footer-brand">
         <div class="brand-name">SOMERVILLE UNITED FC</div>
         <p class="copyright">© 2025 Somerville United FC. All rights reserved.</p>
+        <SocialLinks size={40} color="#FFFFFF" />
       </div>
       <div class="footer-links">
         <!-- <a href="https://www.instagram.com/somervilleunitedfc/" class="footer-link">Instagram</a> -->
@@ -77,19 +79,14 @@ import apsl from "@assets/APSL.gif";
     gap: 2rem;
   }
 
-  .footer-link {
-    color: rgba(255, 255, 255, 0.6);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .footer-link:hover {
-    color: white;
-  }
-
   .footer-logo {
     height: 40px;
     margin-right: 20px;
     display: inline-block;
   }
+
+  .copyright {
+    margin-bottom: 1rem;
+  }
+
 </style>
