@@ -1,0 +1,1 @@
+import{i as o,j as i,k as c,E as d,m as E,H as T,s as b,n as m,o as _}from"./CEO-ICLi.js";import{B as p}from"./CFv_IfB-.js";function k(t,f,u=!1){i&&c();var e=new p(t),h=u?d:0;function n(a,s){if(i){const l=E(t)===T;if(a===l){var r=b();m(r),e.anchor=r,_(!1),e.ensure(a,s),_(!0);return}}e.ensure(a,s)}o(()=>{var a=!1;f((s,r=!0)=>{a=!0,n(r,s)}),a||n(!1,null)},h)}export{k as i};
