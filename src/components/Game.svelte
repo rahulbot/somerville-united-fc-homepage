@@ -98,10 +98,37 @@
         font-style: italic;
     }
 
+    button {
+        transition: box-shadow 0.2s ease;
+        background-color: var(--primary);  
+        color: #fff;
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 1.5rem;
+        margin-top: 10px;
+        float: right;
+
+        &:hover {
+            background-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+    }
+
     @media (max-width: 640px) {
         .game-row {
             padding: 15px 0;
             height: auto;
+        }
+        .date-circle {
+            width: 60px;
+            height: 60px;
+            margin-right: 10px;
+        }
+        .game-date {
+            font-size: 0.6rem !important;
+        }
+        .game-time {
+            font-size: 0.5rem !important;
         }
         .game-prefix {
             font-size: 1rem;
@@ -112,19 +139,19 @@
         .game-venue {
             font-size: 0.8rem;
         }
-    }
-
-    button {
-        transition: box-shadow 0.2s ease;
-        background-color: var(--primary);  
-        color: #fff;
-        font-weight: 600;
-        text-decoration: none;
-
-        &:hover {
-            background-color: var(--primary);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        button {
+            font-size: 0.8rem;
+            margin-top: 0px;
+            padding: 15px;
+            float: none;
         }
+        .game-row > div:nth-child(2) {
+            flex: 0 0 60%;
+        }
+        .game-row > div:nth-child(3) {
+            flex: 0 0 20%;
+        }
+
     }
 
 </style>
