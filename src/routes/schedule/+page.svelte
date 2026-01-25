@@ -1,3 +1,9 @@
+<script>
+  import { onMount } from 'svelte';
+  import schedule from '@assets/data/schedule2026.json';
+  import GameList from '../../components/GameList.svelte';
+</script>
+
 <svelte:head>
   <title>Schedule - Somerville United FC</title>
   <meta name="description" content="Keep track of fixtures and results" />
@@ -8,12 +14,10 @@
     <section class="section">
       <h1 class="page-title">Schedule</h1>
       <p class="page-subtitle">
-        Keep track of fixtures and results
+        SUFC plays in the <a href="https://apslsoccer.com/APSL/Teams/">APSL Mayflower Conference</a>. Join one of our upcoming games.
       </p>
 
-      <div class="content-placeholder">
-        <p>🚧 Coming soon</p>
-      </div>
+      <GameList games={schedule} />
     </section>
   </div>
 </div>

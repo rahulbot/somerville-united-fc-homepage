@@ -1,0 +1,110 @@
+﻿[
+  {
+    "Day": "Sunday",
+    "Date": "3/8/2026",
+    "Time": "2:00 PM",
+    "Venue": "Dilboy Stadium",
+    "Address": "110 Alewife Brook Pkwy, Somerville, MA 02144",
+    "Home": "Somerville United FC",
+    "Away": "Scrub Nation"
+  },
+  {
+    "Day": "Sunday",
+    "Date": "3/15/2026",
+    "Time": "2:00 PM",
+    "Venue": "Dilboy Stadium",
+    "Address": "110 Alewife Brook Pkwy, Somerville, MA 02144",
+    "Home": "Somerville United FC",
+    "Away": "Fitchburg FC"
+  },
+  {
+    "Day": "Sunday",
+    "Date": "3/22/2026",
+    "Time": "2:00 PM",
+    "Venue": "Dilboy Stadium",
+    "Address": "110 Alewife Brook Pkwy, Somerville, MA 02144",
+    "Home": "Somerville United FC",
+    "Away": "South Coast Union"
+  },
+  {
+    "Day": "Wednesday",
+    "Date": "3/25/2026",
+    "Time": "TBD",
+    "Venue": "TBD",
+    "Address": "TBD",
+    "Home": "Falcons FC",
+    "Away": "Somerville United FC"
+  },
+  {
+    "Day": "Sunday",
+    "Date": "3/29/2026",
+    "Time": "2:00 PM",
+    "Venue": "Dilboy Stadium",
+    "Address": "110 Alewife Brook Pkwy, Somerville, MA 02144",
+    "Home": "Somerville United FC",
+    "Away": "Praia Kapital"
+  },
+  {
+    "Day": "Saturday",
+    "Date": "4/4/2026",
+    "Time": "1:00 PM",
+    "Venue": "Pine Banks Park",
+    "Address": "1087 Main St, Malden, MA 02148",
+    "Home": "Scrub Nation",
+    "Away": "Somerville United FC"
+  },
+  {
+    "Day": "Sat or Sun",
+    "Date": "4/11 - 4/12",
+    "Time": "TBD",
+    "Venue": "Frey Park",
+    "Address": "327 Walnut St, Lynn, MA 01905",
+    "Home": "Project Football",
+    "Away": "Somerville United FC"
+  },
+  {
+    "Day": "Sunday",
+    "Date": "4/19/2026",
+    "Time": "6:30 PM",
+    "Venue": "Madison Park High School",
+    "Address": "75 Malcolm X Blvd, Boston, MA 02120",
+    "Home": "Praia Kapital",
+    "Away": "Somerville United FC"
+  },
+  {
+    "Day": "Wednesday",
+    "Date": "4/22/2025",
+    "Time": "8:00 PM",
+    "Venue": "TBD",
+    "Address": "TBD",
+    "Home": "Somerville United FC",
+    "Away": "Falcons FC"
+  },
+  {
+    "Day": "Saturday",
+    "Date": "4/25/2026",
+    "Time": "3:00 PM",
+    "Venue": "Game On Fitchburg",
+    "Address": "100 Game On Way, Fitchburg, MA 01420",
+    "Home": "Fitchburg FC",
+    "Away": "Somerville United FC"
+  },
+  {
+    "Day": "Wednesday",
+    "Date": "5/6/2026",
+    "Time": "8:00 PM",
+    "Venue": "TBD",
+    "Address": "TBD",
+    "Home": "Somerville United FC",
+    "Away": "Project Football"
+  },
+  {
+    "Day": "Saturday",
+    "Date": "5/9/2026",
+    "Time": "3:00 PM",
+    "Venue": "New Bedford Regional Vocational Technical HS",
+    "Address": "1121 Ashley Blvd, New Bedford, MA 02745",
+    "Home": "South Coast Union",
+    "Away": "Somerville United FC"
+  }
+]
