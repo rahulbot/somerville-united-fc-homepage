@@ -1,5 +1,5 @@
 <script>
-  import DecoratedImage from "./DecoratedImage.svelte";
+  import DecoratedImage from "../../components/DecoratedImage.svelte";
   import ballImage from "@assets/ball-and-cone.jpg";
 </script>
 

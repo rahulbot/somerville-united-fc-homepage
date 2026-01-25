@@ -1,9 +1,8 @@
 <script>
-  import Hero from "../components/Hero.svelte";
-  import Mission from "../components/Mission.svelte";
-  import Values from "../components/Values.svelte";
-  import Community from "../components/Community.svelte";
-  import Newsletter from "../components/Newsletter.svelte";
+  import Hero from "./home/Hero.svelte";
+  import Mission from "./home/Mission.svelte";
+  import Values from "./home/Values.svelte";
+  import Community from "./home/Community.svelte";
 
   // Scroll handler for anchors
   function scrollTo(id) {
