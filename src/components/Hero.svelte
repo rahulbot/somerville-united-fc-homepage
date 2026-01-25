@@ -1,6 +1,6 @@
 <script>
-  import heroImage from "@assets/generated_images/soccer_team_of_young_men_huddling.png";
-  
+  import heroImage from "@assets/people-standing.jpg";
+
   let { scrollTo } = $props();
 </script>
 
@@ -52,7 +52,7 @@
 
   .hero {
     position: relative;
-    height: 90vh;
+    height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
