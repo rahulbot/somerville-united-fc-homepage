@@ -13,7 +13,7 @@
     <section class="section">
       <h1 class="page-title">Tickets</h1>
       <p class="page-subtitle">
-        Find out more about getting tickets to watch Somerville United FC play. Our home field is Dilboy Stadium, in Somerville, Massachusetts.
+        Ticket options are coming soon. Our home field is Dilboy Stadium, in Somerville, Massachusetts.
       </p>
       <div class="image-wrapper">
         <DecoratedImage src={dilboyField} alt="Dilboy Field" aspectRatio="6 / 3"/>
