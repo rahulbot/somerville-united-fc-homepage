@@ -9,7 +9,7 @@
   import headshotJG from "@assets/judd-galloway.jpg";
   import headshotCJ from "@assets/cassandra-joyce.jpg";
   import headshotTW from "@assets/ty-wilhelmsen.jpg";
-  import dilboyField from "@assets/dilboy-field.jpg";
+  import peoplePhoto from "@assets/coaches.jpg";
   import DecoratedImage from "../../components/DecoratedImage.svelte";
 
   const people = [
@@ -101,7 +101,7 @@
           </p>
         </div>
         <div class="about-image">
-          <DecoratedImage src={dilboyField} alt="Dilboy Field in Somerville, MA" />
+          <DecoratedImage src={peoplePhoto} alt="Some of our coaching staff on the field" aspectRatio="4 / 4"/>
         </div>
       </div>
     </section>
