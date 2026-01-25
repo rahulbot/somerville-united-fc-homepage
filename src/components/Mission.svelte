@@ -49,7 +49,7 @@
           </div>
           <div class="stat-card">
             <div class="stat-value">1</div>
-            <div class="stat-label">United Goal</div>
+            <div class="stat-label">Goal</div>
           </div>
         </div>
       </div>
