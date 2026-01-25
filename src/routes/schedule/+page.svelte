@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import schedule from '@assets/data/schedule2026.json';
-  import GameList from '../../components/GameList.svelte';
+  import GameList from './GameList.svelte';
 </script>
 
 <svelte:head>
