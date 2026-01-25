@@ -1,14 +1,14 @@
 <script>
   import Member from "../../components/Member.svelte";
-  import headshotRSO from "@assets/robert-sifa-onjiko.jpg";
-  import headshotAO from "@assets/alesandra-onjiko.jpg";
-  import headshotKW from "@assets/kelly-williamson.jpg";
-  import headshotEA from "@assets/eyerusalem-alemu.jpg";
-  import headshotFJSL from "@assets/francisco-jair-santos-landaverde.jpg";
-  import headshotJM from "@assets/john-massaquoi.jpg";
-  import headshotJG from "@assets/judd-galloway.jpg";
-  import headshotCJ from "@assets/cassandra-joyce.jpg";
-  import headshotTW from "@assets/ty-wilhelmsen.jpg";
+  import headshotRSO from "@assets/staff/robert-sifa-onjiko.jpg";
+  import headshotAO from "@assets/staff/alesandra-onjiko.jpg";
+  import headshotKW from "@assets/staff/kelly-williamson.jpg";
+  import headshotEA from "@assets/staff/eyerusalem-alemu.jpg";
+  import headshotFJSL from "@assets/staff/francisco-jair-santos-landaverde.jpg";
+  import headshotJM from "@assets/staff/john-massaquoi.jpg";
+  import headshotJG from "@assets/staff/judd-galloway.jpg";
+  import headshotCJ from "@assets/staff/cassandra-joyce.jpg";
+  import headshotTW from "@assets/staff/ty-wilhelmsen.jpg";
   import peoplePhoto from "@assets/coaches.jpg";
   import DecoratedImage from "../../components/DecoratedImage.svelte";
 
