@@ -1,3 +1,8 @@
+<script>
+  import DecoratedImage from "../../components/DecoratedImage.svelte";
+  import peopleImage from "@assets/kneeling.jpg";
+</script>
+
 <svelte:head>
   <title>Team - Somerville United FC</title>
   <meta name="description" content="Meet the Somerville United FC team" />
@@ -8,12 +13,10 @@
     <section class="section">
       <h1 class="page-title">Our Team</h1>
       <p class="page-subtitle">
-        Meet our the players and coaching staff.
+        We are actively recruiting players and staff for the 2026 season. Stay tuned for updates on the full roster!
       </p>
-
-      <div class="content-placeholder">
-        <h2>Team Roster</h2>
-        <p>🚧 Coming soon</p>
+      <div class="image-wrapper">
+        <DecoratedImage src={peopleImage} alt="Team members kneeling" aspectRatio="6 / 3"/>
       </div>
     </section>
   </div>
@@ -22,5 +25,8 @@
 <style>
   .section {
     padding: 2rem 0;
+  }
+  .image-wrapper {
+    padding-top: 4rem;
   }
 </style>

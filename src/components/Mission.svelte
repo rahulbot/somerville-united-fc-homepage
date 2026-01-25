@@ -1,6 +1,6 @@
 <script>
   import DecoratedImage from "./DecoratedImage.svelte";
-  import ballImage from "@assets/generated_images/soccer_ball_on_grass_with_stadium_lights.png";
+  import ballImage from "@assets/ball-and-cone.jpg";
 </script>
 
 <section id="mission" class="section-py mission-section">

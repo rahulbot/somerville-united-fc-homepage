@@ -1,5 +1,5 @@
 <script>
-let { src, alt } = $props();
+let { src, alt, aspectRatio = "4 / 3" } = $props();
 </script>
 
 <div class="mission-image-wrapper">
@@ -9,6 +9,7 @@ let { src, alt } = $props();
         src={src}
         alt={alt}
         class="decorated-image"
+        style="aspect-ratio: {aspectRatio};"
     />
 </div>
 
@@ -39,7 +40,6 @@ let { src, alt } = $props();
     border-radius: 0.75rem;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     width: 100%;
-    aspect-ratio: 4/3;
     object-fit: cover;
   }
 
