@@ -132,7 +132,7 @@
     {
       name: "Malaika Kironde",
       title: "Analyst (SUFC Women)",
-      description: "<p>about this person</p>",
+      description: "",
       image: headshotMK
     },
     {
@@ -144,7 +144,7 @@
     {
       name: "Cristian Aquino",
       title: "Admin Support",
-      description: "<p>about this person</p>",
+      description: "",
       image: headshotCA
     },
     {
