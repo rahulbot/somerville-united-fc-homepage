@@ -1,5 +1,9 @@
 <script>
-  import Member from "../../components/Member.svelte";
+  import Member from "./Member.svelte";
+  import peoplePhoto from "@assets/coaches.jpg";
+  import DecoratedImage from "../../components/DecoratedImage.svelte";
+
+  // head shots of all the staff
   import headshotRSO from "@assets/staff/robert-sifa-onjiko.jpg";
   import headshotAO from "@assets/staff/alesandra-onjiko.jpg";
   import headshotKW from "@assets/staff/kelly-williamson.jpg";
@@ -9,8 +13,18 @@
   import headshotJG from "@assets/staff/judd-galloway.jpg";
   import headshotCJ from "@assets/staff/cassandra-joyce.jpg";
   import headshotTW from "@assets/staff/ty-wilhelmsen.jpg";
-  import peoplePhoto from "@assets/coaches.jpg";
-  import DecoratedImage from "../../components/DecoratedImage.svelte";
+  import headshotCA from "@assets/staff/christian-aquino.jpg";
+  import headshotJS from "@assets/staff/john-senn.jpg";
+  import headshotMK from "@assets/staff/malaika-kironde.jpg";
+  import headshotOJ from "@assets/staff/oliver-judd.jpg";
+  import headshotJS2 from "@assets/staff/jessica-sumney.jpg";
+  import headshotMR from "@assets/staff/maximillian-ragosta.jpg";
+  import headshotJG2 from "@assets/staff/jonah-giaquinto.jpg";
+  import headshotSZ from "@assets/staff/samuel-zhou.jpg";
+  import headshotJR from "@assets/staff/jack-resnik.jpg";
+  import headshotPM from "@assets/staff/patrick-mcquillen.png";
+  import headshotEM from "@assets/staff/emily-mendes.png";
+  import headshotAC from "@assets/staff/angela-cornacchio.png";
 
   const people = [
     {
@@ -32,16 +46,22 @@
       image: headshotKW
     },
     {
+      name: "Judd Galloway",
+      title: "Secretary and General Manager",
+      description: "<p>Judd serves as Secretary of Somerville United FC and is an engineer who has spent years coaching within the Somerville youth soccer system. A Somerville resident and lifelong supporter of the local game, he continues to coach while staying closely connected to the community and its players. Through Somerville United FC, Judd is focused on helping build a lasting, community-driven club that provides clear development pathways for future generations of players, with the long-term goal of creating opportunities that extend all the way to the professional level.</p>",
+      image: headshotJG
+    },
+    {
       name: "Eyerusalem T. Alemu",
       title: "Treasurer",
       description: "<p>Eyerusalem is an aspiring public health researcher born and raised in Addis Ababa, Ethiopia, whose love for football began with fond memories of weekends spent watching the Premier League with her family. In high school, she discovered the joy of playing the game herself, forming lasting friendships on the field that showed her football’s unique power to bring people together. After completing her undergraduate studies, she moved to Boston and quickly found a welcoming football community that became central to her life in a new city — a space where she made meaningful connections and felt truly at home.</p><p>Inspired by the friendships and sense of belonging she found, Eyerusalem is excited to extend that experience to others through Somerville United FC. As a Board Member, Eyerusalem is dedicated to building a community where players can connect, grow, and find the same joy and camaraderie that football has brought to her life. Her background in community health and wellbeing fuels her commitment to creating equitable access to the beautiful game for all who are interested, regardless of background or socioeconomic status.</p>",
       image: headshotEA
     },
     {
-      name: "Judd Galloway",
-      title: "Secretary and General Manager",
-      description: "<p>Judd serves as Secretary of Somerville United FC and is an engineer who has spent years coaching within the Somerville youth soccer system. A Somerville resident and lifelong supporter of the local game, he continues to coach while staying closely connected to the community and its players. Through Somerville United FC, Judd is focused on helping build a lasting, community-driven club that provides clear development pathways for future generations of players, with the long-term goal of creating opportunities that extend all the way to the professional level.</p>",
-      image: headshotJG
+      name: "Jack Resnik",
+      title: "Director of Operations",
+      description: "<p>Jack serves as the Director of Operations and Programs for Somerville United FC. As an experienced Project Manager working in health care research and a passionate fan of the beautiful game, he is thrilled to blend his professional experience and love of football to support the goals and growth of this club. Jack fell in love with football while living and working in South America, where he was enchanted by the power of football to unite communities, cross divides, uplift people and provide solace. Jack is a native of Phoenix, Arizona but has found a home in Massachusetts after moving here to study public health at Boston University. After 7 years in Jamaica Plain, he moved to Somerville in 2025 drawn by the vibrancy, diversity, and activism of this incredible community.</p>",
+      image: headshotJR
     },
     {
       name: "John Massaquoi",
@@ -50,23 +70,88 @@
       image: headshotJM
     },
     {
-      name: "Francisco Jair Santos Landaverde",
-      title: "Internal Communications and Social Media Manager",
-      description: "<p>Francisco Jair Santos Landaverde is a first year Communications and Media student at Fitchburg State University and a lifelong member of the Somerville soccer community. With more than fifteen years in local youth programs and experience working for Somerville Recreation, he brings a strong understanding of the game and the people in it. Jair is an aspiring soccer social media manager who has already led major growth for the FSU Men’s Soccer platforms through creative content, storytelling, and media production. He is excited to bring his passion for soccer and digital branding to Somerville United FC and help share the club’s mission with the community.</p><p>",
-      image: headshotFJSL
-    },
-    {
       name: "Cassandra Joyce",
       title: "External Communications Manager",
       description: "<p>Cassandra Joyce is a journalism student at Northeastern University with a strong passion for sports and storytelling. She has experience covering athletic teams through reporting, writing, and digital media, with a focus on capturing the stories behind the game. Through Somerville United FC, Cassandra is excited to continue growing as a sports journalist while helping highlight the club, its players, and its connection to the community.</p>",
       image: headshotCJ
-      
+    },
+    {
+      name: "Emily Mendes",
+      title: "Team Manager (SUFC Women)",
+      description: "",
+      image: headshotEM
+    },
+    {
+      name: "Angela Cornacchio",
+      title: "Coordinator (SUFC Women)",
+      description: "<p> Hi! My name is Ange and I have been playing football my entire life. From youth club, ODP, college undefeated national championship, professionally in Italy.</p><p>I am still playing on a semi-professional level, coach, formally Communications Director for the Boston Breakers and recently obtained my Global Sports Management Certification from NYU. As an award winning writer/media in fashion and 3x published author with my first book being about football. I bleed AC Milan, never miss a match even if I am driving and will skip anything for football.<p><p>Somerville has been home for so many years and excited to contribute to a women’s team success.</p>",
+      image: headshotAC
+    },
+    {
+      name: "John Senn",
+      title: "Comm & Fundraising Lead",
+      description: "<p>John Senn is a communications professional with more than 25 years experience in the public, private and nonprofit sectors, including almost 20 years with the federal government at the U.S. Environmental Protection Agency. John previously served on the board of directors at Street Sense Media, a nonprofit that provides a range of programs and services to the homeless community in Washington, D.C., including two years as board vice president. John is a lifelong soccer fan and is an avid runner.</p>",
+      image: headshotJS
+    },
+    {
+      name: "Oliver Judd",
+      title: "Marketing Lead",
+      description: "<p>My name is Oliver Judd, great to meet you! I am a recent marketing graduate from Syracuse University. My favorite forms of marketing include guerrilla marketing, SEO strategy, and brand marketing. Soccer has encapsulated my life from the day I was born. I like to coach and referee youth soccer when I have the time. There are even rumors in my family saying I was born in an Arsenal kit (up the gunners). I’ve lived in Boston for 9 years and I am extremely excited to be a part of a Boston based soccer team. The future’s exciting!</p>",
+      image: headshotOJ
+    },
+    {
+      name: "Jessica Sumney",
+      title: "DEI Lead",
+      description: "",
+      image: headshotJS2
+    },
+    {
+      name: "Jonah Giaquinto",
+      title: "Sales Lead",
+      description: "",
+      image: headshotJG2
+    },
+    {
+      name: "Samuel Zhou",
+      title: "Strategic Planning Lead",
+      description: "<p>Sam is a lifelong MA resident and former Somerville resident who is eager to give back to the Somerville community through his love for soccer. He is currently studying his PhD in biomedical engineering at Boston University where he is researching how learning and movement are regulated by the brain. Outside of lab, he loves playing soccer, watching movies, cooking, and supporting Newcastle United.</p>",
+      image: headshotSZ
+    },
+    {
+      name: "Patrick McQuillen",
+      title: "Strategic Planning Lead",
+      description: "",
+      image: headshotPM
     },
     {
       name: "Ty Wilhelmsem",
       title: "Players Health and Fitness",
       description: "<p>Ty Wilhelmsen will serve as Somerville United FC's Strength and Conditioning expert, focusing on player health, fitness, and performance. He holds a bachelor's degree in Exercise Science from the University of New England and a Master's degree in Strength and Conditioning and Sports Performance from Merrimack College, with professional and internship experience in high performance environments including the Maine Celtics basketball organization and Harvard University. Through Somerville United FC, Ty aims to build a structured, professional performance program that prioritizes injury prevention, long term athletic development, and consistent high level preparation or players across the club.</p>",
       image: headshotTW
+    },
+    {
+      name: "Malaika Kironde",
+      title: "Analyst (SUFC Women)",
+      description: "<p>about this person</p>",
+      image: headshotMK
+    },
+    {
+      name: "Francisco Jair Santos Landaverde",
+      title: "Internal Communications and Social Media Manager",
+      description: "<p>Francisco Jair Santos Landaverde is a first year Communications and Media student at Fitchburg State University and a lifelong member of the Somerville soccer community. With more than fifteen years in local youth programs and experience working for Somerville Recreation, he brings a strong understanding of the game and the people in it. Jair is an aspiring soccer social media manager who has already led major growth for the FSU Men’s Soccer platforms through creative content, storytelling, and media production. He is excited to bring his passion for soccer and digital branding to Somerville United FC and help share the club’s mission with the community.</p><p>",
+      image: headshotFJSL
+    },
+    {
+      name: "Cristian Aquino",
+      title: "Admin Support",
+      description: "<p>about this person</p>",
+      image: headshotCA
+    },
+    {
+      name: "Maximillian Ragosta",
+      title: "Legal Intern",
+      description: "<p> My name is Max, and I am joining the Somerville United team as a legal intern. I am from Providence, and went to undergrad at NC State in Raleigh before moving back up to Boston, where I currently attend New England Law. I am excited to help contribuite to the club!</p>",
+      image: headshotMR
     }
   ];
 </script>
@@ -167,7 +252,7 @@
 
   @media (min-width: 1280px) {
     .mgmt-grid {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
     .about-grid {
       grid-template-columns: repeat(2, 1fr);

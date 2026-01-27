@@ -24,7 +24,9 @@
 <style>
   .member-card {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 1rem;
     background: white;
     border-radius: var(--radius);
     overflow: hidden;
@@ -37,7 +39,8 @@
   }
 
   .member-image-wrapper {
-    aspect-ratio: 3/4;
+    flex: 0 0 40%;
+    max-width: 260px;
     overflow: hidden;
     background-color: var(--muted);
   }
@@ -63,6 +66,7 @@
   }
 
   .member-info {
+    flex: 1 1 auto;
     padding: 1.5rem;
   }
 
@@ -84,7 +88,7 @@
   }
 
   .member-description {
-    font-size: 0.9375rem;
+    font-size: 0.6rem;
     color: var(--muted-foreground);
     line-height: 1.6;
   }
@@ -95,5 +99,22 @@
 
   .member-description :global(p:last-child) {
     margin-bottom: 0;
+  }
+
+  /* Responsive: stack on small screens */
+  @media (max-width: 640px) {
+    .member-card {
+      flex-direction: column;
+      gap: 0;
+    }
+    .member-image-wrapper {
+      flex: none;
+      max-width: none;
+      aspect-ratio: 3/4;
+    }
+    .member-image,
+    .member-image-placeholder {
+      height: 100%;
+    }
   }
 </style>
