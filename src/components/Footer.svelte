@@ -19,13 +19,11 @@ import casa from "@assets/casa-logo-white.png";
         <p class="copyright">© 2025 Somerville United FC. All rights reserved.</p>
         <SocialLinks size={40} color="#FFFFFF" />
         <div class="footer-links">
-          <div class="logo-container">
-            <a href="https://apslsoccer.com/APSL/Team/131978"><img src="{apsl}" alt="APSL" class="footer-logo" /></a>
-            <a href="https://www.casasoccerleagues.com/"><img src="{casa}" alt="CASA" class="footer-logo" /></a>
-            <a href="https://www.ussoccer.com"><img src="{usaSoccer}" alt="US Soccer" class="footer-logo" /></a>
-            <a href="https://www.concacaf.com"><img src="{concacaf}" alt="CONCACAF" class="footer-logo" /></a>
-            <a href="https://www.fifa.com/en"><img src="{fifa}" alt="FIFA" class="footer-logo" /></a>
-          </div>
+          <a href="https://apslsoccer.com/APSL/Team/131978"><img src="{apsl}" alt="APSL" class="footer-logo" /></a>
+          <a href="https://www.casasoccerleagues.com/"><img src="{casa}" alt="CASA" class="footer-logo" /></a>
+          <a href="https://www.ussoccer.com"><img src="{usaSoccer}" alt="US Soccer" class="footer-logo" /></a>
+          <a href="https://www.concacaf.com"><img src="{concacaf}" alt="CONCACAF" class="footer-logo" /></a>
+          <a href="https://www.fifa.com/en"><img src="{fifa}" alt="FIFA" class="footer-logo" /></a>
         </div>
       </div>
       <div>
@@ -73,7 +71,7 @@ import casa from "@assets/casa-logo-white.png";
   }
   
   .footer-links {
-    margin-top: 3rem;
+    margin: 3rem 0;
   }
 
   .footer-logo {
