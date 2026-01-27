@@ -9,7 +9,7 @@
     { href: "/", label: "Home" },
     { href: "/schedule", label: "Schedule" },
     { href: "/tickets", label: "Tickets" },
-    { href: "/team", label: "Team" },
+    { href: "/team", label: "Teams" },
     { href: "/shop", label: "Shop" },
     { href: "/about", label: "About" },
   ];

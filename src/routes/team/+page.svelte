@@ -11,9 +11,10 @@
 <div class="page-content">
   <div class="container">
     <section class="section">
-      <h1 class="page-title">Our Team</h1>
+      <h1 class="page-title">Our Teams</h1>
       <p class="page-subtitle">
-        We are actively recruiting players and staff for the 2026 season. Stay tuned for updates on the full roster!
+        We are actively recruiting players and staff for the inaugural men's team 2026 season. We'll launch our women's team in fall of 2026. 
+        Stay tuned for updates on the full roster!
       </p>
       <div class="image-wrapper">
         <DecoratedImage src={peopleImage} alt="Team members kneeling" aspectRatio="6 / 3"/>
@@ -27,6 +28,6 @@
     padding: 2rem 0;
   }
   .image-wrapper {
-    padding-top: 4rem;
+    padding: 4rem 0;
   }
 </style>
