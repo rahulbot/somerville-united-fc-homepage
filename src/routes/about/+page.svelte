@@ -78,7 +78,7 @@
     {
       name: "Emily Mendes",
       title: "Team Manager (SUFC Women)",
-      description: "<p>Hi all - I’m Emily! I’m originally from Brooklyn, NY and have lived in Boston for past five years. I’m currently a Sales Manager at Education First in Cambridge. Before that, I coached and managed soccer at different levels - youth, community and pro. I worked briefly with Gotham FC, ran a youth soccer club in NYC, and coached with Street Soccer USA. I’m super passionate about growing the women’s game, supporting Boston’s soccer scene, and helpful build strong community programs. Can’t wait to meet everyone and get started!</p>",
+      description: "<p>Hi all - I’m Emily! I’m originally from Brooklyn, NY and have lived in Boston for the past five years. I’m currently a Sales Manager at Education First in Cambridge. Before that, I coached and managed soccer at different levels - youth, community and pro. I worked briefly with Gotham FC, ran a youth soccer club in NYC, and coached with Street Soccer USA. I’m super passionate about growing the women’s game, supporting Boston’s soccer scene, and helping build strong community programs. Can’t wait to meet everyone and get started!</p>",
       image: headshotEM
     },
     {
@@ -102,13 +102,13 @@
     {
       name: "Jessica Sumney",
       title: "DEI Lead",
-      description: "",
+      description: "<p>Hi, my name is Jessica Sumney. I have ten years of experience in DEI and higher education, and I’m committed to creating inclusive and engaging campus experiences for students and employees. I became a passionate soccer fan while working at Penn State and cheered the Penn State women’s soccer team on through a Big 10 Championship win. After four years away from Boston, I returned in August 2025 and I’m excited for the ways Somerville United FC can impact our community.</p>",
       image: headshotJS2
     },
     {
       name: "Jonah Giaquinto",
       title: "Sales Lead",
-      description: "",
+      description: "<p>Jonah Giaquinto is Massachusetts born and raised. He played soccer my whole life and even played at Dilboy stadium growing up for highschool soccer. Currently working in finance and Sales performance. Passionate about creating grass roots clubs in the US and expanding accessibility of the beautiful game.</p>",
       image: headshotJG2
     },
     {
@@ -120,7 +120,7 @@
     {
       name: "Patrick McQuillen",
       title: "Strategic Planning Lead",
-      description: "",
+      description: "<p>Hello everyone! I’m Patrick McQuillen, a 5 year resident of Somerville and I’m very excited to join the team. I look forward to working with all of you to grow recognition, awareness and connection between our club and the Somerville community!</p>",
       image: headshotPM
     },
     {
@@ -132,7 +132,7 @@
     {
       name: "Malaika Kironde",
       title: "Analyst (SUFC Women)",
-      description: "",
+      description: "<p>I’m Malaika. I started playing soccer after I watched the 2010 World Cup with my dad and fell in love with the game shortly after. As an engineer I’m looking forward to helping Somerville FC with analytical tasks and I’m excited to be a part of bringing soccer to Sommerville.</p>",
       image: headshotMK
     },
     {
