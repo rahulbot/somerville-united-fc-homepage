@@ -142,9 +142,9 @@
       image: headshotFJSL
     },
     {
-      name: "Cristian Aquino",
+      name: "Christian Aquino",
       title: "Admin Support",
-      description: "",
+      description: "<p>Hello, my name is Christian Aquino. I am a Brazilian American who is based in Milford, MA. I have loved soccer in my entire life, both as a player and a fan. I played all throughout my childhood and have supported Manchester United since I was 7. I currently attend Bridgewater State University where I major in both General Business Management and Film Production. I also hold two jobs in Framingham and Marlborough. I am excited to get to know everyone and get to work!</p>",
       image: headshotCA
     },
     {
