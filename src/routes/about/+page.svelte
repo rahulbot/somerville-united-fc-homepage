@@ -78,7 +78,7 @@
     {
       name: "Emily Mendes",
       title: "Team Manager (SUFC Women)",
-      description: "",
+      description: "<p>Hi all - I’m Emily! I’m originally from Brooklyn, NY and have lived in Boston for past five years. I’m currently a Sales Manager at Education First in Cambridge. Before that, I coached and managed soccer at different levels - youth, community and pro. I worked briefly with Gotham FC, ran a youth soccer club in NYC, and coached with Street Soccer USA. I’m super passionate about growing the women’s game, supporting Boston’s soccer scene, and helpful build strong community programs. Can’t wait to meet everyone and get started!</p>",
       image: headshotEM
     },
     {
