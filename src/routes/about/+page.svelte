@@ -30,127 +30,127 @@
     {
       name: "Robert Sifa Onjiko",
       title: "Co-Founder and CEO",
-      description: "<p>Robert Sifa Onjiko is the Co-Founder and CEO of Somerville United FC, a community-focused nonprofit dedicated to expanding access to soccer in Somerville. Drawing on his experience as a coach, mentor, and organizer, Robert leads the club with a vision of opportunity, inclusion, and player development. He is committed to building a program that strengthens community pride, supports local youth, and creates pathways for growth both on and off the field.</p>",
+      description: "Robert Sifa Onjiko is the Co-Founder and CEO of Somerville United FC, a community-focused nonprofit dedicated to expanding access to soccer in Somerville. Drawing on his experience as a coach, mentor, and organizer, Robert leads the club with a vision of opportunity, inclusion, and player development. He is committed to building a program that strengthens community pride, supports local youth, and creates pathways for growth both on and off the field.",
       image: headshotRSO
     },
     {
       name: "Alesandra Onjiko",
       title: "Executive Director and Co-Founder",
-      description: "<p>A Miami native, Alesandra Onjiko moved to Boston to pursue her Master’s degree in Vocal Performance at the New England Conservatory. Her background in the performing arts shaped her belief in discipline, creativity, and the power of shared experiences — values she later found reflected in soccer. During her studies, she met her husband, Robert, and together they co-founded Somerville United FC, blending their passions for music, sport, and community.</p><p>As a Co-Founder and Executive Board Member, Alesandra is committed to fostering a welcoming environment where players can grow, connect, and express themselves — building a club that celebrates talent, unity, and the joy of the game.</p>",
+      description: "A Miami native, Alesandra Onjiko moved to Boston to pursue her Master's degree in Vocal Performance at the New England Conservatory. Her background in the performing arts shaped her belief in discipline, creativity, and the power of shared experiences — values she later found reflected in soccer. During her studies, she met her husband, Robert, and together they co-founded Somerville United FC, blending their passions for music, sport, and community. As a Co-Founder and Executive Board Member, Alesandra is committed to fostering a welcoming environment where players can grow, connect, and express themselves — building a club that celebrates talent, unity, and the joy of the game.",
       image: headshotAO
     },
     {
       name: "Kelly Williamson",
       title: "President",
-      description: "<p>Kelly Williamson serves as the President of the Board of Directors for Somerville United FC, providing strategic leadership and guiding the organization’s mission to grow the game and support athletes at every level. A lifelong lover of the sport, she has been passionate about soccer since childhood and continued her playing career at the collegiate level—experiences that shaped her dedication to expanding access, opportunity, and excellence within the game. She is committed to fostering an inclusive, competitive, and community-centered environment that empowers players, coaches, and supporters alike.</p><p>Driven by her belief in the power of sport to build confidence, community, and leadership, she brings both her professional expertise and her on-field experience to every decision.</p>",
+      description: "Kelly Williamson serves as the President of the Board of Directors for Somerville United FC, providing strategic leadership and guiding the organization's mission to grow the game and support athletes at every level. A lifelong lover of the sport, Kelly has been passionate about soccer since childhood and continued playing at the collegiate level—experiences that shaped her dedication to expanding access, opportunity, and excellence within the game. Kelly is committed to fostering an inclusive, competitive, and community-centered environment that empowers players, coaches, and supporters alike. Driven by her belief in the power of sport to build confidence, community, and leadership, she brings both professional expertise and on-field experience to every decision.",
       image: headshotKW
     },
     {
       name: "Judd Galloway",
       title: "Secretary and General Manager",
-      description: "<p>Judd serves as Secretary of Somerville United FC and is an engineer who has spent years coaching within the Somerville youth soccer system. A Somerville resident and lifelong supporter of the local game, he continues to coach while staying closely connected to the community and its players. Through Somerville United FC, Judd is focused on helping build a lasting, community-driven club that provides clear development pathways for future generations of players, with the long-term goal of creating opportunities that extend all the way to the professional level.</p>",
+      description: "Judd serves as Secretary of Somerville United FC and is an engineer who has spent years coaching within the Somerville youth soccer system. A Somerville resident and lifelong supporter of the local game, Judd continues to coach while staying closely connected to the community and its players. Through Somerville United FC, Judd is focused on helping build a lasting, community-driven club that provides clear development pathways for future generations of players, with the long-term goal of creating opportunities that extend all the way to the professional level.",
       image: headshotJG
     },
     {
       name: "Eyerusalem T. Alemu",
       title: "Treasurer",
-      description: "<p>Eyerusalem is an aspiring public health researcher born and raised in Addis Ababa, Ethiopia, whose love for football began with fond memories of weekends spent watching the Premier League with her family. In high school, she discovered the joy of playing the game herself, forming lasting friendships on the field that showed her football’s unique power to bring people together. After completing her undergraduate studies, she moved to Boston and quickly found a welcoming football community that became central to her life in a new city — a space where she made meaningful connections and felt truly at home.</p><p>Inspired by the friendships and sense of belonging she found, Eyerusalem is excited to extend that experience to others through Somerville United FC. As a Board Member, Eyerusalem is dedicated to building a community where players can connect, grow, and find the same joy and camaraderie that football has brought to her life. Her background in community health and wellbeing fuels her commitment to creating equitable access to the beautiful game for all who are interested, regardless of background or socioeconomic status.</p>",
+      description: "Eyerusalem is an aspiring public health researcher born and raised in Addis Ababa, Ethiopia, whose love for football began with fond memories of weekends spent watching the Premier League with family. In high school, Eyerusalem discovered the joy of playing the game, forming lasting friendships on the field that showed the game's unique power to bring people together. After completing undergraduate studies, Eyerusalem moved to Boston and quickly found a welcoming football community that became central to life in a new city — a space where meaningful connections were made and a true sense of belonging was found. Inspired by the friendships and sense of belonging found in the game, Eyerusalem is excited to extend that experience to others through Somerville United FC. As a Board Member, Eyerusalem is dedicated to building a community where players can connect, grow, and find the same joy and camaraderie that football has brought to so many lives. Eyerusalem's background in community health and wellbeing fuels a commitment to creating equitable access to the beautiful game for all who are interested, regardless of background or socioeconomic status.",
       image: headshotEA
     },
     {
       name: "Jack Resnik",
       title: "Director of Operations",
-      description: "<p>Jack serves as the Director of Operations and Programs for Somerville United FC. As an experienced Project Manager working in health care research and a passionate fan of the beautiful game, he is thrilled to blend his professional experience and love of football to support the goals and growth of this club. Jack fell in love with football while living and working in South America, where he was enchanted by the power of football to unite communities, cross divides, uplift people and provide solace. Jack is a native of Phoenix, Arizona but has found a home in Massachusetts after moving here to study public health at Boston University. After 7 years in Jamaica Plain, he moved to Somerville in 2025 drawn by the vibrancy, diversity, and activism of this incredible community.</p>",
+      description: "Jack serves as the Director of Operations and Programs for Somerville United FC. As an experienced Project Manager working in health care research and a passionate fan of the beautiful game, he is thrilled to blend professional expertise and love of football to support the goals and growth of this club. Jack fell in love with football while living and working in South America, where the power of football to unite communities, cross divides, uplift people and provide solace became clear. A native of Phoenix, Arizona, he has found a home in Massachusetts after moving here to study public health at Boston University. After 7 years in Jamaica Plain, Jack moved to Somerville in 2025 drawn by the vibrancy, diversity, and activism of this incredible community.",
       image: headshotJR
     },
     {
       name: "John Massaquoi",
       title: "Assistant Secretary",
-      description: "<p>John Massaquoi, born in Sierra Leone, West Africa, I've always lived a life split between the pitch and the screen. My passion for soccer began almost as soon as I could walk, dedicated my childhood and teenage years to competitive play, developing a deep understanding of team dynamics, strategy, and relentless commitment.</p><p>While excelling on the field, I cultivated a parallel set of creative skills, as an accomplished graphic designer and photographer using my keen eye for composition and detail to capture moments both on and off the field, and to craft compelling visual stories. This combination of athletic discipline and artistic sensibility defined my unique perspective.</p><p>It's a fantastic opportunity to be a part of the Somerville United FC Board members, as it will allow me to combine my lifelong knowledge and love for the sport with my organizational skills, supporting the team operations from the inside, while i thrilled to be a vital part of the team's success in this new capacity.</p>",
+      description: "John Massaquoi, born in Sierra Leone, West Africa, has always lived a life split between the pitch and the screen. John's passion for soccer began almost as soon as he could walk, dedicating childhood and teenage years to competitive play, developing a deep understanding of team dynamics, strategy, and relentless commitment.While excelling on the field, he cultivated a parallel set of creative skills as an accomplished graphic designer and photographer, using a keen eye for composition and detail to capture moments both on and off the field and to craft compelling visual stories. This combination of athletic discipline and artistic sensibility defines his unique perspective. John see a fantastic opportunity to be a part of the Somerville United FC Board members, as it allows the combination of lifelong knowledge and love for the sport with organizational skills, supporting the team operations from the inside, while contributing as a vital part of the team's success in this new capacity.",
       image: headshotJM
     },
     {
       name: "Cassandra Joyce",
       title: "External Communications Manager",
-      description: "<p>Cassandra Joyce is a journalism student at Northeastern University with a strong passion for sports and storytelling. She has experience covering athletic teams through reporting, writing, and digital media, with a focus on capturing the stories behind the game. Through Somerville United FC, Cassandra is excited to continue growing as a sports journalist while helping highlight the club, its players, and its connection to the community.</p>",
+      description: "Cassandra Joyce is a journalism student at Northeastern University with a strong passion for sports and storytelling. Cassandra has experience covering athletic teams through reporting, writing, and digital media, with a focus on capturing the stories behind the game. Through Somerville United FC, she is excited to continue growing as a sports journalist while helping highlight the club, its players, and its connection to the community.",
       image: headshotCJ
     },
     {
       name: "Emily Mendes",
       title: "Team Manager (SUFC Women)",
-      description: "<p>Hi all - I’m Emily! I’m originally from Brooklyn, NY and have lived in Boston for the past five years. I’m currently a Sales Manager at Education First in Cambridge. Before that, I coached and managed soccer at different levels - youth, community and pro. I worked briefly with Gotham FC, ran a youth soccer club in NYC, and coached with Street Soccer USA. I’m super passionate about growing the women’s game, supporting Boston’s soccer scene, and helping build strong community programs. Can’t wait to meet everyone and get started!</p>",
+      description: "Emily is originally from Brooklyn, NY and has lived in Boston for the past five years. She's currently a Sales Manager at Education First in Cambridge. Before that, Emily coached and managed soccer at different levels - youth, community and pro. She worked briefly with Gotham FC, ran a youth soccer club in NYC, and coached with Street Soccer USA. She is super passionate about growing the women's game, supporting Boston's soccer scene, and helping build strong community programs. You won't want to miss getting to know her!",
       image: headshotEM
     },
     {
       name: "Angela Cornacchio",
-      title: "Coordinator (SUFC Women)",
-      description: "<p> Hi! My name is Ange and I have been playing football my entire life. From youth club, ODP, college undefeated national championship, professionally in Italy.</p><p>I am still playing on a semi-professional level, coach, formally Communications Director for the Boston Breakers and recently obtained my Global Sports Management Certification from NYU. As an award winning writer/media in fashion and 3x published author with my first book being about football. I bleed AC Milan, never miss a match even if I am driving and will skip anything for football.<p><p>Somerville has been home for so many years and excited to contribute to a women’s team success.</p>",
+      title: "Business Coordinator (SUFC Women)",
+      description: "Angela has been playing football her entire life. From youth club, ODP, college undefeated national championship, to professional play in Italy, Angela's passion for the game runs deep. Angela is still playing on a semi-professional level, coaches, previously served as Communications Director for the Boston Breakers and recently obtained her Global Sports Management Certification from NYU. As an award winning writer/media professional in fashion and 3x published author with her first book being about football, she brings unique perspective to the team. Angela bleeds AC Milan, never misses a match, and will skip anything for football.Somerville has been Angela's home for many years and she's excited to contribute to the women's team success.",
       image: headshotAC
     },
     {
       name: "John Senn",
       title: "Comm & Fundraising Lead",
-      description: "<p>John Senn is a communications professional with more than 25 years experience in the public, private and nonprofit sectors, including almost 20 years with the federal government at the U.S. Environmental Protection Agency. John previously served on the board of directors at Street Sense Media, a nonprofit that provides a range of programs and services to the homeless community in Washington, D.C., including two years as board vice president. John is a lifelong soccer fan and is an avid runner.</p>",
+      description: "John Senn is a communications professional with more than 25 years experience in the public, private and nonprofit sectors, including almost 20 years with the federal government at the U.S. Environmental Protection Agency. He previously served on the board of directors at Street Sense Media, a nonprofit that provides a range of programs and services to the homeless community in Washington, D.C., including two years as board vice president. John is a lifelong soccer fan and an avid runner.",
       image: headshotJS
     },
     {
       name: "Oliver Judd",
       title: "Marketing Lead",
-      description: "<p>My name is Oliver Judd, great to meet you! I am a recent marketing graduate from Syracuse University. My favorite forms of marketing include guerrilla marketing, SEO strategy, and brand marketing. Soccer has encapsulated my life from the day I was born. I like to coach and referee youth soccer when I have the time. There are even rumors in my family saying I was born in an Arsenal kit (up the gunners). I’ve lived in Boston for 9 years and I am extremely excited to be a part of a Boston based soccer team. The future’s exciting!</p>",
+      description: "Oliver Judd is a recent marketing graduate from Syracuse University. His favorite forms of marketing include guerrilla marketing, SEO strategy, and brand marketing. Soccer has encapsulated Oliver's life from the day he was born. He likes to coach and referee youth soccer when time permits. There are even rumors in his family saying he was born in an Arsenal kit (up the gunners). Oliver has lived in Boston for 9 years and is extremely excited to be a part of a Boston based soccer team.",
       image: headshotOJ
     },
     {
       name: "Jessica Sumney",
       title: "DEI Lead",
-      description: "<p>Hi, my name is Jessica Sumney. I have ten years of experience in DEI and higher education, and I’m committed to creating inclusive and engaging campus experiences for students and employees. I became a passionate soccer fan while working at Penn State and cheered the Penn State women’s soccer team on through a Big 10 Championship win. After four years away from Boston, I returned in August 2025 and I’m excited for the ways Somerville United FC can impact our community.</p>",
+      description: "Jessica Sumney has ten years of experience in DEI and higher education, and is committed to creating inclusive and engaging campus experiences for students and employees. She became a passionate soccer fan while working at Penn State and cheered the Penn State women's soccer team on through a Big 10 Championship win. After four years away from Boston, Jessica returned in August 2025 and is excited for the ways Somerville United FC can impact our community.",
       image: headshotJS2
     },
     {
       name: "Jonah Giaquinto",
       title: "Sales Lead",
-      description: "<p>Jonah Giaquinto is Massachusetts born and raised. He played soccer my whole life and even played at Dilboy stadium growing up for highschool soccer. Currently working in finance and Sales performance. Passionate about creating grass roots clubs in the US and expanding accessibility of the beautiful game.</p>",
+      description: "Jonah Giaquinto is Massachusetts born and raised. he played soccer his whole life and even played at Dilboy stadium growing up for high school soccer. Currently working in finance and sales performance, Jonah is passionate about creating grassroots clubs in the US and expanding accessibility of the beautiful game.",
       image: headshotJG2
     },
     {
       name: "Samuel Zhou",
       title: "Strategic Planning Lead",
-      description: "<p>Sam is a lifelong MA resident and former Somerville resident who is eager to give back to the Somerville community through his love for soccer. He is currently studying his PhD in biomedical engineering at Boston University where he is researching how learning and movement are regulated by the brain. Outside of lab, he loves playing soccer, watching movies, cooking, and supporting Newcastle United.</p>",
+      description: "Sam is a lifelong MA resident and former Somerville resident who is eager to give back to the community through his love for soccer. He is currently studying his PhD in biomedical engineering at Boston University where he is researching how learning and movement are regulated by the brain. Outside of lab, Sam loves playing soccer, watching movies, cooking, and supporting Newcastle United.",
       image: headshotSZ
     },
     {
       name: "Patrick McQuillen",
       title: "Strategic Planning Lead",
-      description: "<p>Hello everyone! I’m Patrick McQuillen, a 5 year resident of Somerville and I’m very excited to join the team. I look forward to working with all of you to grow recognition, awareness and connection between our club and the Somerville community!</p>",
+      description: "Patrick McQuillen is a 5 year resident of Somerville and is very excited to join the team. He is ready to grow recognition, awareness and connection between the club and the Somerville community.",
       image: headshotPM
     },
     {
-      name: "Ty Wilhelmsem",
+      name: "Ty Wilhelmsen",
       title: "Players Health and Fitness",
-      description: "<p>Ty Wilhelmsen will serve as Somerville United FC's Strength and Conditioning expert, focusing on player health, fitness, and performance. He holds a bachelor's degree in Exercise Science from the University of New England and a Master's degree in Strength and Conditioning and Sports Performance from Merrimack College, with professional and internship experience in high performance environments including the Maine Celtics basketball organization and Harvard University. Through Somerville United FC, Ty aims to build a structured, professional performance program that prioritizes injury prevention, long term athletic development, and consistent high level preparation or players across the club.</p>",
+      description: "Ty Wilhelmsen serves as Somerville United FC's Strength and Conditioning expert, focusing on player health, fitness, and performance. He holds a bachelor's degree in Exercise Science from the University of New England and a Master's degree in Strength and Conditioning and Sports Performance from Merrimack College, with professional and internship experience in high performance environments including the Maine Celtics basketball organization and Harvard University. Through Somerville United FC, Ty aims to build a structured, professional performance program that prioritizes injury prevention, long term athletic development, and consistent high level preparation for players across the club.",
       image: headshotTW
     },
     {
       name: "Malaika Kironde",
       title: "Analyst (SUFC Women)",
-      description: "<p>I’m Malaika. I started playing soccer after I watched the 2010 World Cup with my dad and fell in love with the game shortly after. As an engineer I’m looking forward to helping Somerville FC with analytical tasks and I’m excited to be a part of bringing soccer to Sommerville.</p>",
+      description: "Malaika started playing soccer after watching the 2010 World Cup with her dad and fell in love with the game shortly after. As an engineer, Malaika is looking forward to helping Somerville FC with analytical tasks and is excited to be a part of bringing soccer to Somerville.",
       image: headshotMK
     },
     {
       name: "Francisco Jair Santos Landaverde",
       title: "Internal Communications and Social Media Manager",
-      description: "<p>Francisco Jair Santos Landaverde is a first year Communications and Media student at Fitchburg State University and a lifelong member of the Somerville soccer community. With more than fifteen years in local youth programs and experience working for Somerville Recreation, he brings a strong understanding of the game and the people in it. Jair is an aspiring soccer social media manager who has already led major growth for the FSU Men’s Soccer platforms through creative content, storytelling, and media production. He is excited to bring his passion for soccer and digital branding to Somerville United FC and help share the club’s mission with the community.</p><p>",
+      description: "Francisco Jair Santos Landaverde is a first year Communications and Media student at Fitchburg State University and a lifelong member of the Somerville soccer community. With more than fifteen years in local youth programs and experience working for Somerville Recreation, Jair brings a strong understanding of the game and the people in it. He is an aspiring soccer social media manager who has already led major growth for the FSU Men's Soccer platforms through creative content, storytelling, and media production. Jair is excited to bring passion for soccer and digital branding to Somerville United FC and help share the club's mission with the community.",
       image: headshotFJSL
     },
     {
       name: "Christian Aquino",
       title: "Admin Support",
-      description: "<p>Hello, my name is Christian Aquino. I am a Brazilian American who is based in Milford, MA. I have loved soccer in my entire life, both as a player and a fan. I played all throughout my childhood and have supported Manchester United since I was 7. I currently attend Bridgewater State University where I major in both General Business Management and Film Production. I also hold two jobs in Framingham and Marlborough. I am excited to get to know everyone and get to work!</p>",
+      description: "Christian Aquino is a Brazilian American based in Milford, MA. he has loved soccer his entire life, both as a player and a fan. Christian played throughout his childhood and has supported Manchester United since age 7. he currently attends Bridgewater State University where he majors in both General Business Management and Film Production. Christian also holds two jobs in Framingham and Marlborough.",
       image: headshotCA
     },
     {
       name: "Maximillian Ragosta",
       title: "Legal Intern",
-      description: "<p> My name is Max, and I am joining the Somerville United team as a legal intern. I am from Providence, and went to undergrad at NC State in Raleigh before moving back up to Boston, where I currently attend New England Law. I am excited to help contribuite to the club!</p>",
+      description: "Max is joining the Somerville United team as a legal intern. He is from Providence and went to undergrad at NC State in Raleigh before moving back up to Boston, where he currently attends New England Law. Max is excited to help contribute to the club.",
       image: headshotMR
     }
   ];

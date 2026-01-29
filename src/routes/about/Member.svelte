@@ -16,7 +16,7 @@
     <h3 class="member-name">{name}</h3>
     <p class="member-title">{title}</p>
     <div class="member-description">
-      {@html description}
+      <p>{description}</p>
     </div>
   </div>
 </div>

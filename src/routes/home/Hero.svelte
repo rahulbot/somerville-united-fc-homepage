@@ -148,25 +148,4 @@
       font-size: 1.5rem;
     }
   }
-
-  .hero-actions {
-    padding-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    justify-content: center;
-  }
-
-  @media (min-width: 640px) {
-    .hero-actions {
-      flex-direction: row;
-    }
-  }
-
-  .hero-btn {
-    padding-left: 2rem;
-    padding-right: 2rem;
-    height: 3.5rem;
-    font-size: 1.125rem;
-  }
 </style>
