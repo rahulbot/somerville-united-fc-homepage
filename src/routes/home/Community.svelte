@@ -13,11 +13,14 @@
         </h3>
         <div class="community-text">
           <p class="text-lg">
-            We are building something special right here in Somerville.
-            <br/><br/>
-            If you’re a player, coach, parent, business, or supporter … this is your club too!
-            <br/>
-            <strong>Welcome to the beginning.</strong>
+            We are building something special right here in Somerville. If you’re a player, coach, parent, business, or supporter … this is your club too!
+            <br /><br />
+            Learn more from recent media coverage on 
+            <a href="https://hot969boston.com/2026/01/13/somerville-united-fc-launches-as-regions-first-nonprofit-semi-pro-soccer-team/">Hot 96.9</a>,
+            <a href="https://www.boston.com/community/sports-news/2026/01/12/somerville-couple-launches-new-affordable-soccer-club/">Boston.com</a>, 
+            <a href="https://wbznewsradio.iheart.com/content/somerville-couple-decides-to-found-their-own-non-profit-soccer-team/">WBZ-1030</a>
+            and 
+            <a href="https://patch.com/massachusetts/somerville/nonprofit-semi-pro-soccer-team-coming-soon-somerville">Patch Somerville</a>.
           </p>
         </div>
       </div>
