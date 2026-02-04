@@ -25,6 +25,9 @@
   import headshotPM from "@assets/staff/patrick-mcquillen.png";
   import headshotEM from "@assets/staff/emily-mendes.png";
   import headshotAC from "@assets/staff/angela-cornacchio.png";
+  import headshotHF from "@assets/staff/harry-flamm.png";
+  import headshotBL from "@assets/staff/billy-limperis.png";
+
 
   const people = [
     {
@@ -134,6 +137,18 @@
       title: "Analyst (SUFC Women)",
       description: "Malaika started playing soccer after watching the 2010 World Cup with her dad and fell in love with the game shortly after. As an engineer, Malaika is looking forward to helping Somerville FC with analytical tasks and is excited to be a part of bringing soccer to Somerville.",
       image: headshotMK
+    },
+    {
+      name: "Harry Flamm",
+      title: "Facilities, Sustainability, and Game Day Operations Advisor",
+      description: "Harry Flamm is a licensed Massachusetts Architect specializing in Sustainability, with 35 years of professional experience in the design, construction, and operation of buildings and facilities throughout the Boston area and the United States. He is a respected resource for building design and facility operations where sustainability, energy and water efficiency, carbon-reduction, resiliency, and health and wellness are a priority. Harry has enjoyed soccer since discovering the sport in his youth -- playing in high school (Long Island, NY champions), college, and forever with the Massachusetts Over The Hill Soccer League. His favorite team to cheer for is Fulham, in the English Premier League.",
+      image: headshotHF
+    },
+    {
+      name: "Billy Limperis",
+      title: "Community Pperations and Analytics",
+      description: "Billy has a background in digital marketing and applied analytics, using SQL and Tableau daily to convey data into actionable insights. He became a fan of professional soccer during college, when his friends introduced him to the Premier League. Since then he’s become an avid Liverpool fan, and now follows many leagues both domestic and international. After moving to Somerville last summer, Billy can’t wait to see a local team flourish in the community & achieve great things!",
+      image: headshotBL
     },
     {
       name: "Francisco Jair Santos Landaverde",
