@@ -1,6 +1,4 @@
 <script>
-    import { Inspect } from "lucide-react";
-
     let { game } = $props(); // keys: Day, Date, Time, Venue, Address, Home, Away
     // try to parse game.Date as a date, otherwise leave it as is because it might be TBD
     let isHome = $derived(game.Home === "Somerville United FC");
