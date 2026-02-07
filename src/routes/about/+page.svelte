@@ -93,7 +93,7 @@
     {
       name: "John Senn",
       title: "Comm & Fundraising Lead",
-      description: "John Senn is a communications professional with more than 25 years experience in the public, private and nonprofit sectors, including almost 20 years with the federal government at the U.S. Environmental Protection Agency. He previously served on the board of directors at Street Sense Media, a nonprofit that provides a range of programs and services to the homeless community in Washington, D.C., including two years as board vice president. John is a lifelong soccer fan and an avid runner.",
+      description: "John Senn is a communications professional with more than 25 years experience in the public, private and nonprofit sectors. He previously served on the board of directors at Street Sense Media, a nonprofit that provides a range of programs and services to the homeless community in Washington, D.C., including two years as board vice president. John is a lifelong soccer fan and an avid runner.",
       image: headshotJS
     },
     {
