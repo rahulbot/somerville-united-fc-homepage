@@ -3,7 +3,24 @@
     "name": "Josue Guevara",
     "number": null,
     "position": "Forward",
-    "flag": "🇭🇳",
     "photoFileName": "josue-guevara.jpg"
+  },
+  {
+    "name": "Owen Sheehy",
+    "number": null,
+    "position": "Forward",
+    "photoFileName": ""
+  },
+  {
+    "name": "Jair Santos",
+    "number": null,
+    "position": "Midfied",
+    "photoFileName": ""
+  },
+  {
+    "name": "Tucker Rogers",
+    "number": null,
+    "position": "Defender",
+    "photoFileName": ""
   }
 ]
