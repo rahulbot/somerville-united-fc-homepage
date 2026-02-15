@@ -1,26 +1,100 @@
 [
-  {
-    "name": "Josue Guevara",
-    "number": null,
-    "position": "Forward",
-    "photoFileName": "josue-guevara.jpg"
-  },
-  {
-    "name": "Owen Sheehy",
-    "number": null,
-    "position": "Forward",
-    "photoFileName": ""
-  },
-  {
-    "name": "Jair Santos",
-    "number": null,
-    "position": "Midfied",
-    "photoFileName": ""
-  },
-  {
-    "name": "Tucker Rogers",
-    "number": null,
-    "position": "Defender",
-    "photoFileName": ""
-  }
+ {
+   "name": "Thomas Borkowski",
+   "hometown": "belmont, MA",
+   "position": "goalkeeper",
+   "number": 0,
+   "photoFileName": ""
+ },
+ {
+   "name": "Malcom Edwards",
+   "hometown": "kingston, jamaica",
+   "position": "goalkeeper",
+   "number": 1,
+   "photoFileName": ""
+ },
+ {
+   "name": "Yasser Modine",
+   "hometown": "casablanca, morroco",
+   "position": "defender",
+   "number": 3,
+   "photoFileName": ""
+ },
+ {
+   "name": "Amadou Ndiaye",
+   "hometown": "dorchester, MA",
+   "position": "defender",
+   "number": 4,
+   "photoFileName": ""
+ },
+ {
+   "name": "Roodchyl Pauleon",
+   "hometown": "waltham, MA",
+   "position": "foreward",
+   "number": 7,
+   "photoFileName": ""
+ },
+ {
+   "name": "Jair Santos",
+   "hometown": "somerville, MA",
+   "position": "midfielder",
+   "number": 8,
+   "photoFileName": ""
+ },
+ {
+   "name": "Josue Guevara",
+   "hometown": "somerville, MA",
+   "position": "foreward",
+   "number": 12,
+   "photoFileName": ""
+ },
+ {
+   "name": "Owen Sheehy",
+   "hometown": "somerville, MA",
+   "position": "foreward",
+   "number": 13,
+   "photoFileName": ""
+ },
+ {
+   "name": "Luiz Gustavo",
+   "hometown": "novavenecia, brasil",
+   "position": "midfielder",
+   "number": 14,
+   "photoFileName": ""
+ },
+ {
+   "name": "Raj Anandarasan",
+   "hometown": "old bridge, NJ",
+   "position": "defender",
+   "number": 16,
+   "photoFileName": ""
+ },
+ {
+   "name": "Douglas Oliveira",
+   "hometown": "resplendor, brasil",
+   "position": "foreward",
+   "number": 19,
+   "photoFileName": ""
+ },
+ {
+   "name": "Alejandro Guerrerro",
+   "hometown": "bogota colombia",
+   "position": "defender",
+   "number": null,
+   "photoFileName": ""
+ },
+ {
+   "name": "Jack Benjamin",
+   "hometown": "portsmouth, NH",
+   "position": "midfielder",
+   "number": null,
+   "photoFileName": ""
+ },
+ {
+   "name": "Tucker Rogers",
+   "hometown": "manhattan, NY",
+   "position": "defender",
+   "number": null,
+   "photoFileName": ""
+ }
 ]

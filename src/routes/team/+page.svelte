@@ -1,7 +1,5 @@
 <script>
   import PlayerList from "./PlayerList.svelte";
-  import DecoratedImage from "../../components/DecoratedImage.svelte";
-  import peopleImage from "@assets/kneeling.jpg";
   import mensAPSL from "@assets/data/roster-mens-apsl-s26.json";
 </script>
 
