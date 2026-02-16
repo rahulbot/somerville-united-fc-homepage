@@ -1,6 +1,6 @@
 <div class="banner">
   <div class="container">
-    🗓️ Our inaugural <a href="/schedule">season schedule</a> is out! Home opener March 8 @ 2pm.
+    🔥 Special offer for founding supporters! <a href="/shop">Learn more</a>.
   </div>
 </div>
 

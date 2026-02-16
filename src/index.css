@@ -131,7 +131,7 @@ button, .btn {
   text-decoration: none;
 
   &:hover {
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
   }
 
   a {
