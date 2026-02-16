@@ -30,7 +30,7 @@
     </div>
     <div>
         <a href="tickets">
-            <button class="btn">Buy Tickets</button>
+            <button class="sufc-primary-button">Buy Tickets</button>
         </a>
     </div>
 </div>
@@ -97,19 +97,8 @@
     }
 
     button {
-        transition: box-shadow 0.2s ease;
-        background-color: var(--primary);  
-        color: #fff;
-        font-weight: 600;
-        text-decoration: none;
         font-size: 1.5rem;
-        margin-top: 10px;
         float: right;
-
-        &:hover {
-            background-color: var(--primary);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-        }
     }
 
     @media (max-width: 640px) {

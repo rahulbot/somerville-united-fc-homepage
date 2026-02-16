@@ -42,7 +42,7 @@
           {link.label}
         </a>
       {/each}
-      <button class="btn btn-white signup-btn">
+      <button class="sufc-primary-button signup-btn">
         <a href="https://forms.gle/DSFMAaQivR5U1ZR77">Sign Up</a>
       </button>
     </div>
@@ -69,7 +69,7 @@
         </a>
       {/each}
       <a href="https://forms.gle/DSFMAaQivR5U1ZR77">
-        <button class="btn btn-white signup-btn">Sign Up</button>
+        <button class="sufc-primary-button signup-btn">Sign Up</button>
       </a>
     </div>
   {/if}
@@ -199,22 +199,8 @@
     color: var(--primary);
     font-weight: 700;
   }
-
+  
   .signup-btn {
-    transition: box-shadow 0.2s ease;
-    background-color: var(--primary);  
-    color: #fff;
-    font-weight: 600;
-    text-decoration: none;
-
-    &:hover {
-      background-color: var(--primary);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    }
-
-    a {
-      color: white !important;
-      text-decoration: none;
-    }
+    font-size: .875rem;
   }
 </style>

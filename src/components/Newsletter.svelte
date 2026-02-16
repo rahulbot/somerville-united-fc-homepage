@@ -5,7 +5,7 @@
       Sign up for updates on tryouts, sponsorship opportunities, match schedules, and community events. Be part of the movement from day one.
     </p>
     <div class="newsletter-form">
-      <button class="btn btn-white newsletter-btn">
+      <button class="sufc-white-button newsletter-btn">
         <a href="https://forms.gle/DSFMAaQivR5U1ZR77">Signup for Our Newsletter!</a>
       </button>
     </div>
@@ -62,18 +62,6 @@
     height: 3rem;
     padding: 2rem;
     font-size: 1.5rem;
-    transition: box-shadow 0.2s ease;
-    
-    a {
-      color: var(--primary);
-      font-weight: 600;
-      text-decoration: none;
-    }
-
-    &:hover {
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    }
-
   }
 
 </style>

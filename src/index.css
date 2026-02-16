@@ -114,7 +114,7 @@ button {
 .gap-8 { gap: 2rem; }
 
 /* Component Utilities */
-.btn {
+button, .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -124,10 +124,19 @@ button {
   font-family: var(--font-heading);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  transition: all 0.2s ease;
   border: none;
   text-decoration: none;
-  font-size: 0.875rem;
+  font-weight: 600;
+  transition: box-shadow 0.2s ease;
+  text-decoration: none;
+
+  &:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  a {
+    text-decoration: none;
+  }
 }
 
 .btn-primary {
@@ -166,6 +175,22 @@ button {
 
 .btn-outline-white:hover {
   background-color: rgba(255, 255, 255, 0.2);
+}
+
+.sufc-primary-button {
+  background-color: var(--primary);  
+  color: #fff;
+  a {
+    color: white !important;
+  }
+}
+
+.sufc-white-button {
+  background-color: #ffffff;
+  color: var(--primary);
+  a {
+    color: var(--primary) !important;
+  }
 }
 
 /* Section Spacing */
