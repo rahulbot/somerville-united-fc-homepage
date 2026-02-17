@@ -27,6 +27,7 @@
         max-width: 360px;
         min-width: 360px;
         min-height: calc((360px * 3.5) / 2.5);
+        margin-bottom: 20px;
     }
     .photo {
         margin-left: 29px;
