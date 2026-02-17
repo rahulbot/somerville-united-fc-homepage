@@ -43,7 +43,7 @@
         </a>
       {/each}
       <button class="sufc-primary-button signup-btn">
-        <a href="https://forms.gle/DSFMAaQivR5U1ZR77">Sign Up</a>
+        <a href="https://somervilleunitedfc.beehiiv.com">Sign Up</a>
       </button>
     </div>
     
@@ -68,7 +68,7 @@
           {link.label}
         </a>
       {/each}
-      <a href="https://forms.gle/DSFMAaQivR5U1ZR77">
+      <a href="https://somervilleunitedfc.beehiiv.com">
         <button class="sufc-primary-button signup-btn">Sign Up</button>
       </a>
     </div>
