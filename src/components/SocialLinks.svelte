@@ -1,16 +1,27 @@
 <script>
   import InstagramLogo from "./icons/InstagramLogo.svelte";
   import YouTubeLogo from "./icons/YouTubeLogo.svelte";
+  import LinkedInLogo from "./icons/LinkedInLogo.svelte";
 
   let { size=28, color="#000000" } = $props();
 </script>
 
-<div class="social-links">
-  <a class="social-link" href="https://www.instagram.com/somervilleunitedfc/">
+<div >
+  <a href="https://www.instagram.com/somervilleunitedfc/">
     <InstagramLogo {size} {color} />
   </a>
 
-  <a class="social-link" href="https://www.youtube.com/@SomervilleUnitedFC">
+  <a href="https://www.youtube.com/@SomervilleUnitedFC">
     <YouTubeLogo {size} {color}  />
   </a>
+
+  <a href="https://www.linkedin.com/company/somerville-united-fc-inc/">
+    <LinkedInLogo {size} {color}  />
+  </a>
 </div>
+
+<style>
+  a {
+    margin-right: 13px;
+  }
+</style>
