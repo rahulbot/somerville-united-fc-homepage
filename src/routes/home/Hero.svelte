@@ -26,7 +26,7 @@
       </h1>
       <p class="hero-subtitle animate-fade-in" style="--delay: 0.6s">
         Redefining soccer in Massachusetts by proving that passion, community, and opportunity can 
-        coexist sustainably. Joining the APSL in Spring of 2026.
+        coexist sustainably.
       </p>
     </div>
   </div>

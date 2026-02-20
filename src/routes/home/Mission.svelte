@@ -37,8 +37,10 @@
               <span class="text-primary">✨</span> Build a culture of unity, family, and ambition
             </li>
           </ul>
+          <p>Our men's team is joining the APSL in Spring of 2026, and our women's team will follow later in the year.
+            <a href="https://somervilleunitedfc.beehiiv.com">Subscribe to our newsletter</a> below to stay updated!</p>
         </div>
-        <div class="stats-grid">
+<!--    <div class="stats-grid">
           <div class="stat-card">
             <div class="stat-value">100%</div>
             <div class="stat-label">Community Owned</div>
@@ -51,7 +53,7 @@
             <div class="stat-value">1</div>
             <div class="stat-label">Goal</div>
           </div>
-        </div>
+        </div> -->
       </div>
       <DecoratedImage src={ballImage} alt="Soccer ball on field"  />
     </div>

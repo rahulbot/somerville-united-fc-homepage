@@ -13,7 +13,8 @@
         </h3>
         <div class="community-text">
           <p class="text-lg">
-            We are building something special right here in Somerville. If you’re a player, coach, parent, business, or supporter … this is your club too!
+            We are building something special right here in Somerville. If you're a player, coach, parent, business, or supporter … this is your club too!
+            <a href="/contact">Drop us a line</a> to get involved as a player, coach, volunteer, business partner or supporter!
             <br /><br />
             Learn more from recent media coverage on 
             <a href="https://hot969boston.com/2026/01/13/somerville-united-fc-launches-as-regions-first-nonprofit-semi-pro-soccer-team/">Hot 96.9</a>,
