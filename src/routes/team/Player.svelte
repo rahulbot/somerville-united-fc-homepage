@@ -1,17 +1,24 @@
 <script>
     import CardOverlay from './CardOverlay.svelte';
     import CardLowerThird from './CardLowerThird.svelte';
-    let { player } = $props(); // keys: name, number?, position?, flag?, photoFileName
+    let { player } = $props(); // keys: Position, First Name, Last Name, Hometown, College NCAA/NJCAA Athlete
     const photoUrl = $derived('/attached_assets/teams/mens-apsl/' + player.photoFileName);
+    const positionLookup = {
+        'GK': 'Goalkeeper',
+        'DF': 'Defender',
+        'MF': 'Midfielder',
+        'FW': 'Forward'
+    };
+    const position = $derived(positionLookup[player.Position] || player.Position);
 </script>
 
 <div class="card">
     <CardOverlay />
-    <img class="photo" src={photoUrl} alt="{player.name}" width="300" />
+    <img class="photo" src={photoUrl} alt="{player['First Name']} {player['Last Name']}" width="250" height="350" />
     <CardLowerThird />
     <div class="info">
-        <h3 class="name">{player.name}</h3>
-        <p class="position">{player.position}</p>
+        <h3 class="name">{player['First Name']} {player['Last Name']}</h3>
+        <p class="position">{position}</p>
         <p class="number">#{player.number || '??'}</p>
     </div>
 </div>
@@ -24,31 +31,31 @@
         background-image: url('/attached_assets/card-backdrop.png');
         background-repeat: no-repeat;
         background-size: cover;
-        max-width: 360px;
-        min-width: 360px;
-        min-height: calc((360px * 3.5) / 2.5);
+        max-width: 300px;
+        min-width: 300px;
+        min-height: calc((300px * 3.5) / 2.5);
         margin-bottom: 20px;
     }
     .photo {
-        margin-left: 29px;
-        margin-top: 29px;
+        margin-left: 24px;
+        margin-top: 24px;
     }
     .info {
         z-index: 99;
     }
     .name {
         position: absolute;
-        bottom: 38px;
-        left: 40px;
+        bottom: 44px;
+        left: 20px;
         font-family: var(--font-heading);
         font-style: italic;
         font-weight: 900;
-        font-size: 30px;
+        font-size: 28px;
     }
     .position {
         position: absolute;
-        bottom: 10px;
-        left: 40px;
+        bottom: 20px;
+        left: 20px;
         font-family: var(--font-sans);
         text-transform: uppercase;
         font-weight: 900;
@@ -57,13 +64,13 @@
     }
     .number {
         position: absolute;
-        bottom: 7px;
-        right: 15px;
+        bottom: 18px;
+        right: 13px;
         font-family: var(--font-sans);
         text-transform: uppercase;
         font-weight: 900;
         color: var(--secondary);
         font-style: italic;
-        font-size: 29px;
+        font-size: 24px;
     }
 </style>
