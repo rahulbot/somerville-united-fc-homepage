@@ -43,9 +43,10 @@
           {link.label}
         </a>
       {/each}
-      <button class="btn-primary signup-btn">
-        <a href="https://somervilleunitedfc.beehiiv.com">Sign Up</a>
-      </button>
+      <a href="https://account.venmo.com/u/SomervilleUnitedFC">
+        <button class="btn-primary">Donate</button>
+      </a>
+      
     </div>
     
     <button class="hamburger" onclick={toggleMenu} aria-label="Toggle menu">
@@ -69,8 +70,8 @@
           {link.label}
         </a>
       {/each}
-      <a href="https://somervilleunitedfc.beehiiv.com">
-        <button class="btn-primary signup-btn">Sign Up</button>
+      <a href="https://account.venmo.com/u/SomervilleUnitedFC">
+        <button class="btn-primary">Donate</button>
       </a>
     </div>
   {/if}
@@ -200,7 +201,10 @@
     font-weight: 700;
   }
   
-  .signup-btn {
-    font-size: var(--font-size-sm);
+  a {
+    button {
+      font-size: var(--font-size-sm);
+      font-weight: 700;
+    }
   }
 </style>
