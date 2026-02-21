@@ -2,7 +2,7 @@
   <div class="container">
     <h2 class="newsletter-heading">Let’s build something historic together. ⚽️🔥</h2>
     <p class="newsletter-text">
-      Sign up for updates on tryouts, sponsorship opportunities, match schedules, and community events. Be part of the movement from day one.
+      Sign up for updates on tryouts, sponsorship opportunities, match schedules, and community events. Join our growing family.
     </p>
     <div class="newsletter-form">
       <button class="btn-white newsletter-btn">
