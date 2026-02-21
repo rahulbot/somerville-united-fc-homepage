@@ -54,13 +54,13 @@
     }
     .position {
         position: absolute;
-        bottom: 20px;
+        bottom: 23px;
         left: 20px;
         font-family: var(--font-sans);
         text-transform: uppercase;
         font-weight: 900;
-        font-size: 16px;
-        color: white;
+        font-size: 13px;
+        color: rgba(255,255,255, 0.7);
     }
     .number {
         position: absolute;
