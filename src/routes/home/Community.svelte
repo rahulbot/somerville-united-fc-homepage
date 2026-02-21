@@ -2,12 +2,12 @@
   import logoImage from "@assets/logo.png";
 </script>
 
-<section id="community" class="section-py community-section">
+<section id="community" class="community-section">
   <div class="container">
     <div class="community-grid">
       <div class="community-content">
         <h2 class="section-eyebrow">Join The Family</h2>
-        <h3 class="section-heading">
+        <h3>
           Somerville Is Our Home. <br/>
           You Are Our Team.
         </h3>
@@ -51,7 +51,7 @@
   }
 
   .community-text {
-    color: var(--muted-foreground);
+    color: var(--muted-color-foreground);
     font-size: 1.125rem;
     line-height: 1.6;
   }

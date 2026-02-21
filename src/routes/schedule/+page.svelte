@@ -13,31 +13,26 @@
   <meta name="description" content="Keep track of fixtures and results" />
 </svelte:head>
 
-<div class="page-content">
-  <div class="container">
-    <section class="section">
-      <h1 class="page-title">
-        {#if countdownDays > 0}
-          <em>{countdownDays}</em> Days Till Our Home Opener
-        {:else}
-          2026 Season Schedule
-        {/if}
-      </h1>
-      <p class="page-subtitle">
-        SUFC plays in the <a href="https://apslsoccer.com/APSL/Teams/">APSL Mayflower Conference</a>. Join one of our upcoming games.
-      </p>
+<div class="container">
+  <section>
+    <h1>
+      {#if countdownDays > 0}
+        <em>{countdownDays}</em> Days Till Our Home Opener
+      {:else}
+        2026 Season Schedule
+      {/if}
+    </h1>
+    <p class="page-subtitle">
+      SUFC plays in the <a href="https://apslsoccer.com/APSL/Teams/">APSL Mayflower Conference</a>. Join one of our upcoming games.
+    </p>
 
-      <GameList games={schedule} />
-    </section>
-  </div>
+    <GameList games={schedule} />
+  </section>
 </div>
 
 <style>
-  .section {
-    padding: 2rem 0;
-  }
   em {
-    color: var(--secondary);
+    color: var(--secondary-color);
     font-style: normal;
   }
 </style>

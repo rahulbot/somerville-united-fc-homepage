@@ -74,7 +74,7 @@
   .overlay-gradient {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, rgba(var(--secondary-rgb), 0.9), rgba(var(--secondary-rgb), 0.4));
+    background: linear-gradient(to right, rgba(var(--secondary-color-rgb), 0.9), rgba(var(--secondary-color-rgb), 0.4));
     mix-blend-mode: multiply;
   }
 
@@ -104,7 +104,7 @@
     display: inline-block;
     padding: 0.25rem 0.75rem;
     border-radius: 9999px;
-    background-color: rgba(var(--primary-rgb), 0.9);
+    background-color: rgba(var(--primary-color-rgb), 0.9);
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.1em;

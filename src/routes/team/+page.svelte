@@ -11,7 +11,7 @@
 <div class="page-content">
   <div class="container">
     <section class="section">
-      <h1 class="page-title">Our Teams</h1>
+      <h1>Our Teams</h1>
       <p class="page-subtitle">
         We are actively recruiting players and staff for the inaugural men's team 2026 season. We'll launch our women's team in fall of 2026. 
         Stay tuned for updates on the full roster!

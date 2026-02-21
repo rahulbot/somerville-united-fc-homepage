@@ -178,7 +178,7 @@
 
 <section id="intro">
   <div class="container">
-    <h1 class="page-title">About Us</h1>
+    <h1>About Us</h1>
     <div class="about-grid">
       <div class="about-item">
       <h3 class="section-eyebrow">
@@ -208,7 +208,7 @@
 
 <section id="management-team">
   <div class="container">
-    <h3 class="section-heading">Our Management Team</h3> 
+    <h3>Our Management Team</h3> 
     <p class="page-subtitle">
       Meet the group of dedicated individuals who are committed to the growth and success of Somerville United FC.
     </p>
@@ -226,16 +226,9 @@
 </section>
 
 <style>
-  h1 {
-    margin-bottom: 1rem;
-  }
-
-  section {
-    padding: 2rem 0;
-  }
 
   #intro {
-    background-color: var(--secondary);
+    background-color: var(--secondary-color);
     color: white;
     h1, h3, a {
       color: white;
@@ -243,13 +236,7 @@
   }
 
   .section-eyebrow {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 1.125rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
     margin-bottom: 1rem;
-    font-family: var(--font-heading);
   }
 
   #management-team {

@@ -35,7 +35,7 @@ import casa from "@assets/casa-logo-white.png";
 
 <style>
   .footer {
-    background-color: var(--secondary);
+    background-color: var(--secondary-color);
     padding-top: 3rem;
     padding-bottom: 3rem;
     color: rgba(255, 255, 255, 0.6);

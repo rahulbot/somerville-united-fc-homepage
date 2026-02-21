@@ -30,7 +30,7 @@
     </div>
     <div>
         <a href="tickets">
-            <button class="sufc-primary-button">Buy Tickets</button>
+            <button class="btn-primary">Buy Tickets</button>
         </a>
     </div>
 </div>
@@ -42,7 +42,7 @@
         align-items: flex-start;
         justify-content: flex-start;
         padding: 25px 0;
-        border-top: 1px solid var(--secondary);
+        border-top: 1px solid var(--secondary-color);
     }
     .game-row > div {
         text-align: left;
@@ -61,7 +61,7 @@
         width: 80px;
         height: 80px;
         border-radius: 50%;
-        background-color: var(--secondary);
+        background-color: var(--secondary-color);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -76,14 +76,14 @@
         }
         .game-time {
             font-size: 0.7rem;
-            color: var(--muted);
+            color: var(--muted-color);
         }
     }
 
     .game-prefix {
         font-family: var(--font-heading);
         font-size: 1.5rem;
-        color: var(--secondary);
+        color: var(--secondary-color);
         font-weight: bold;
         text-transform: uppercase;
     }

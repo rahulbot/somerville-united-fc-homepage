@@ -3,12 +3,12 @@
   import ballImage from "@assets/ball-and-cone.jpg";
 </script>
 
-<section id="mission" class="section-py mission-section">
+<section id="mission" class="mission-section">
   <div class="container">
     <div class="mission-grid">
       <div class="mission-content">
         <h2 class="section-eyebrow">Our Mission</h2>
-        <h3 class="section-heading">
+        <h3>
           Uplifting Players. <br/>
           Mentoring Youth. <br/>
           Celebrating Somerville.
@@ -62,7 +62,6 @@
 
 <style>
   .mission-section {
-    background-color: var(--background);
   }
 
   .mission-grid {
@@ -79,7 +78,7 @@
 
   .mission-text {
     font-size: 1.125rem;
-    color: var(--muted-foreground);
+    color: var(--muted-color-foreground);
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -108,7 +107,7 @@
   .stat-card {
     text-align: center;
     padding: 1rem;
-    background-color: rgba(var(--secondary-rgb), 0.05);
+    background-color: rgba(var(--secondary-color-rgb), 0.05);
     border-radius: var(--radius);
   }
 
@@ -116,7 +115,7 @@
     font-family: var(--font-heading);
     font-size: 1.875rem;
     font-weight: 700;
-    color: var(--secondary);
+    color: var(--secondary-color);
   }
 
   .stat-label {
@@ -124,7 +123,7 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--muted-foreground);
+    color: var(--muted-color-foreground);
     margin-top: 0.25rem;
   }
 

@@ -42,7 +42,7 @@
     flex: 0 0 40%;
     max-width: 260px;
     overflow: hidden;
-    background-color: var(--muted);
+    background-color: var(--muted-color);
   }
 
   .member-image {
@@ -57,7 +57,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, rgba(var(--secondary-rgb), 0.1), rgba(var(--primary-rgb), 0.1));
+    background: linear-gradient(135deg, rgba(var(--secondary-color-rgb), 0.1), rgba(var(--primary-color-rgb), 0.1));
   }
 
   .placeholder-icon {
@@ -74,14 +74,14 @@
     font-family: var(--font-heading);
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--secondary);
+    color: var(--secondary-color);
     margin-bottom: 0.25rem;
   }
 
   .member-title {
     font-size: 0.875rem;
     font-weight: 600;
-    color: var(--primary);
+    color: var(--primary-color);
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin-bottom: 1rem;
@@ -89,7 +89,7 @@
 
   .member-description {
     font-size: 0.6rem;
-    color: var(--muted-foreground);
+    color: var(--muted-color-foreground);
     line-height: 1.6;
   }
 

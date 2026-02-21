@@ -42,7 +42,7 @@ $inspect(validData);
       <textarea name="message" id="message" required rows="5" placeholder="What's up?" bind:value={message}></textarea>
     </fieldset>
 
-    <button type="submit" class="sufc-primary-button {validData ? '' : 'is-invalid'}" disabled={!validData}>Submit</button>
+    <button type="submit" class="btn-primary {validData ? '' : 'is-invalid'}" disabled={!validData}>Submit</button>
     {#if !validData}
       <p class="error-message">⚠️ Please fill out the form before trying to submit it.</p>
     {/if}
@@ -70,7 +70,7 @@ $inspect(validData);
     }
   }
   label {
-    color: var(--secondary);
+    color: var(--secondary-color);
     text-transform: uppercase;
     font-weight: bold;
     display: block;

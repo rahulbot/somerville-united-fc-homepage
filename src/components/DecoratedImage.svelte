@@ -26,12 +26,12 @@ let { src, alt, aspectRatio = "4 / 3" } = $props();
   }
 
   .bg-primary-decoration {
-    background-color: rgba(var(--primary-rgb), 0.1);
+    background-color: rgba(var(--primary-color-rgb), 0.1);
     transform: rotate(3deg);
   }
 
   .bg-secondary-decoration {
-    background-color: rgba(var(--secondary-rgb), 0.1);
+    background-color: rgba(var(--secondary-color-rgb), 0.1);
     transform: rotate(-3deg);
   }
 

@@ -16,13 +16,14 @@
 
 <style>
   .page-wrapper {
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
     font-family: var(--font-sans);
   }
 
   main {
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #ffffff, #f8fafc);
     flex: 1;
   }
 </style>

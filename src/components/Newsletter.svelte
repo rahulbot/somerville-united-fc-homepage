@@ -5,7 +5,7 @@
       Sign up for updates on tryouts, sponsorship opportunities, match schedules, and community events. Be part of the movement from day one.
     </p>
     <div class="newsletter-form">
-      <button class="sufc-white-button newsletter-btn">
+      <button class="btn-white newsletter-btn">
         <a href="https://somervilleunitedfc.beehiiv.com">Signup for Our Newsletter!</a>
       </button>
     </div>
@@ -16,7 +16,7 @@
   .newsletter-section {
     padding-top: 5rem;
     padding-bottom: 5rem;
-    background-color: var(--primary);
+    background-color: var(--primary-color);
     color: white;
     text-align: center;
   }

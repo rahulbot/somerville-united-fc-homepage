@@ -43,7 +43,7 @@
           {link.label}
         </a>
       {/each}
-      <button class="sufc-primary-button signup-btn">
+      <button class="btn-primary signup-btn">
         <a href="https://somervilleunitedfc.beehiiv.com">Sign Up</a>
       </button>
     </div>
@@ -70,7 +70,7 @@
         </a>
       {/each}
       <a href="https://somervilleunitedfc.beehiiv.com">
-        <button class="sufc-primary-button signup-btn">Sign Up</button>
+        <button class="btn-primary signup-btn">Sign Up</button>
       </a>
     </div>
   {/if}
@@ -112,7 +112,7 @@
     font-weight: 700;
     font-size: 1.25rem;
     letter-spacing: -0.025em;
-    color: var(--primary);
+    color: var(--primary-color);
   }
 
   .desktop-links {
@@ -130,17 +130,17 @@
   .nav-link {
     font-weight: 500;
     font-size: 0.875rem;
-    color: var(--foreground);
+    color: var(--dark-color);
     text-decoration: none;
     transition: color 0.2s;
   }
 
   .nav-link:hover {
-    color: var(--primary);
+    color: var(--primary-color);
   }
 
   .nav-link.active {
-    color: var(--primary);
+    color: var(--primary-color);
     font-weight: 700;
   }
 
@@ -151,12 +151,12 @@
     background: none;
     border: none;
     padding: 0.5rem;
-    color: var(--foreground);
+    color: var(--dark-color);
     cursor: pointer;
   }
 
   .hamburger:hover {
-    color: var(--primary);
+    color: var(--primary-color);
   }
 
   @media (min-width: 768px) {
@@ -184,20 +184,20 @@
     padding: 0.75rem 1rem;
     font-weight: 500;
     font-size: 1rem;
-    color: var(--foreground);
+    color: var(--dark-color);
     text-decoration: none;
     border-radius: var(--radius);
     transition: background-color 0.2s, color 0.2s;
   }
 
   .mobile-nav-link:hover {
-    background-color: rgba(var(--primary-rgb), 0.1);
-    color: var(--primary);
+    background-color: rgba(var(--primary-color-rgb), 0.1);
+    color: var(--primary-color);
   }
 
   .mobile-nav-link.active {
-    background-color: rgba(var(--primary-rgb), 0.1);
-    color: var(--primary);
+    background-color: rgba(var(--primary-color-rgb), 0.1);
+    color: var(--primary-color);
     font-weight: 700;
   }
   

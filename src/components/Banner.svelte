@@ -7,7 +7,7 @@
 
 <style>
   .banner {
-    background-color: var(--primary);
+    background-color: var(--primary-color);
     padding: 20px;
     text-align: center;
     font-family: var(--font-heading);
@@ -17,7 +17,7 @@
   }
 
   a {
-    color: var(--background);
+    color: var(--primary-color-foreground);
     font-weight: 600;
     text-decoration: underline;
   }
