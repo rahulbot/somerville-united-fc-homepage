@@ -34,7 +34,7 @@
         max-width: 300px;
         min-width: 300px;
         min-height: calc((300px * 3.5) / 2.5);
-        margin-bottom: 20px;
+        margin-bottom: 50px;
     }
     .photo {
         margin-left: 24px;
