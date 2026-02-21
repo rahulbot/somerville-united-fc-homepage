@@ -1,19 +1,6 @@
 <script>
-  import Papa from "papaparse";
   import PlayerList from "../PlayerList.svelte";
-  import { onMount } from "svelte";
-  import mensAPSLUrl from "@assets/data/roster-mens-apsl-s26.csv?url";
-  let mensAPSL = $state([]);
-
-  onMount(() => {
-    Papa.parse(mensAPSLUrl, {
-      download: true,
-      header: true,
-      complete: (results) => {
-        mensAPSL = results.data.filter(row => Object.keys(row).some(key => row[key]));
-      }
-    });
-  });
+	let { data } = $props();
 </script>
 
 <svelte:head>
@@ -34,7 +21,7 @@
 </section>
 
 <div class="container">
-  <PlayerList players={mensAPSL} />
+  <PlayerList players={data.players} />
 </div>
 
 <style>
