@@ -35,11 +35,11 @@ import casa from "@assets/casa-logo-white.png";
 
 <style>
   .footer {
-    background-color: var(--secondary);
+    background-color: var(--secondary-color);
     padding-top: 3rem;
     padding-bottom: 3rem;
     color: rgba(255, 255, 255, 0.6);
-    font-size: 0.875rem;
+    font-size: var(--font-size-sm);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
 
@@ -61,7 +61,7 @@ import casa from "@assets/casa-logo-white.png";
   .brand-name {
     font-family: var(--font-heading);
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: var(--font-size-md);
     color: white;
     margin-bottom: 0.5rem;
   }

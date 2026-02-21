@@ -1,26 +1,14 @@
 import { defineConfig } from "vite";
 import { sveltekit } from "@sveltejs/kit/vite";
 import path from "path";
-import { metaImagesPlugin } from "./vite-plugin-meta-images";
 
 export default defineConfig({
   plugins: [
-    sveltekit(),
-    metaImagesPlugin(),
-    ...(process.env.NODE_ENV !== "production" &&
-    process.env.REPL_ID !== undefined
-      ? [
-          import("@replit/vite-plugin-cartographer").then((m) =>
-            m.cartographer(),
-          ),
-          import("@replit/vite-plugin-dev-banner").then((m) => m.devBanner()),
-        ]
-      : []),
+    sveltekit()
   ],
   resolve: {
     alias: {
       "@": path.resolve(process.cwd(), "src"),
-      "@shared": path.resolve(process.cwd(), "shared"),
       "@assets": path.resolve(process.cwd(), "attached_assets"),
     },
   },

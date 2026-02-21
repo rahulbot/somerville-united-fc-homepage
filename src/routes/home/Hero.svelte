@@ -26,7 +26,7 @@
       </h1>
       <p class="hero-subtitle animate-fade-in" style="--delay: 0.6s">
         Redefining soccer in Massachusetts by proving that passion, community, and opportunity can 
-        coexist sustainably. Joining the APSL in Spring of 2026.
+        coexist sustainably.
       </p>
     </div>
   </div>
@@ -74,7 +74,7 @@
   .overlay-gradient {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, rgba(var(--secondary-rgb), 0.9), rgba(var(--secondary-rgb), 0.4));
+    background: linear-gradient(to right, rgba(var(--secondary-color-rgb), 0.9), rgba(var(--secondary-color-rgb), 0.4));
     mix-blend-mode: multiply;
   }
 
@@ -104,8 +104,8 @@
     display: inline-block;
     padding: 0.25rem 0.75rem;
     border-radius: 9999px;
-    background-color: rgba(var(--primary-rgb), 0.9);
-    font-size: 0.75rem;
+    background-color: rgba(var(--primary-color-rgb), 0.9);
+    font-size: var(--font-size-sm);
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -135,7 +135,7 @@
   }
 
   .hero-subtitle {
-    font-size: 1.25rem;
+    font-size: var(--font-size-md);
     line-height: 1.625;
     font-weight: 300;
     color: rgba(255, 255, 255, 0.9);
@@ -145,7 +145,7 @@
 
   @media (min-width: 768px) {
     .hero-subtitle {
-      font-size: 1.5rem;
+      font-size: var(--font-size-lg);
     }
   }
 </style>

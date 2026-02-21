@@ -1,29 +1,28 @@
 <script>
-
+  import DecoratedImage from "../../components/DecoratedImage.svelte";
+  import peopleImage from "@assets/kneeling.jpg";
 </script>
 
 <svelte:head>
-  <title>Teams - Somerville United FC</title>
-  <meta name="description" content="Meet the Somerville United FC teams" />
+  <title>Team - Somerville United FC</title>
+  <meta name="description" content="Meet the Somerville United FC team" />
 </svelte:head>
 
-
-<section>
-  <div class="container">
-    <h1 class="page-title">Our Teams</h1>
+<div class="container">
+  <section>
+    <h1>Our Teams</h1>
     <p class="page-subtitle">
-      We are building out our men's and women's teams. Explore our rosters for each.
+      We are actively recruiting players and staff for the inaugural men's team 2026 season. We'll launch our women's team in fall of 2026. 
+      Stay tuned for updates on the full roster!
     </p>
-  </div>
-</section>
+    <div class="image-wrapper">
+      <DecoratedImage src={peopleImage} alt="Team members kneeling" aspectRatio="6 / 3"/>
+    </div>
+  </section>
+</div>
 
-<section>
-  <div class="container">
-
-    <a href="/team/mens">Men's</a>
-
-    <a href="/team/womens">Women's</a>
-
-  </div>
-</section>
-
+<style>
+  .image-wrapper {
+    padding: 4rem 0;
+  }
+</style>

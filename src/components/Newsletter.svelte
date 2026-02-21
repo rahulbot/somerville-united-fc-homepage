@@ -2,11 +2,11 @@
   <div class="container">
     <h2 class="newsletter-heading">Let’s build something historic together. ⚽️🔥</h2>
     <p class="newsletter-text">
-      Sign up for updates on tryouts, sponsorship opportunities, match schedules, and community events. Be part of the movement from day one.
+      Sign up for updates on tryouts, sponsorship opportunities, match schedules, and community events. Join our growing family.
     </p>
     <div class="newsletter-form">
-      <button class="btn btn-white newsletter-btn">
-        <a href="https://forms.gle/DSFMAaQivR5U1ZR77">Signup for Our Newsletter!</a>
+      <button class="btn-white newsletter-btn">
+        <a href="https://somervilleunitedfc.beehiiv.com">Subscribe to Our Newsletter!</a>
       </button>
     </div>
   </div>
@@ -16,7 +16,7 @@
   .newsletter-section {
     padding-top: 5rem;
     padding-bottom: 5rem;
-    background-color: var(--primary);
+    background-color: var(--primary-color);
     color: white;
     text-align: center;
   }
@@ -24,7 +24,7 @@
   .newsletter-heading {
     font-family: var(--font-heading);
     font-weight: 900;
-    font-size: 2.25rem;
+    font-size: var(--font-size-xl);
     text-transform: uppercase;
     margin-bottom: 1.5rem;
     line-height: 1.2;
@@ -32,12 +32,12 @@
 
   @media (min-width: 768px) {
     .newsletter-heading {
-      font-size: 3.75rem; /* text-6xl */
+      font-size: var(--font-size-xxl); /* text-6xl */
     }
   }
 
   .newsletter-text {
-    font-size: 1.25rem;
+    font-size: var(--font-size-md);
     color: rgba(255, 255, 255, 0.9);
     max-width: 42rem;
     margin: 0 auto 2.5rem auto;
@@ -61,19 +61,7 @@
   .newsletter-btn {
     height: 3rem;
     padding: 2rem;
-    font-size: 1.5rem;
-    transition: box-shadow 0.2s ease;
-    
-    a {
-      color: var(--primary);
-      font-weight: 600;
-      text-decoration: none;
-    }
-
-    &:hover {
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    }
-
+    font-size: var(--font-size-md);
   }
 
 </style>

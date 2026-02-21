@@ -12,6 +12,7 @@
     { href: "/team", label: "Teams" },
     { href: "/shop", label: "Shop" },
     { href: "/about", label: "About" },
+    { href: "/contact", label: "Contact" },
   ];
   
   function toggleMenu() {
@@ -42,9 +43,10 @@
           {link.label}
         </a>
       {/each}
-      <button class="btn btn-white signup-btn">
-        <a href="https://forms.gle/DSFMAaQivR5U1ZR77">Sign Up</a>
-      </button>
+      <a href="https://account.venmo.com/u/SomervilleUnitedFC">
+        <button class="btn-primary">Donate</button>
+      </a>
+      
     </div>
     
     <button class="hamburger" onclick={toggleMenu} aria-label="Toggle menu">
@@ -68,8 +70,8 @@
           {link.label}
         </a>
       {/each}
-      <a href="https://forms.gle/DSFMAaQivR5U1ZR77">
-        <button class="btn btn-white signup-btn">Sign Up</button>
+      <a href="https://account.venmo.com/u/SomervilleUnitedFC">
+        <button class="btn-primary">Donate</button>
       </a>
     </div>
   {/if}
@@ -109,9 +111,9 @@
   .brand-name {
     font-family: var(--font-heading);
     font-weight: 700;
-    font-size: 1.25rem;
+    font-size: var(--font-size-md);
     letter-spacing: -0.025em;
-    color: var(--primary);
+    color: var(--primary-color);
   }
 
   .desktop-links {
@@ -128,18 +130,18 @@
 
   .nav-link {
     font-weight: 500;
-    font-size: 0.875rem;
-    color: var(--foreground);
+    font-size: var(--font-size-sm);
+    color: var(--dark-color);
     text-decoration: none;
     transition: color 0.2s;
   }
 
   .nav-link:hover {
-    color: var(--primary);
+    color: var(--primary-color);
   }
 
   .nav-link.active {
-    color: var(--primary);
+    color: var(--primary-color);
     font-weight: 700;
   }
 
@@ -150,12 +152,12 @@
     background: none;
     border: none;
     padding: 0.5rem;
-    color: var(--foreground);
+    color: var(--dark-color);
     cursor: pointer;
   }
 
   .hamburger:hover {
-    color: var(--primary);
+    color: var(--primary-color);
   }
 
   @media (min-width: 768px) {
@@ -182,39 +184,27 @@
     display: block;
     padding: 0.75rem 1rem;
     font-weight: 500;
-    font-size: 1rem;
-    color: var(--foreground);
+    color: var(--dark-color);
     text-decoration: none;
     border-radius: var(--radius);
     transition: background-color 0.2s, color 0.2s;
   }
 
   .mobile-nav-link:hover {
-    background-color: rgba(var(--primary-rgb), 0.1);
-    color: var(--primary);
+    background-color: rgba(var(--primary-color-rgb), 0.1);
+    color: var(--primary-color);
   }
 
   .mobile-nav-link.active {
-    background-color: rgba(var(--primary-rgb), 0.1);
-    color: var(--primary);
+    background-color: rgba(var(--primary-color-rgb), 0.1);
+    color: var(--primary-color);
     font-weight: 700;
   }
-
-  .signup-btn {
-    transition: box-shadow 0.2s ease;
-    background-color: var(--primary);  
-    color: #fff;
-    font-weight: 600;
-    text-decoration: none;
-
-    &:hover {
-      background-color: var(--primary);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    }
-
-    a {
-      color: white !important;
-      text-decoration: none;
+  
+  a {
+    button {
+      font-size: var(--font-size-sm);
+      font-weight: 700;
     }
   }
 </style>

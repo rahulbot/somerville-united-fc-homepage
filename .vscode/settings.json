@@ -1,7 +1,4 @@
 {
-    "search.exclude": {
-        "**/docs": true
-    },
     "files.exclude": {
         "**/docs": true
     }

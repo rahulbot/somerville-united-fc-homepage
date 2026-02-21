@@ -2,7 +2,7 @@
   import { Heart, Users, Trophy } from "lucide-svelte";
 </script>
 
-<section class="section-py values-section">
+<section class="values-section">
   <div class="pattern-overlay"></div>
   <div class="container relative-z">
     <div class="values-header">
@@ -52,7 +52,7 @@
 
 <style>
   .values-section {
-    background-color: var(--secondary);
+    background-color: var(--secondary-color);
     color: white;
     position: relative;
     overflow: hidden;
@@ -78,7 +78,7 @@
 
   .values-eyebrow {
     color: rgba(255, 255, 255, 0.8);
-    font-size: 1.125rem;
+    font-size: var(--font-size-md);;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -88,14 +88,14 @@
 
   .values-title {
     font-family: var(--font-heading);
-    font-size: 2.25rem;
+    font-size: var(--font-size-xl);
     font-weight: 700;
     color: white;
   }
 
   @media (min-width: 768px) {
     .values-title {
-      font-size: 3rem;
+      font-size: var(--font-size-xxl);
     }
   }
 
@@ -131,13 +131,13 @@
     width: 4rem;
     height: 4rem;
     margin: 0 auto 1.5rem auto;
-    background-color: var(--primary);
+    background-color: var(--primary-color);
     border-radius: 9999px;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: transform 0.3s;
-    box-shadow: 0 10px 15px -3px rgba(var(--primary-rgb), 0.25);
+    box-shadow: 0 10px 15px -3px rgba(var(--primary-color-rgb), 0.25);
   }
 
   .value-card:hover .icon-wrapper {
@@ -153,7 +153,7 @@
 
   .card-title {
     font-family: var(--font-heading);
-    font-size: 1.5rem;
+    font-size: var(--font-size-lg);
     font-weight: 700;
     margin-bottom: 0.75rem;
     color: white;

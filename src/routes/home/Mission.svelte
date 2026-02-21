@@ -3,12 +3,12 @@
   import ballImage from "@assets/ball-and-cone.jpg";
 </script>
 
-<section id="mission" class="section-py mission-section">
+<section id="mission" class="mission-section">
   <div class="container">
     <div class="mission-grid">
       <div class="mission-content">
         <h2 class="section-eyebrow">Our Mission</h2>
-        <h3 class="section-heading">
+        <h3>
           Uplifting Players. <br/>
           Mentoring Youth. <br/>
           Celebrating Somerville.
@@ -37,8 +37,10 @@
               <span class="text-primary">✨</span> Build a culture of unity, family, and ambition
             </li>
           </ul>
+          <p>Our men's team is joining the APSL in Spring of 2026, and our women's team will follow later in the year.
+            <a href="https://somervilleunitedfc.beehiiv.com">Subscribe to our newsletter</a> below to stay updated!</p>
         </div>
-        <div class="stats-grid">
+<!--    <div class="stats-grid">
           <div class="stat-card">
             <div class="stat-value">100%</div>
             <div class="stat-label">Community Owned</div>
@@ -51,7 +53,7 @@
             <div class="stat-value">1</div>
             <div class="stat-label">Goal</div>
           </div>
-        </div>
+        </div> -->
       </div>
       <DecoratedImage src={ballImage} alt="Soccer ball on field"  />
     </div>
@@ -59,10 +61,6 @@
 </section>
 
 <style>
-  .mission-section {
-    background-color: var(--background);
-  }
-
   .mission-grid {
     display: grid;
     gap: 4rem;
@@ -76,8 +74,8 @@
   }
 
   .mission-text {
-    font-size: 1.125rem;
-    color: var(--muted-foreground);
+    font-size: var(--font-size-md);;
+    color: var(--muted-color-foreground);
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -102,19 +100,19 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
   }
-
+/*
   .stat-card {
     text-align: center;
     padding: 1rem;
-    background-color: rgba(var(--secondary-rgb), 0.05);
+    background-color: rgba(var(--secondary-color-rgb), 0.05);
     border-radius: var(--radius);
   }
 
   .stat-value {
     font-family: var(--font-heading);
-    font-size: 1.875rem;
+    font-size: var(--font-size-xl);
     font-weight: 700;
-    color: var(--secondary);
+    color: var(--secondary-color);
   }
 
   .stat-label {
@@ -122,8 +120,8 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--muted-foreground);
+    color: var(--muted-color-foreground);
     margin-top: 0.25rem;
-  }
+  }*/
 
 </style>
