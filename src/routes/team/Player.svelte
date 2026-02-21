@@ -19,7 +19,7 @@
     <div class="info">
         <h3 class="name">{player['First Name']} {player['Last Name']}</h3>
         <p class="position">{position}</p>
-        <p class="number">#{player.number || '??'}</p>
+        <p class="flag">{player.flag || '🇺🇸'}</p>
     </div>
 </div>
 
@@ -62,15 +62,14 @@
         font-size: 13px;
         color: rgba(255,255,255, 0.7);
     }
-    .number {
+    .flag {
         position: absolute;
-        bottom: 18px;
-        right: 13px;
+        bottom: 14px;
+        right: 15px;
         font-family: var(--font-sans);
         text-transform: uppercase;
         font-weight: 900;
         color: var(--secondary);
-        font-style: italic;
-        font-size: 24px;
+        font-size: 30px;
     }
 </style>
