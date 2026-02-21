@@ -1,11 +1,10 @@
 <script>
-  import { onMount } from 'svelte';
-  import schedule from '@assets/data/schedule2026.json';
   import GameList from './GameList.svelte';
+	let { data } = $props();
 
+  let schedule = $derived(data.games);
   const today = new Date();
-  const firstGame = new Date(schedule[0].Date);
-  const countdownDays = Math.ceil((firstGame - today) / (1000 * 60 * 60 * 24));
+  const countdownDays = $derived(Math.ceil((new Date(schedule[0].Date - today) / (1000 * 60 * 60 * 24))));
 </script>
 
 <svelte:head>
