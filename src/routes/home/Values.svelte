@@ -78,7 +78,7 @@
 
   .values-eyebrow {
     color: rgba(255, 255, 255, 0.8);
-    font-size: 1.125rem;
+    font-size: var(--font-size-md);;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -88,14 +88,14 @@
 
   .values-title {
     font-family: var(--font-heading);
-    font-size: 2.25rem;
+    font-size: var(--font-size-xl);
     font-weight: 700;
     color: white;
   }
 
   @media (min-width: 768px) {
     .values-title {
-      font-size: 3rem;
+      font-size: var(--font-size-xxl);
     }
   }
 
@@ -153,7 +153,7 @@
 
   .card-title {
     font-family: var(--font-heading);
-    font-size: 1.5rem;
+    font-size: var(--font-size-lg);
     font-weight: 700;
     margin-bottom: 0.75rem;
     color: white;

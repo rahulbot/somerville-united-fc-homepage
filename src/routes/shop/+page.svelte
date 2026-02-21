@@ -32,6 +32,6 @@ import FoundingSupportOffer from '@assets/founding-supporter-options.jpeg';
 <style>
   button {
     margin: 3rem auto 0 auto;
-    font-size: 1.5rem;
+    font-size: var(--font-size-lg);
   }
 </style>

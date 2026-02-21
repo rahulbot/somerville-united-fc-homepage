@@ -61,9 +61,6 @@
 </section>
 
 <style>
-  .mission-section {
-  }
-
   .mission-grid {
     display: grid;
     gap: 4rem;
@@ -77,7 +74,7 @@
   }
 
   .mission-text {
-    font-size: 1.125rem;
+    font-size: var(--font-size-md);;
     color: var(--muted-color-foreground);
     display: flex;
     flex-direction: column;
@@ -103,7 +100,7 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
   }
-
+/*
   .stat-card {
     text-align: center;
     padding: 1rem;
@@ -113,7 +110,7 @@
 
   .stat-value {
     font-family: var(--font-heading);
-    font-size: 1.875rem;
+    font-size: var(--font-size-xl);
     font-weight: 700;
     color: var(--secondary-color);
   }
@@ -125,6 +122,6 @@
     letter-spacing: 0.05em;
     color: var(--muted-color-foreground);
     margin-top: 0.25rem;
-  }
+  }*/
 
 </style>

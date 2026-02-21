@@ -61,7 +61,7 @@
   }
 
   .placeholder-icon {
-    font-size: 4rem;
+    font-size: var(--font-size-title);
     opacity: 0.5;
   }
 
@@ -72,14 +72,14 @@
 
   .member-name {
     font-family: var(--font-heading);
-    font-size: 1.5rem;
+    font-size: var(--font-size-lg);
     font-weight: 700;
     color: var(--secondary-color);
     margin-bottom: 0.25rem;
   }
 
   .member-title {
-    font-size: 0.875rem;
+    font-size: var(--font-size-sm);
     font-weight: 600;
     color: var(--primary-color);
     text-transform: uppercase;
@@ -88,7 +88,7 @@
   }
 
   .member-description {
-    font-size: 0.6rem;
+    font-size: var(--font-size-xs);
     color: var(--muted-color-foreground);
     line-height: 1.6;
   }

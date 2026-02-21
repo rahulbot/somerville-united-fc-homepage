@@ -74,7 +74,7 @@ $inspect(validData);
     text-transform: uppercase;
     font-weight: bold;
     display: block;
-    font-size: 0.8rem;
+    font-size: var(--font-size-sm);
     margin-bottom: 5px;
   }
 
@@ -84,14 +84,14 @@ $inspect(validData);
   }
 
   input, textarea {
-    font-size: 1.2rem;
+    font-size: (var(--font-size-md));
     padding: 0.5rem;
     width: 100%;
     font-weight: bold;
     border: 1px solid rgba(226, 232, 240, 0.8);
   }
   button {
-    font-size: 1.5rem;
+    font-size: var(--font-size-lg);
   }
   form {
     margin-bottom: 3rem;

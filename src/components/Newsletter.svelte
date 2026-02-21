@@ -24,7 +24,7 @@
   .newsletter-heading {
     font-family: var(--font-heading);
     font-weight: 900;
-    font-size: 2.25rem;
+    font-size: var(--font-size-xl);
     text-transform: uppercase;
     margin-bottom: 1.5rem;
     line-height: 1.2;
@@ -32,12 +32,12 @@
 
   @media (min-width: 768px) {
     .newsletter-heading {
-      font-size: 3.75rem; /* text-6xl */
+      font-size: var(--font-size-xxl); /* text-6xl */
     }
   }
 
   .newsletter-text {
-    font-size: 1.25rem;
+    font-size: var(--font-size-md);
     color: rgba(255, 255, 255, 0.9);
     max-width: 42rem;
     margin: 0 auto 2.5rem auto;
@@ -61,7 +61,7 @@
   .newsletter-btn {
     height: 3rem;
     padding: 2rem;
-    font-size: 1.5rem;
+    font-size: var(--font-size-md);
   }
 
 </style>

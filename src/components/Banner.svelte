@@ -12,7 +12,7 @@
     text-align: center;
     font-family: var(--font-heading);
     font-weight: 600;
-    font-size: 2rem;
+    font-size: var(--font-size-xl);
     color: white;
   }
 

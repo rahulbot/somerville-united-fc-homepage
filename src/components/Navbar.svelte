@@ -110,7 +110,7 @@
   .brand-name {
     font-family: var(--font-heading);
     font-weight: 700;
-    font-size: 1.25rem;
+    font-size: var(--font-size-md);
     letter-spacing: -0.025em;
     color: var(--primary-color);
   }
@@ -129,7 +129,7 @@
 
   .nav-link {
     font-weight: 500;
-    font-size: 0.875rem;
+    font-size: var(--font-size-sm);
     color: var(--dark-color);
     text-decoration: none;
     transition: color 0.2s;
@@ -183,7 +183,6 @@
     display: block;
     padding: 0.75rem 1rem;
     font-weight: 500;
-    font-size: 1rem;
     color: var(--dark-color);
     text-decoration: none;
     border-radius: var(--radius);
@@ -202,6 +201,6 @@
   }
   
   .signup-btn {
-    font-size: .875rem;
+    font-size: var(--font-size-sm);
   }
 </style>

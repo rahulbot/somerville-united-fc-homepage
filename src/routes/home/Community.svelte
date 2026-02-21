@@ -52,7 +52,7 @@
 
   .community-text {
     color: var(--muted-color-foreground);
-    font-size: 1.125rem;
+    font-size: var(--font-size-md);;
     line-height: 1.6;
   }
 
