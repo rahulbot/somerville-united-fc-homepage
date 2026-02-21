@@ -21,7 +21,7 @@
   <meta name="description" content="Meet the Somerville United FC Men's APSL team" />
 </svelte:head>
 
->
+<section>
   <div class="container">
     <h1 class="page-title">Men's Team</h1>
     <p class="page-subtitle">
@@ -33,11 +33,9 @@
   </div>
 </section>
 
-<section>
-  <div class="container">
-    <PlayerList players={mensAPSL} />
-  </div>
-</section>
+<div class="container">
+  <PlayerList players={mensAPSL} />
+</div>
 
 <style>
   @media (max-width: 768px) {

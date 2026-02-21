@@ -45,7 +45,7 @@
     }
     .name {
         position: absolute;
-        bottom: 44px;
+        bottom: 24px;
         left: 20px;
         font-family: var(--font-heading);
         font-style: italic;
