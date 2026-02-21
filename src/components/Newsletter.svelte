@@ -6,7 +6,7 @@
     </p>
     <div class="newsletter-form">
       <button class="btn-white newsletter-btn">
-        <a href="https://somervilleunitedfc.beehiiv.com">Signup for Our Newsletter!</a>
+        <a href="https://somervilleunitedfc.beehiiv.com">Subscribe to Our Newsletter!</a>
       </button>
     </div>
   </div>
