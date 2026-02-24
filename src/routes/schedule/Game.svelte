@@ -1,7 +1,7 @@
 <script>
-  let { game } = $props(); // keys: Day, Date, Time, Venue, Address, Home, Away
+  let { game, teamName, includeTicketButton } = $props(); // keys: Day, Date, Time, Venue, Address, Home, Away
   // try to parse game.Date as a date, otherwise leave it as is because it might be TBD
-  let isHome = $derived(game.Home === "Somerville United FC");
+  let isHome = $derived(game.Home === teamName);
   let displayDate = $derived.by(() => {
     let dateStr;
     try {
@@ -29,9 +29,11 @@
     <span class="game-venue">{game.Venue}</span>
   </div>
   <div>
-    <a href="tickets">
-      <button class="btn-primary">Buy Tickets</button>
-    </a>
+    {#if includeTicketButton && isHome}
+      <a href="/tickets">
+        <button class="btn-primary">Get Tickets</button>
+      </a>
+    {/if}
   </div>
 </div>
 
@@ -42,7 +44,7 @@
     align-items: flex-start;
     justify-content: flex-start;
     padding: 25px 0;
-    border-top: 1px solid var(--secondary-color);
+    border-top: 1px dashed rgba(var(--secondary-color-rgb), 0.3);
   }
   .game-row > div {
     text-align: left;
