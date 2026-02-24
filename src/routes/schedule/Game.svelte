@@ -26,10 +26,14 @@
     <span class="game-prefix">{isHome ? 'vs' : 'at'}</span>
     <span class="game-opponent">{isHome ? game.Away : game.Home}</span>        
     <br />
-    <span class="game-venue">{game.Venue}</span>
+    <span class="game-venue">{game.Venue}
+      {#if game.Address}
+        - {game.Address}
+      {/if}
+    </span>
   </div>
   <div>
-    {#if includeTicketButton && isHome}
+    {#if (includeTicketButton && isHome) && (game.Tickets && game.Tickets == 'Yes')}
       <a href="/tickets">
         <button class="btn-primary">Get Tickets</button>
       </a>
