@@ -7,14 +7,19 @@
 
   let scheduleApsl = $derived(data.gamesApsl);
   let scheduleCasa = $derived(data.gamesCasa);
-  const today = new Date();
-  const countdownDays = $derived.by(() => {
-    if (scheduleApsl.length > 0) {
-      const diff = (new Date(scheduleApsl[0].Date) - today) / (1000 * 60 * 60 * 24);
-      return Math.ceil(diff);
+
+  // show optional countdown if first game date is valid
+  const firstGameDate = new Date("2026-03-15"); // set to `null` if no upcoming game
+  let countdownDays = $state(undefined);;
+  try {
+    const today = new Date();
+    if (firstGameDate && (today < firstGameDate)) {
+      const diff = (new Date(firstGameDate) - today) / (1000 * 60 * 60 * 24);
+      countdownDays = Math.ceil(diff);
     }
-    return null;
-  });
+  } catch (error) {
+    countdownDays = undefined;
+  }
 
   let activeTab = $state('apsl');
 
