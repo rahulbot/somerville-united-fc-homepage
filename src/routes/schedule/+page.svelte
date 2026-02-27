@@ -8,8 +8,14 @@
   let scheduleApsl = $derived(data.gamesApsl);
   let scheduleCasa = $derived(data.gamesCasa);
   const today = new Date();
-  const countdownDays = $derived(Math.ceil(((new Date(scheduleApsl[0].Date) - today) / (1000 * 60 * 60 * 24))));
-  
+  const countdownDays = $derived.by(() => {
+    if (scheduleApsl.length > 0) {
+      const diff = (new Date(scheduleApsl[0].Date) - today) / (1000 * 60 * 60 * 24);
+      return Math.ceil(diff);
+    }
+    return null;
+  });
+
   let activeTab = $state('apsl');
 
   function handleKeydown(event) {
@@ -32,7 +38,7 @@
 <div class="container">
   <section>
     <h1>
-      {#if countdownDays > 0}
+      {#if countdownDays}
         <em>{countdownDays}</em> Days Till Our Home Opener
       {:else}
         2026 Spring Season Schedule
