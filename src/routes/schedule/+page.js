@@ -1,5 +1,4 @@
 import Papa from "papaparse";
-import mensCASAUrl from "@assets/data/schedules/mens-casa-spring-2026.csv?url";
 
 const MENS_LIVE_APSL_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRTV0vjhzAxcA7MvOtOWiuwrp9u7pMCr3CjWLXwgxhi3KuRveFvgFPVor98FVt1XuIAHWzdnyyE2fM-/pub?gid=0&single=true&output=csv"
 const MENS_LIVE_CASA_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRTV0vjhzAxcA7MvOtOWiuwrp9u7pMCr3CjWLXwgxhi3KuRveFvgFPVor98FVt1XuIAHWzdnyyE2fM-/pub?gid=1397827381&single=true&output=csv"
