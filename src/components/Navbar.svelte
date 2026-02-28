@@ -10,6 +10,7 @@
     { href: "/schedule", label: "Schedule" },
     { href: "/tickets", label: "Tickets" },
     { href: "/team", label: "Teams" },
+    { href: "https://somervilleunitedfc.beehiiv.com", label: "Newsletter" },
     { href: "/shop", label: "Shop" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
