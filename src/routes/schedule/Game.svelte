@@ -1,7 +1,8 @@
 <script>
-  let { game, teamName, includeTicketButton } = $props(); // keys: Day, Date, Time, Venue, Address, Home, Away
+  let { game, teamName, includeTicketButton } = $props(); // keys: Day, Date, Time, Venue, Address, Home, Away, Postponed
   // try to parse game.Date as a date, otherwise leave it as is because it might be TBD
   let isHome = $derived(game.Home === teamName);
+  let isPostponed = $derived(game.Postponed === 'Yes');
   let displayDate = $derived.by(() => {
     let dateStr;
     try {
@@ -15,7 +16,7 @@
   });
 </script>
 
-<div class="game-row">
+<div class="game-row" class:postponed={isPostponed}>
   <div>
     <div class="date-circle">
       <span class="game-date">{displayDate}</span>
@@ -33,7 +34,9 @@
     </span>
   </div>
   <div>
-    {#if (includeTicketButton && isHome) && (game.Tickets && game.Tickets == 'Yes')}
+    {#if isPostponed}
+      <span class="postponed-chip">Postponed</span>
+    {:else if (includeTicketButton && isHome) && (game.Tickets && game.Tickets == 'Yes')}
       <a href="/tickets">
         <button class="btn-primary">Get Tickets</button>
       </a>
@@ -49,6 +52,9 @@
     justify-content: flex-start;
     padding: 25px 0;
     border-top: 1px dashed rgba(var(--secondary-color-rgb), 0.3);
+  }
+  .game-row.postponed {
+    opacity: 0.4;
   }
   .game-row > div {
     text-align: left;
@@ -102,6 +108,21 @@
     font-style: italic;
   }
 
+  .postponed-chip {
+    background-color: var(--alert-color);
+    padding: 8px 16px;
+    border-radius: 20px;
+    border-radius: var(--radius);
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    font-weight: 600;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius);
+    float: right;
+  }
+
   button {
     font-size: 1.5rem;
     float: right;
@@ -132,6 +153,12 @@
     .game-venue {
       font-size: 0.8rem;
     }
+    .postponed-chip {
+      font-size: 0.7rem;
+      padding: 6px 12px;
+      float: none;
+      margin-top: 10px;
+    }
     button {
       font-size: 0.8rem;
       margin-top: 0px;
@@ -144,7 +171,5 @@
     .game-row > div:nth-child(3) {
       flex: 0 0 20%;
     }
-
   }
-
 </style>
