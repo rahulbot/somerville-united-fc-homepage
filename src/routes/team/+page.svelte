@@ -1,6 +1,4 @@
 <script>
-  import DecoratedImage from "../../components/DecoratedImage.svelte";
-  import peopleImage from "@assets/kneeling.jpg";
   import mensTeamImage from "@assets/teams/mens-team-at-union.jpg";
   import womensTeamImage from "@assets/teams/generated-kick.jpg";
 </script>

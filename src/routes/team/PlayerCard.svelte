@@ -2,7 +2,6 @@
     import CardOverlay from './CardOverlay.svelte';
     import CardLowerThird from './CardLowerThird.svelte';
     let { player } = $props(); // keys: Position, First Name, Last Name, Hometown, College NCAA/NJCAA Athlete
-    const photoUrl = $derived('/attached_assets/teams/mens/' + player.photoFileName);
     const positionLookup = {
         'GK': 'Goalkeeper',
         'DF': 'Defender',
@@ -15,7 +14,7 @@
 <div class="card">
     <CardOverlay />
     <div class="photo-wrap">
-        <img class="photo" src={photoUrl} alt="{player['First Name']} {player['Last Name']}" />
+        <img class="photo" src={player.photoFileName} alt="{player['First Name']} {player['Last Name']}" />
     </div>
     <CardLowerThird />
     <div class="info">

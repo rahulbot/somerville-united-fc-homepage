@@ -27,7 +27,7 @@ export const load = async () => {
   const dataWithFlags = cleanedData.map(player => {
     const country = player['Hometown'].split(',')[1].trim();
     const flag = countryLookup[country] || '🇺🇸';
-    const photoFileName = (player['First Name'].toLowerCase() + '-' + player['Last Name'].toLowerCase() + '.png').replace(" ",'');
+    const photoFileName = "/images/teams/mens/"+(player['First Name'].toLowerCase() + '-' + player['Last Name'].toLowerCase() + '.png').replace(" ",'');
     return { ...player, flag, photoFileName };
   });
 
