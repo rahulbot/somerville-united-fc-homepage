@@ -170,7 +170,7 @@ table {
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
     .player-card-list {
         grid-template-columns: 1fr;
     }
