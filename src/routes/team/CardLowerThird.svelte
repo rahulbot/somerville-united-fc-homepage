@@ -21,7 +21,7 @@
 <style>
   .bottom-third {
     position: absolute;
-    bottom: 52px;
+    bottom: 40px;
     left: 0;
     width: 100%;
     height: 30px;
