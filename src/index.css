@@ -22,7 +22,8 @@
 
   --dark-color: #0f172a; /* Slate 900 */
   
-  --muted-color: #f1f5f9; /* Slate 100 */
+  --muted-color: #e2e8f0; /* Slate 200 */
+
   --muted-color-foreground: #64748b; /* Slate 500 */
     
   --radius: 0.5rem;
@@ -68,6 +69,12 @@ button {
   margin-right: auto;
   padding-left: 1rem;
   padding-right: 1rem;
+}
+@media (max-width: 600px) {
+  .container {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
 }
 
 /* Component Utilities */

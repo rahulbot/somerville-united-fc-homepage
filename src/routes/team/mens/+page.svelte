@@ -25,6 +25,9 @@
 </div>
 
 <style>
+  section {
+    padding-bottom: 0px;
+  }
   @media (max-width: 768px) {
   }
 </style>

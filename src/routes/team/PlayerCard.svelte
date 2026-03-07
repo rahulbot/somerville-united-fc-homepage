@@ -2,7 +2,7 @@
     import CardOverlay from './CardOverlay.svelte';
     import CardLowerThird from './CardLowerThird.svelte';
     let { player } = $props(); // keys: Position, First Name, Last Name, Hometown, College NCAA/NJCAA Athlete
-    const photoUrl = $derived('/attached_assets/teams/mens-apsl/' + player.photoFileName);
+    const photoUrl = $derived('/attached_assets/teams/mens/' + player.photoFileName);
     const positionLookup = {
         'GK': 'Goalkeeper',
         'DF': 'Defender',
