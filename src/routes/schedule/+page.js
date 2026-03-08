@@ -5,7 +5,7 @@ const MENS_LIVE_CASA_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRTV
 
 export const ssr = false;
 
-export const load = async () => {
+export const load = async ({fetch, params}) => {
   try {
     const [responseApsl, responseCasa] = await Promise.all([
       fetch(MENS_LIVE_APSL_URL),
