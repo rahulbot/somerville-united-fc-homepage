@@ -27,7 +27,7 @@
   import headshotAC from "@assets/staff/angela-cornacchio.png";
   import headshotHF from "@assets/staff/harry-flamm.png";
   import headshotBL from "@assets/staff/billy-limperis.png";
-
+  import headshotRB from "@assets/staff/rahul-bhargava.jpg";
 
   const people = [
     {
@@ -167,6 +167,12 @@
       title: "Legal Intern",
       description: "Max is joining the Somerville United team as a legal intern. He is from Providence and went to undergrad at NC State in Raleigh before moving back up to Boston, where he currently attends New England Law. Max is excited to help contribute to the club.",
       image: headshotMR
+    },
+    {
+      name: "Rahul Bhargava",
+      title: "Website Manager",
+      description: "Rahul Bhargava is joining SUFC to build out our website and advise of various other things going on. He is a life-long lover of international soccer, and has played (poorly) since he was a toddler. Rahul lives in Somerville and is actively involved with a variety of musical and social support groups.",
+      image: headshotRB
     }
   ];
 </script>
