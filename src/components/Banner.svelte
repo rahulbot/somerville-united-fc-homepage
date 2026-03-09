@@ -1,6 +1,6 @@
 <div class="banner">
   <div class="container">
-    🔥 Special offer for founding supporters! <a href="/shop">Learn more</a>.
+    🎟️ <a href="https://docs.google.com/forms/d/e/1FAIpQLSdz-Bopq-c6-255YdsnbRmBg6Yn8hCu6NMi2CSxKVV4nMWX7w/viewform">Reserve you <em>free</em> ticket to our March 15th home opener now!</a> 🎟️
   </div>
 </div>
 

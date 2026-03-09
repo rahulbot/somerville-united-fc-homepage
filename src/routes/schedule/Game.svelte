@@ -36,8 +36,8 @@
   <div>
     {#if isPostponed}
       <span class="postponed-chip">Postponed</span>
-    {:else if (includeTicketButton && isHome) && (game.Tickets && game.Tickets == 'Yes')}
-      <a href="/tickets">
+    {:else if (includeTicketButton && isHome) && (game.Tickets && game.Tickets.startsWith('http')) }
+      <a href={game.Tickets} target="_blank" rel="noopener noreferrer">
         <button class="btn-primary">Get Tickets</button>
       </a>
     {/if}

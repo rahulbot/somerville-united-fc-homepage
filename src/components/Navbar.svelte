@@ -7,8 +7,7 @@
   
   const navLinks = [
     { href: "/", label: "Home" },
-    { href: "/schedule", label: "Schedule" },
-    { href: "/tickets", label: "Tickets" },
+    { href: "/schedule", label: "Schedule & Tickets" },
     { href: "/team", label: "Teams" },
     { href: "https://somervilleunitedfc.beehiiv.com", label: "Newsletter" },
     { href: "/shop", label: "Shop" },
