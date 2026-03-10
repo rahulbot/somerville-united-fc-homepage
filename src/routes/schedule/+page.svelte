@@ -186,7 +186,7 @@
           </button>
 
           <h4 id="calendar-modal-title">Subscribe to {selectedTeamLabel} Calendar</h4>
-          <p>Use this feed URL in your calendar app:</p>
+          <p>Subscribe to stay up-to-date with our latest games. Use this feed URL in your favorite calendar app:</p>
 
           <div class="copy-field" role="group" aria-label="Calendar feed URL">
             <span class="copy-field-url">{fullCalendarUrl}</span>
