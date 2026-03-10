@@ -234,8 +234,8 @@ async function main() {
     console.log(`Found ${gamesAPSL.length} APSL games and ${gamesCasa.length} CASA games`);
 
     // Generate calendars
-    await generateCalendarFile(gamesAPSL, "somerville-united-mens-apsl.ics", "Somerville United FC");
-    await generateCalendarFile(gamesCasa, "somerville-united-mens-casa.ics", "Somerville United FC II");
+    await generateCalendarFile(gamesAPSL, "sufc-mens-apsl.ics", "Somerville United FC");
+    await generateCalendarFile(gamesCasa, "sufc-mens-casa.ics", "Somerville United FC II");
 
     console.log("\n✓ Calendar generation complete!");
   } catch (error) {
