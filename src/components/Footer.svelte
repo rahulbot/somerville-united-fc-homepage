@@ -16,7 +16,11 @@ import casa from "@assets/casa-logo-white.png";
     <div class="container footer-content">
       <div class="footer-left">
         <div class="brand-name">SOMERVILLE UNITED FC</div>
-        <p class="copyright">© 2025 Somerville United FC. All rights reserved. Photo credits: Cosmo Bhargava.</p>
+        <p class="copyright">
+          © 2025 Somerville United FC. All rights reserved.
+          <br />
+          Photo credits: J Mass Media, Rahul Bhargava, Cosmo Bhargava.
+        </p>
         <SocialLinks size={40} color="#FFFFFF" />
         <div class="footer-links">
           <a href="https://apslsoccer.com/APSL/Team/131978"><img src="{apsl}" alt="APSL" class="footer-logo" /></a>
@@ -71,7 +75,7 @@ import casa from "@assets/casa-logo-white.png";
   }
   
   .footer-links {
-    margin: 3rem 0;
+    margin: 2rem 0;
   }
 
   .footer-logo {

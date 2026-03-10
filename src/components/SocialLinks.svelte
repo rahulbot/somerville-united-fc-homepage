@@ -7,7 +7,7 @@
   let { size=28, color="#000000" } = $props();
 </script>
 
-<div >
+<div class="social-links">
   <a href="https://www.instagram.com/somervilleunitedfc/">
     <InstagramLogo {size} {color} />
   </a>
@@ -27,6 +27,9 @@
 </div>
 
 <style>
+  .social-links {
+    margin: 2rem 0 1rem 0;
+  }
   a {
     margin-right: 13px;
   }
