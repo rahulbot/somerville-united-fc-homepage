@@ -19,7 +19,7 @@ import casa from "@assets/casa-logo-white.png";
         <p class="copyright">
           © 2025 Somerville United FC. All rights reserved.
           <br />
-          Photo credits: J Mass Media, Rahul Bhargava, Cosmo Bhargava.
+          Photo credits: <a href="https://www.instagram.com/jmass_studios/">JMass Studios</a>, Rahul Bhargava, Cosmo Bhargava.
         </p>
         <SocialLinks size={40} color="#FFFFFF" />
         <div class="footer-links">
@@ -45,6 +45,10 @@ import casa from "@assets/casa-logo-white.png";
     color: rgba(255, 255, 255, 0.6);
     font-size: var(--font-size-sm);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  a {
+    color: var(--secondary-color-foreground);
   }
 
   .footer-content {
