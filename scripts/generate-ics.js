@@ -12,7 +12,7 @@ const MENS_LIVE_CASA_URL =
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const OUTPUT_DIR = path.join(__dirname, "../attached_assets/calendars");
+const OUTPUT_DIR = path.join(__dirname, "../static/calendars");
 
 /**
  * Parse date and time strings into local time object
@@ -130,17 +130,16 @@ async function generateCalendarFile(games, filename, teamFilter = null) {
 
   for (const game of games) {
     // Skip empty rows
-    if (!game.Date || !game.Home || !game.Away) continue;
+    if (!game.Date || !game.Home || !game.Away) {
+      console.warn(`Skipping incomplete game entry: ${JSON.stringify(game)}`);
+      continue;
+    }
 
     // Skip duplicates
     const gameKey = `${game.Date}|${game.Home}|${game.Away}`;
     if (seenGames.has(gameKey)) continue;
     seenGames.add(gameKey);
 
-    // Filter by team if specified
-    if (teamFilter && game.Home !== teamFilter && game.Away !== teamFilter) {
-      continue;
-    }
 
     const gameDateTime = parseGameDateTime(game.Date, game.Time);
     if (!gameDateTime) continue;
@@ -235,8 +234,8 @@ async function main() {
     console.log(`Found ${gamesAPSL.length} APSL games and ${gamesCasa.length} CASA games`);
 
     // Generate calendars
-    await generateCalendarFile(gamesAPSL, "somerville-united-apsl.ics", "SUFC - Men's APSL");
-    await generateCalendarFile(gamesCasa, "somerville-united-casa.ics", "SUFC II - Men's CASA");
+    await generateCalendarFile(gamesAPSL, "somerville-united-mens-apsl.ics", "Somerville United FC");
+    await generateCalendarFile(gamesCasa, "somerville-united-mens-casa.ics", "Somerville United FC II");
 
     console.log("\n✓ Calendar generation complete!");
   } catch (error) {
