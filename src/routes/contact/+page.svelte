@@ -19,40 +19,41 @@ $inspect(validData);
 </svelte:head>
 
 <div class="container">
-  <h1 class="page-title">Contact Us</h1>
-  
-  <p class="page-subtitle">Have a question or want to get involved? Send us a note We'll get back to you soon.</p>
+  <section>
 
-  <form action="https://api.web3forms.com/submit" method="POST">
-    <input type="hidden" name="access_key" value="78128264-8a39-4ff9-bfef-8d89f8145e81">
-    <input type="hidden" name="subject" value="New Submission from Website">
-
-    <fieldset>
-      <label for="name">Your Name</label>
-      <input type="text" name="name" id="name" required placeholder="What's your name?" bind:value={name}>
-    </fieldset>
-
-    <fieldset>
-      <label for="email">Your Email</label>
-      <input type="email" name="email" id="email" required placeholder="What's your email?" bind:value={email}>
-    </fieldset>
+    <h1 class="page-title">Contact Us</h1>
     
-    <fieldset>
-      <label for="message">Your Message</label>
-      <textarea name="message" id="message" required rows="5" placeholder="What's up?" bind:value={message}></textarea>
-    </fieldset>
+    <p class="page-subtitle">Have a question or want to get involved? Send us a note We'll get back to you soon.</p>
 
-    <button type="submit" class="btn-primary {validData ? '' : 'is-invalid'}" disabled={!validData}>Submit</button>
-    {#if !validData}
-      <p class="error-message">⚠️ Please fill out the form before trying to submit it.</p>
-    {/if}
-  </form>
+    <form action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="78128264-8a39-4ff9-bfef-8d89f8145e81">
+      <input type="hidden" name="subject" value="New Submission from Website">
+
+      <fieldset>
+        <label for="name">Your Name</label>
+        <input type="text" name="name" id="name" required placeholder="What's your name?" bind:value={name}>
+      </fieldset>
+
+      <fieldset>
+        <label for="email">Your Email</label>
+        <input type="email" name="email" id="email" required placeholder="What's your email?" bind:value={email}>
+      </fieldset>
+      
+      <fieldset>
+        <label for="message">Your Message</label>
+        <textarea name="message" id="message" required rows="5" placeholder="What's up?" bind:value={message}></textarea>
+      </fieldset>
+
+      <button type="submit" class="btn-primary {validData ? '' : 'is-invalid'}" disabled={!validData}>Submit</button>
+      {#if !validData}
+        <p class="error-message">⚠️ Please fill out the form before trying to submit it.</p>
+      {/if}
+    </form>
+
+  </section>
 </div>
 
 <style>
-  h1 {
-    margin-top: 2rem;
-  }
   form {
     p.error-message {
       padding: 1rem;

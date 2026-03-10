@@ -1,9 +1,11 @@
 <script>
   import logoImage from "@assets/logo.png";
-  import { Menu, X } from "lucide-svelte";
+  import { Menu, X, ChevronDown } from "lucide-svelte";
   import { page } from "$app/stores";
   
   let mobileMenuOpen = $state(false);
+  let teamsDropdownOpen = $state(false);
+  let aboutDropdownOpen = $state(false);
   
   const navLinks = [
     { href: "/", label: "Home" },
@@ -15,12 +17,38 @@
     { href: "/contact", label: "Contact" },
   ];
   
+  const teamsSubmenu = [
+    { href: "/team/mens", label: "Mens" },
+    { href: "/team/womens", label: "Womens" }
+  ];
+  
+  const aboutSubmenu = [
+    { href: "/about", label: "Our Story" },
+    { href: "/about#sponsors", label: "Sponsors" },
+    { href: "/about#management", label: "Management" }
+  ];
+  
   function toggleMenu() {
     mobileMenuOpen = !mobileMenuOpen;
   }
   
   function closeMenu() {
     mobileMenuOpen = false;
+  }
+  
+  function toggleTeamsDropdown() {
+    teamsDropdownOpen = !teamsDropdownOpen;
+    aboutDropdownOpen = false;
+  }
+  
+  function toggleAboutDropdown() {
+    aboutDropdownOpen = !aboutDropdownOpen;
+    teamsDropdownOpen = false;
+  }
+  
+  function closeDropdowns() {
+    teamsDropdownOpen = false;
+    aboutDropdownOpen = false;
   }
 </script>
 
@@ -35,13 +63,63 @@
     
     <div class="navbar-links desktop-links">
       {#each navLinks as link}
-        <a 
-          href={link.href} 
-          class="nav-link"
-          class:active={$page.url.pathname === link.href}
-        >
-          {link.label}
-        </a>
+        {#if link.label === "Teams"}
+          <div class="dropdown">
+            <button 
+              class="nav-link dropdown-toggle"
+              onclick={toggleTeamsDropdown}
+              class:active={$page.url.pathname.startsWith('/team')}
+            >
+              {link.label}
+              <ChevronDown size={16} class={teamsDropdownOpen ? "chevron rotate" : "chevron"} />
+            </button>
+            {#if teamsDropdownOpen}
+              <div class="dropdown-menu">
+                {#each teamsSubmenu as sublink}
+                  <a 
+                    href={sublink.href} 
+                    class="dropdown-item"
+                    onclick={closeDropdowns}
+                  >
+                    {sublink.label}
+                  </a>
+                {/each}
+              </div>
+            {/if}
+          </div>
+        {:else if link.label === "About"}
+          <div class="dropdown">
+            <button 
+              class="nav-link dropdown-toggle"
+              onclick={toggleAboutDropdown}
+              class:active={$page.url.pathname === '/about'}
+            >
+              {link.label}
+              <ChevronDown size={16} class={aboutDropdownOpen ? "chevron rotate" : "chevron"} />
+            </button>
+            {#if aboutDropdownOpen}
+              <div class="dropdown-menu">
+                {#each aboutSubmenu as sublink}
+                  <a 
+                    href={sublink.href} 
+                    class="dropdown-item"
+                    onclick={closeDropdowns}
+                  >
+                    {sublink.label}
+                  </a>
+                {/each}
+              </div>
+            {/if}
+          </div>
+        {:else}
+          <a 
+            href={link.href} 
+            class="nav-link"
+            class:active={$page.url.pathname === link.href}
+          >
+            {link.label}
+          </a>
+        {/if}
       {/each}
       <a href="https://account.venmo.com/u/SomervilleUnitedFC">
         <button class="btn-primary">Donate</button>
@@ -143,6 +221,79 @@
   .nav-link.active {
     color: var(--primary-color);
     font-weight: 700;
+  }
+  
+  .dropdown {
+    position: relative;
+  }
+  
+  .dropdown-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: var(--font-size-sm);
+    color: var(--dark-color);
+    text-decoration: none;
+    transition: color 0.2s;
+    border-radius: 0;
+    text-transform: none;
+    letter-spacing: normal;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  
+  .dropdown-toggle:hover {
+    color: var(--primary-color);
+    background: none;
+    transform: none;
+    box-shadow: none;
+  }
+  
+  .dropdown-toggle.active {
+    color: var(--primary-color);
+    font-weight: 700;
+  }
+  
+  .dropdown-toggle :global(.chevron) {
+    transition: transform 0.2s;
+  }
+  
+  .dropdown-toggle :global(.chevron.rotate) {
+    transform: rotate(180deg);
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 0.5rem;
+    background-color: white;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    min-width: 10rem;
+    padding: 0.5rem;
+    z-index: 100;
+  }
+  
+  .dropdown-item {
+    display: block;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    font-size: var(--font-size-sm);
+    color: var(--dark-color);
+    text-decoration: none;
+    border-radius: calc(var(--radius) - 2px);
+    transition: background-color 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+  
+  .dropdown-item:hover {
+    background-color: rgba(var(--primary-color-rgb), 0.1);
+    color: var(--primary-color);
   }
 
   .hamburger {
