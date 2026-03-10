@@ -1,0 +1,40 @@
+name: Generate ICS Calendars
+
+on:
+  schedule:
+    # Runs at midnight ET (5am UTC for EST/4am UTC for EDT)
+    - cron: '0 5 * * *'
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  generate-calendars:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Generate calendar files
+        run: npm run generate-ics
+        
+      - name: Check for changes
+        id: git-check
+        run: |
+          git diff --exit-code attached_assets/calendars/ || echo "changed=true" >> $GITHUB_OUTPUT
+          
+      - name: Commit and push changes
+        if: steps.git-check.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add attached_assets/calendars/
+          git commit -m "updated calendars"
+          git push
