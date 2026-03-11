@@ -16,6 +16,7 @@
   import extendedFamilyProductions from "@assets/sponsors/extended-family-productions.jpeg";
   import jMassStudios from "@assets/sponsors/j-mass-studios.jpeg";
   import apsl from "@assets/sponsors/apsl.png";
+  import newLeafEspresso from "@assets/sponsors/new-leaf-espresso.png";
 </script>
 
 <section>
@@ -58,6 +59,9 @@
     </a>
     <a href="https://www.instagram.com/thetouchlinestudio/" target="_blank" rel="noopener noreferrer" class="sponsor-logo">
       <img src={jTouchline} alt="Touchline Studio" />
+    </a>
+    <a href="https://www.newleafespresso.com/" target="_blank" rel="noopener noreferrer" class="sponsor-logo">
+      <img src={newLeafEspresso} alt="New Leaf Espresso" />
     </a>
     <img src={mulligans} alt="Mulligans" />
     <a href="http://ardsley.org" target="_blank" rel="noopener noreferrer" class="sponsor-logo">
