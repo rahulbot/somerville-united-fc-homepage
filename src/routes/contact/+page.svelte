@@ -25,7 +25,15 @@ $inspect(validData);
     
     <p class="page-subtitle">Have a question or want to get involved? Send us a note We'll get back to you soon.</p>
 
+    <dl>
+      <dt>Media Inquiries</dt>
+      <dd><a href="mailto:media@somervilleunitedfc.org">media [at] somervilleunitedfc.org</a></dd>
+      <dt>General Inquiries</dt>
+      <dd><a href="mailto:info@somervilleunitedfc.org">info [at] somervilleunitedfc.org</a></dd>
+    </dl>
+
     <form action="https://api.web3forms.com/submit" method="POST">
+      <h3>Drop us a Note:</h3>
       <input type="hidden" name="access_key" value="78128264-8a39-4ff9-bfef-8d89f8145e81">
       <input type="hidden" name="subject" value="New Submission from Website">
 
@@ -54,7 +62,19 @@ $inspect(validData);
 </div>
 
 <style>
+  dt {
+    font-size: var(--font-size-sm);
+    text-transform: uppercase;
+    font-weight: 100;
+    color: var(--primary-color);
+  }
+  dd {
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
   form {
+    margin-top: 2rem;
+
     p.error-message {
       padding: 1rem;
       background-color: rgba(255, 170, 0, 0.1);
