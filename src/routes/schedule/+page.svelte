@@ -153,7 +153,7 @@
             aria-label="Subscribe to our calendar for the Men's Flagship team"
           >
             <Calendar size={16} aria-hidden="true" />
-            subscribe to Men's Flagship calendar
+            add Men's Flagship games to your calendar 
           </button>
         </div>
         <p>Our flagship men's team plays in the APSL Mayflower Conference. Home games are at Dilboy Stadum in Somerville.</p>
@@ -170,7 +170,7 @@
             aria-label="Subscribe to our calendar for the Men's Reserve team"
           >
             <Calendar size={16} aria-hidden="true" />
-            subscribe to Men's Reserve calendar
+            add Men's Reserve games to your calendar
           </button>
         </div>
         <p>Our reserve men's team plays in the CASA Boston league. Home games are at Conway Park in Somerville.</p>
