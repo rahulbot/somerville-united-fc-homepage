@@ -10,7 +10,6 @@ function isEmailValid(email) {
 }
 
 let validData = $derived(name.trim() !== "" && email.trim() !== "" && message.trim() !== "" && isEmailValid(email));
-$inspect(validData);
 </script>
 
 <svelte:head>
