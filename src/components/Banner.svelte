@@ -1,6 +1,6 @@
 <div class="banner">
   <div class="container">
-    🎟️ <a href="https://docs.google.com/forms/d/e/1FAIpQLSdz-Bopq-c6-255YdsnbRmBg6Yn8hCu6NMi2CSxKVV4nMWX7w/viewform">Reserve your <em>free</em> ticket to our March 15th home opener now!</a> 🎟️
+    🎟️ <a href="https://docs.google.com/forms/d/e/1FAIpQLSeR01NHO1hd1ZNqs3vB2miKHv0VNn4Broi0AOL40Z2qHOGdEQ/viewform">Reserve your <em>free</em> ticket to our March 22th game</a> 🎟️
   </div>
 </div>
 
