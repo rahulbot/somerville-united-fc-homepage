@@ -1,14 +1,21 @@
 <script>
-  let { game, teamName, includeTicketButton } = $props(); // keys: Day, Date, Time, Venue, Address, Home, Away, Postponed
+    import { getAbortSignal } from "svelte";
+
+  const { game, teamName, includeTicketButton } = $props(); // keys: Day, Date, Time, Venue, Address, Home, Away, Postponed
+  const isHome = $derived(game.Home === teamName);
+  const isPostponed = $derived(game.Postponed === 'Yes');
+  const isToday = $derived(!isNaN(new Date(game.Date)) && (new Date().toDateString() === new Date(game.Date).toDateString()));
+  const inPast = $derived(!isNaN(new Date(game.Date)) && (new Date() > new Date(game.Date)));
+  const hasTicketLink = $derived((includeTicketButton && isHome) && (game.Tickets && game.Tickets.startsWith('http')));
+
   // try to parse game.Date as a date, otherwise leave it as is because it might be TBD
-  let isHome = $derived(game.Home === teamName);
-  let isPostponed = $derived(game.Postponed === 'Yes');
   let displayDate = $derived.by(() => {
     let dateStr;
     try {
-      let parsedDate = new Date(game.Date);
-      if (isNaN(parsedDate)) throw new Error("Invalid date");
-      dateStr = parsedDate.toLocaleDateString("en-US", { month: 'short', day: 'numeric' });
+      if (isNaN(new Date(game.Date))) {
+        throw new Error("Invalid date");
+      }
+      dateStr = (new Date(game.Date)).toLocaleDateString("en-US", { month: 'short', day: 'numeric' });
     } catch {
       dateStr = game.Date;
     }
@@ -16,7 +23,7 @@
   });
 </script>
 
-<div class="game-row" class:postponed={isPostponed}>
+<div class="game-row" class:past={inPast}>
   <div>
     <div class="date-circle">
       <span class="game-date">{displayDate}</span>
@@ -35,8 +42,25 @@
   </div>
   <div>
     {#if isPostponed}
-      <span class="postponed-chip">Postponed</span>
-    {:else if (includeTicketButton && isHome) && (game.Tickets && game.Tickets.startsWith('http')) }
+      <span class="chip postponed">Postponed</span>
+    {:else if inPast}
+      {#if game.Result == 'W'}
+        <span class="chip win">
+          Win
+          {#if game.Note }<span class="note">{game.Note}</span>{/if}
+        </span>
+      {:else if game.Result == 'L'}
+        <span class="chip loss">
+          Loss
+          {#if game.Note }<span class="note">{game.Note}</span>{/if}
+        </span>
+      {:else if game.Result == 'D'}
+        <span class="chip draw">
+          Draw
+          {#if game.Note }<span class="note">{game.Note}</span>{/if}
+        </span>
+      {/if}
+    {:else if hasTicketLink}
       <a href={game.Tickets} target="_blank" rel="noopener noreferrer">
         <button class="btn-primary">Get Tickets</button>
       </a>
@@ -53,7 +77,7 @@
     padding: 25px 0;
     border-top: 1px dashed rgba(var(--secondary-color-rgb), 0.3);
   }
-  .game-row.postponed {
+  .game-row.past {
     opacity: 0.4;
   }
   .game-row > div {
@@ -108,9 +132,15 @@
     font-style: italic;
   }
 
-  .postponed-chip {
-    background-color: var(--alert-color);
+  .note {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: none;
+  }
+
+  .chip {
     padding: 8px 16px;
+    font-size: 1.2rem;
     border-radius: 20px;
     border-radius: var(--radius);
     font-family: var(--font-heading);
@@ -121,6 +151,18 @@
     padding: 0.75rem 1.5rem;
     border-radius: var(--radius);
     float: right;
+    &.postponed {
+      background-color: #cccccc;
+    }
+    &.win {
+      background-color: #4caf50;
+    }
+    &.loss {
+      background-color: #f44336;
+    }
+    &.draw {
+      background-color: #cccccc;
+    }
   }
 
   button {
