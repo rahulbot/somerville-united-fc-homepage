@@ -7,7 +7,7 @@
 
 <div class="page-wrapper">
   <Navbar />
-  <Banner />
+  <!-- <Banner /> -->
   <main>
     <slot />
   </main>
