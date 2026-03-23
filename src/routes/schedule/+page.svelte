@@ -106,7 +106,7 @@
       {/if}
     </h1>
     <p class="page-subtitle">
-      Somerville United FC fields men's teams in the <a href="https://apslsoccer.com/APSL/Teams/">semi-pro APSL Mayflower Conference</a> and the <a href="https://www.casasoccerleagues.com/boston">amatuer CASA Boston league</a>. We'd love to have you join at one of our upcoming games!
+      Somerville United FC fields men's teams in the <a href="https://apslsoccer.com/APSL/Tables/">semi-pro APSL Mayflower Conference</a> and the <a href="https://www.casasoccerleagues.com/massachusetts">amatuer CASA Massachusetts Select Liga 1</a>. We'd love to have you join at one of our upcoming games!
     </p>
 
     <div class="tabs" role="tablist" aria-label="Select Team">
