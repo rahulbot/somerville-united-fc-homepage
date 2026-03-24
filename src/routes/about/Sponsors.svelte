@@ -17,6 +17,7 @@
   import jMassStudios from "@assets/sponsors/j-mass-studios.jpeg";
   import apsl from "@assets/sponsors/apsl.png";
   import newLeafEspresso from "@assets/sponsors/new-leaf-espresso.png";
+  import missingMoney from "@assets/sponsors/missing-money.png";
 </script>
 
 <section>
@@ -27,56 +28,59 @@
     </p>
   </div>
   <div class="sponsor-logo-grid">
-    <a href="https://newenglandpremiersportsplex.com" target="_blank" rel="noopener noreferrer" class="sponsor-logo">
+    <a href="https://newenglandpremiersportsplex.com" target="_blank" class="sponsor-logo">
       <img src={newEnglandPremierSportsplex} alt="New England Premier Sportsplex" />
     </a>
-    <a href="https://thegoalfactoryllc.com" target="_blank" rel="noopener noreferrer" class="sponsor-logo">
+    <a href="https://thegoalfactoryllc.com" target="_blank" class="sponsor-logo">
       <img src={theGoalFactory} alt="The Goal Factory" />
     </a>
-    <a href="https://somervillema.myrec.com/" target="_blank" rel="noopener noreferrer" class="sponsor-logo">
+    <a href="https://https://missingmoney.com" target="_blank" class="sponsor-logo">
+      <img src={missingMoney} alt="Missing Money" />
+    </a>
+    <a href="https://somervillema.myrec.com/" target="_blank" class="sponsor-logo">
       <img src={somervilleRec} alt="Somerville Rec" />
     </a>
-    <a href="https://www.instagram.com/jmass_studios/" target="_blank" rel="noopener noreferrer" class="sponsor-logo">
+    <a href="https://www.instagram.com/jmass_studios/" target="_blank" class="sponsor-logo">
       <img src={jMassStudios} alt="J Mass Studios" />
     </a>
-    <a href="https://www.somervillesoccer.org" target="_blank" rel="noopener noreferrer" class="sponsor-logo">
+    <a href="https://www.somervillesoccer.org" target="_blank" class="sponsor-logo">
       <img src={somervilleYouthSoccer} alt="Somerville Youth Soccer" />
     </a>
-    <a href="https://cityslickercafe.com/store/somerville/" target="_blank" rel="noopener noreferrer" class="sponsor-logo">
+    <a href="https://cityslickercafe.com/store/somerville/" target="_blank" class="sponsor-logo">
       <img src={cafeCitySlicker} alt="Cafe City Slicker" />
     </a>
-    <a href="https://www.winterhillbrewing.com/" target="_blank" rel="noopener noreferrer" class="sponsor-logo">
+    <a href="https://www.winterhillbrewing.com/" target="_blank" class="sponsor-logo">
       <img src={winterHillBrewingCompany} alt="Winter Hill Brewing Company" />
     </a>
-    <a href="https://apslsoccer.com" target="_blank" rel="noopener noreferrer" class="sponsor-logo">
+    <a href="https://apslsoccer.com" target="_blank" class="sponsor-logo">
       <img src={apsl} alt="American Premier Soccer League" />
     </a>
-    <a href="https://www.mass-soccer.org" target="_blank" rel="noopener noreferrer" class="sponsor-logo">
+    <a href="https://www.mass-soccer.org" target="_blank" class="sponsor-logo">
       <img src={massSoccer} alt="Mass Soccer" />
     </a>
-    <a href="https://www.instagram.com/newenglandcombinefc/" target="_blank" rel="noopener noreferrer" class="sponsor-logo">
+    <a href="https://www.instagram.com/newenglandcombinefc/" target="_blank" class="sponsor-logo">
       <img src={newEnglandCombineFC} alt="New England Combine FC" />
     </a>
-    <a href="https://www.instagram.com/thetouchlinestudio/" target="_blank" rel="noopener noreferrer" class="sponsor-logo">
+    <a href="https://www.instagram.com/thetouchlinestudio/" target="_blank" class="sponsor-logo">
       <img src={jTouchline} alt="Touchline Studio" />
     </a>
-    <a href="https://www.newleafespresso.com/" target="_blank" rel="noopener noreferrer" class="sponsor-logo">
+    <a href="https://www.newleafespresso.com/" target="_blank" class="sponsor-logo">
       <img src={newLeafEspresso} alt="New Leaf Espresso" />
     </a>
     <img src={mulligans} alt="Mulligans" />
-    <a href="http://ardsley.org" target="_blank" rel="noopener noreferrer" class="sponsor-logo">
+    <a href="http://ardsley.org" target="_blank" class="sponsor-logo">
       <img src={ardsley} alt="Ardsley" />
     </a>
-    <a href="https://www.somervillecommunitylandtrust.org" target="_blank" rel="noopener noreferrer" class="sponsor-logo">
+    <a href="https://www.somervillecommunitylandtrust.org" target="_blank" class="sponsor-logo">
       <img src={somervilleLandTrust} alt="Somerville Community Land Trust" />
     </a>
-    <a href="https://leguptraining.com" target="_blank" rel="noopener noreferrer" class="sponsor-logo">
+    <a href="https://leguptraining.com" target="_blank" class="sponsor-logo">
       <img src={legUpSoccer} alt="Leg Up Soccer" />
     </a>
-    <a href="https://www.soccerwithoutborders.org" target="_blank" rel="noopener noreferrer" class="sponsor-logo">
+    <a href="https://www.soccerwithoutborders.org" target="_blank" class="sponsor-logo">
       <img src={soccerWithoutBorders} alt="Soccer Without Borders" />
     </a>
-    <a href="https://www.instagram.com/extendedfamilyproductions/" target="_blank" rel="noopener noreferrer" class="sponsor-logo">
+    <a href="https://www.instagram.com/extendedfamilyproductions/" target="_blank" class="sponsor-logo">
       <img src={extendedFamilyProductions} alt="Extended Family Productions" />
     </a>
   </div>
