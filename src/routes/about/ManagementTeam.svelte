@@ -20,7 +20,7 @@
   import headshotJG2 from "@assets/staff/jonah-giaquinto.jpg";
   import headshotSZ from "@assets/staff/samuel-zhou.jpg";
   import headshotJR from "@assets/staff/jack-resnik.jpg";
-  import headshotPM from "@assets/staff/patrick-mcquillen.png";
+  import headshotPM from "@assets/staff/patrick-mcquillen.jpg";
   import headshotEM from "@assets/staff/emily-mendes.png";
   import headshotAC from "@assets/staff/angela-cornacchio.png";
   import headshotHF from "@assets/staff/harry-flamm.png";
@@ -121,8 +121,8 @@
     },
     {
       name: "Patrick McQuillen",
-      title: "Strategic Planning Lead",
-      description: "Patrick McQuillen is a 5 year resident of Somerville and is very excited to join the team. He is ready to grow recognition, awareness and connection between the club and the Somerville community.",
+      title: "Community Liaison & Operations Advisor",
+      description: "Patrick is a five-year resident of Somerville and avid sports fan. Bringing experience from the Harwich Mariners of the Cape Cod Baseball League, Patrick understands the importance of connection between teams and the communities they represent. As community liaison, he uses his experience in outreach, communication and community building to create lasting and meaningful relationships between our club and Somerville as a whole.",
       image: headshotPM
     }, 
     {
