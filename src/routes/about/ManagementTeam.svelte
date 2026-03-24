@@ -26,6 +26,7 @@
   import headshotHF from "@assets/staff/harry-flamm.png";
   import headshotBL from "@assets/staff/billy-limperis.png";
   import headshotRB from "@assets/staff/rahul-bhargava.jpg";
+  import headshotAPD from "@assets/staff/andrew-pham-do.jpg";
 
   const people = [
     {
@@ -123,7 +124,7 @@
       title: "Strategic Planning Lead",
       description: "Patrick McQuillen is a 5 year resident of Somerville and is very excited to join the team. He is ready to grow recognition, awareness and connection between the club and the Somerville community.",
       image: headshotPM
-    },
+    }, 
     {
       name: "Ty Wilhelmsen",
       title: "Players Health and Fitness",
@@ -144,7 +145,7 @@
     },
     {
       name: "Billy Limperis",
-      title: "Community Pperations and Analytics",
+      title: "Community Operations and Analytics",
       description: "Billy has a background in digital marketing and applied analytics, using SQL and Tableau daily to convey data into actionable insights. He became a fan of professional soccer during college, when his friends introduced him to the Premier League. Since then he’s become an avid Liverpool fan, and now follows many leagues both domestic and international. After moving to Somerville last summer, Billy can’t wait to see a local team flourish in the community & achieve great things!",
       image: headshotBL
     },
@@ -171,6 +172,12 @@
       title: "Website Manager",
       description: "Rahul Bhargava is joining SUFC to build out our website and advise of various other things going on. He is a life-long lover of international soccer, and has played (poorly) since he was a toddler. Rahul lives in Somerville and is actively involved with a variety of musical and social support groups.",
       image: headshotRB
+    },
+    {
+      name: "Andrew Pham-Do",
+      title: "Digital Marketing",
+      description: "Andrew brings over five years of digital marketing experience to the team, specializing in paid media and online brand growth. A lifelong soccer fan and active player, he’s excited to combine his professional skills with his passion for the game to help grow the club’s presence and connect with the local community.",
+      image: headshotAPD
     }
   ];
 </script>
