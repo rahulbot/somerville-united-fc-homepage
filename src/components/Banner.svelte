@@ -1,6 +1,6 @@
 <div class="banner">
   <div class="container">
-    🎟️ <a href="https://docs.google.com/forms/d/e/1FAIpQLSeR01NHO1hd1ZNqs3vB2miKHv0VNn4Broi0AOL40Z2qHOGdEQ/viewform">Reserve your <em>free</em> ticket to our March 22nd game</a> 🎟️
+    ⚽️🍕 <a href="https://www.instagram.com/p/DWPllingd1X/">Our first *free* youth soccer clinic is 3/28 @ 10am</a> 🍕⚽️
   </div>
 </div>
 
