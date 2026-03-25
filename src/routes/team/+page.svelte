@@ -12,7 +12,7 @@
   <section>
     <h1>Our Teams</h1>
     <p class="page-subtitle">
-      We are actively recruiting players and staff for the inaugural men's team 2026 season. We'll launch our women's team in fall of 2026. 
+      Our men's teams launched in spring of 2026, and We are actively recruiting players and staff for the inaugural women's team season in spring 2027. 
       Stay tuned for updates on the full roster!
     </p>
     <div class="teams-container">

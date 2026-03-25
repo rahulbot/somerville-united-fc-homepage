@@ -19,14 +19,15 @@
         Somerville's Team
       </h3>
         <p class="text-lg">
-          Somerville United FC is based in Somerville, MA at <a href="https://www.somervillema.gov/dilboystadiumrenovation">Dilboy Stadium</a>. Our inaugural season kicks off in Spring 2026 as part of the 
+          Somerville United FC is based in Somerville, MA at <a href="https://www.somervillema.gov/dilboystadiumrenovation">Dilboy Stadium</a>. Our inaugural season kicked off in Spring 2026 as part of the 
           <a href="https://apslsoccer.com/APSL/Team/131978">American Premier Soccer League</a>, a nationwide league focused on 
           community engagement and player development. We are a nonprofit organization dedicated to 
           expanding access to soccer in Somerville through community-partnerships, easy access for players, a focus on player
           development, . Our mission is to build a club that reflects the diversity and spirit of our city, while 
           providing high-quality, competitive soccer opportunities for players.
           <br /><br />
-          Somerville United FC Women is set to compete beginning mid 2026. This will be the first women's team of its kind 
+          Somerville United FC Women is set to compete beginning in spring 2027. 
+          This will be the first women's team of its kind 
           in the area, marking a historic milestone for both our club and the community.
           This initiative reflects our commitment to expanding opportunities for women in the game and 
           growing the sport at every level. Somerville United FC Women will represent our city with 
