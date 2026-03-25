@@ -2,8 +2,8 @@
   import Hero from "./home/Hero.svelte";
   import Mission from "./home/Mission.svelte";
   import Values from "./home/Values.svelte";
-  import Community from "./home/Community.svelte";
   import GameDayHighlight from "./home/GameDayHighlight.svelte";
+  import Latest from "./home/Latest.svelte";
 
   const { data } = $props();
 
@@ -39,4 +39,4 @@
 <Hero {scrollTo} />
 <Mission />
 <Values />
-<Community />
+<Latest />

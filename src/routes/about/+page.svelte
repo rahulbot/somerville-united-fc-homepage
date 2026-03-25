@@ -3,6 +3,7 @@
   import DecoratedImage from "../../components/DecoratedImage.svelte";
   import ManagementTeam from "./ManagementTeam.svelte";
   import Sponsors from "./Sponsors.svelte";
+  import Community from "./Community.svelte";
 </script>
 
 <svelte:head>
@@ -46,6 +47,8 @@
 
 <a name="management" title="Management"></a>
 <ManagementTeam />
+
+<Community />
 
 <style>
 

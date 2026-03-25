@@ -24,7 +24,7 @@
       </h3>
       {#if hasLivestream}
         <div class="video-wrapper">
-          <iframe
+          <iframe width="560" height="315" 
             src={game.Livestream}
             title="Somerville United FC Game Livestream"
             frameborder="0"
@@ -34,6 +34,9 @@
           </iframe>
         </div>
       {/if}
+<a class="twitter-timeline" href="https://twitter.com/svilleunitedfc?ref_src=twsrc%5Etfw">Tweets by svilleunitedfc</a>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
       <p class="marquee">
         {#each Array(10) as _}
           <span class="text-block">GAME DAY</span>
@@ -52,10 +55,7 @@
   align-items: center;
   margin-bottom: 20px;
 }
-iframe {
-    aspect-ratio: 16 / 9;
-    width: 100% !important;
-}
+
 h3 {
   color: white;
   margin-top: 1rem;
