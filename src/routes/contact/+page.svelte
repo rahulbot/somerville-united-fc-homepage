@@ -29,6 +29,8 @@ let validData = $derived(name.trim() !== "" && email.trim() !== "" && message.tr
       <dd><a href="mailto:media@somervilleunitedfc.org">media [at] somervilleunitedfc.org</a></dd>
       <dt>General Inquiries</dt>
       <dd><a href="mailto:info@somervilleunitedfc.org">info [at] somervilleunitedfc.org</a></dd>
+      <dt>Women's Team</dt>
+      <dd><a href="mailto:womens@somervilleunitedfc.org">womens [at] somervilleunitedfc.org</a></dd>
     </dl>
 
     <form action="https://api.web3forms.com/submit" method="POST">
