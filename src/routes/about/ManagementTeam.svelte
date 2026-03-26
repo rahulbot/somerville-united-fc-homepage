@@ -1,5 +1,5 @@
 <script>
-  import MemberList from "./MemberList.svelte";
+  import MemberList from "../../components/MemberList.svelte";
 
   // head shots of all the staff
   import headshotRSO from "@assets/staff/robert-sifa-onjiko.jpg";
@@ -79,13 +79,13 @@
     },
     {
       name: "Emily Mendes",
-      title: "Team Manager (SUFC Women)",
+      title: "Partnerships & Team Manager (SUFC Women)",
       description: "Emily is originally from Brooklyn, NY and has lived in Boston for the past five years. She's currently a Sales Manager at Education First in Cambridge. Before that, Emily coached and managed soccer at different levels - youth, community and pro. She worked briefly with Gotham FC, ran a youth soccer club in NYC, and coached with Street Soccer USA. She is super passionate about growing the women's game, supporting Boston's soccer scene, and helping build strong community programs. You won't want to miss getting to know her!",
       image: headshotEM
     },
     {
       name: "Angela Cornacchio",
-      title: "Business Coordinator (SUFC Women)",
+      title: "Business Development Coordinator (SUFC Women)",
       description: "Angela has been playing football her entire life. From youth club, ODP, college undefeated national championship, to professional play in Italy, Angela's passion for the game runs deep. Angela is still playing on a semi-professional level, coaches, previously served as Communications Director for the Boston Breakers and recently obtained her Global Sports Management Certification from NYU. As an award winning writer/media professional in fashion and 3x published author with her first book being about football, she brings unique perspective to the team. Angela bleeds AC Milan, never misses a match, and will skip anything for football.Somerville has been Angela's home for many years and she's excited to contribute to the women's team success.",
       image: headshotAC
     },
