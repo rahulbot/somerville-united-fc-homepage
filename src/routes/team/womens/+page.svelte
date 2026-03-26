@@ -25,12 +25,6 @@
       image: headshotMK
     },
     {
-      name: "Maria L. Colón Figueros",
-      title: "Physical Therapist",
-      description: "",
-      image: headershotPlaceholder
-    },
-    {
       name: "Reese D",
       title: "Volunteer",
       description: "",
