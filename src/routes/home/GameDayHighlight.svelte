@@ -1,7 +1,9 @@
 <script>
   const { game } = $props();
+  import { gameHasYouTubeVideo } from '$lib/video.js';
+
   let isHome = $derived(game.Home === "Somerville United FC");
-  const hasLivestream = $derived(game.Livestream && game.Livestream.startsWith('http'));
+  const hasLivestream = $derived(gameHasYouTubeVideo(game.YouTubeId));
 </script>
 
 <div class="wrapper">
@@ -25,7 +27,7 @@
       {#if hasLivestream}
         <div class="video-wrapper">
           <iframe width="560" height="315" 
-            src={game.Livestream}
+            src="https://www.youtube.com/embed/{game.YouTubeId}"
             title="Somerville United FC Game Livestream"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -34,8 +36,6 @@
           </iframe>
         </div>
       {/if}
-<a class="twitter-timeline" href="https://twitter.com/svilleunitedfc?ref_src=twsrc%5Etfw">Tweets by svilleunitedfc</a>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
       <p class="marquee">
         {#each Array(10) as _}

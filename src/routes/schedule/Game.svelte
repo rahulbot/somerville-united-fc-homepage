@@ -1,12 +1,13 @@
 <script>
-    import { getAbortSignal } from "svelte";
+  import { gameHasYouTubeVideo } from '$lib/video.js';
+  import YouTubeLogo from '../../components/icons/YouTubeLogo.svelte';
 
   const { game, teamName, includeTicketButton } = $props(); // keys: Day, Date, Time, Venue, Address, Home, Away, Postponed
   const isHome = $derived(game.Home === teamName);
   const isPostponed = $derived(game.Postponed === 'Yes');
-  const isToday = $derived(!isNaN(new Date(game.Date)) && (new Date().toDateString() === new Date(game.Date).toDateString()));
   const inPast = $derived(!isNaN(new Date(game.Date)) && (new Date() > new Date(game.Date)));
   const hasTicketLink = $derived((includeTicketButton && isHome) && (game.Tickets && game.Tickets.startsWith('http')));
+  const hasVideo = $derived(gameHasYouTubeVideo(game));
 
   // try to parse game.Date as a date, otherwise leave it as is because it might be TBD
   let displayDate = $derived.by(() => {
@@ -24,7 +25,7 @@
 </script>
 
 <div class="game-row" class:past={inPast}>
-  <div>
+  <div class="date-wrapper">
     <div class="date-circle">
       <span class="game-date">{displayDate}</span>
       <span class="game-time">{game.Time}</span>
@@ -32,7 +33,14 @@
   </div>
   <div>
     <span class="game-prefix">{isHome ? 'vs' : 'at'}</span>
-    <span class="game-opponent">{isHome ? game.Away : game.Home}</span>        
+    <span class="game-opponent">
+      {isHome ? game.Away : game.Home}
+      {#if hasVideo}
+        <a href="https://www.youtube.com/watch?v={game.YouTubeId}">
+          <YouTubeLogo size=30 color="#C1132E"  />
+        </a>
+      {/if}
+    </span>        
     <br />
     <span class="game-venue">{game.Venue}
       {#if game.Address}
@@ -40,7 +48,7 @@
       {/if}
     </span>
   </div>
-  <div>
+  <div class="status-wrapper">
     {#if isPostponed}
       <span class="chip postponed">Postponed</span>
     {:else if inPast}
@@ -78,7 +86,8 @@
     border-top: 1px dashed rgba(var(--secondary-color-rgb), 0.3);
   }
   .game-row.past {
-    opacity: 0.4;
+    opacity: 0.6;
+    background-color: #eee;
   }
   .game-row > div {
     text-align: left;
@@ -93,6 +102,9 @@
     flex: 0 0 30%;
   }
 
+  .date-wrapper {
+    padding-left: 10px;
+  }  
   .date-circle {
     width: 80px;
     height: 80px;
@@ -138,6 +150,10 @@
     text-transform: none;
   }
 
+  .status-wrapper {
+    padding-right: 10px;
+  }
+
   .chip {
     padding: 8px 16px;
     font-size: 1.2rem;
@@ -175,6 +191,9 @@
       padding: 15px 0;
       height: auto;
     }
+    .date-wrapper, .status-wrapper {
+      padding-left: 0px;
+    }  
     .date-circle {
       width: 60px;
       height: 60px;
@@ -194,12 +213,6 @@
     }
     .game-venue {
       font-size: 0.8rem;
-    }
-    .postponed-chip {
-      font-size: 0.7rem;
-      padding: 6px 12px;
-      float: none;
-      margin-top: 10px;
     }
     button {
       font-size: 0.8rem;
