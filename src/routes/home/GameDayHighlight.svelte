@@ -3,7 +3,7 @@
   import { gameHasYouTubeVideo } from '$lib/video.js';
 
   let isHome = $derived(game.Home === "Somerville United FC");
-  const hasLivestream = $derived(gameHasYouTubeVideo(game.YouTubeId));
+  const hasLivestream = $derived(gameHasYouTubeVideo(game));
 </script>
 
 <div class="wrapper">
