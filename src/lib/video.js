@@ -5,7 +5,10 @@ function validateYouTubeVideoId(potentialId) {
     return youtubeRegex.test(potentialId);
 }
 
-export function gameHasYouTubeVideo(game) {
+export function gameHasYouTubeId(game) {
     return game.YouTubeId && validateYouTubeVideoId(game.YouTubeId);
 }
 
+export function gameHasVideoUrl(game) {
+    return game.YouTubeId && (game.YouTubeId.trim() !== '') && game.YouTubeId.startsWith('http');
+}

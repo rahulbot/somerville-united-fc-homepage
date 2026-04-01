@@ -1,5 +1,5 @@
 <script>
-  import { gameHasYouTubeVideo } from '$lib/video.js';
+  import { gameHasYouTubeId, gameHasVideoUrl } from '$lib/video.js';
   import YouTubeLogo from '../../components/icons/YouTubeLogo.svelte';
 
   const { game, teamName, includeTicketButton } = $props(); // keys: Day, Date, Time, Venue, Address, Home, Away, Postponed
@@ -7,7 +7,8 @@
   const isPostponed = $derived(game.Postponed === 'Yes');
   const inPast = $derived(!isNaN(new Date(game.Date)) && (new Date() > new Date(game.Date)));
   const hasTicketLink = $derived((includeTicketButton && isHome) && (game.Tickets && game.Tickets.startsWith('http')));
-  const hasVideo = $derived(gameHasYouTubeVideo(game));
+  const hasYouTubeId = $derived(gameHasYouTubeId(game));
+  const hasVideoUrl = $derived(gameHasVideoUrl(game));
 
   // try to parse game.Date as a date, otherwise leave it as is because it might be TBD
   let displayDate = $derived.by(() => {
@@ -35,8 +36,13 @@
     <span class="game-prefix">{isHome ? 'vs' : 'at'}</span>
     <span class="game-opponent">
       {isHome ? game.Away : game.Home}
-      {#if hasVideo}
+      {#if hasYouTubeId}
         <a href="https://www.youtube.com/watch?v={game.YouTubeId}">
+          <YouTubeLogo size=30 color="#C1132E"  />
+        </a>
+      {/if}
+      {#if hasVideoUrl}
+        <a href={game.YouTubeId} target="_blank" rel="noopener noreferrer">
           <YouTubeLogo size=30 color="#C1132E"  />
         </a>
       {/if}

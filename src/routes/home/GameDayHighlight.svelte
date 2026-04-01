@@ -1,9 +1,11 @@
 <script>
+  import { gameHasYouTubeId, gameHasVideoUrl } from '$lib/video.js';
+  import YouTubeLogo from '../../components/icons/YouTubeLogo.svelte';
   const { game } = $props();
-  import { gameHasYouTubeVideo } from '$lib/video.js';
 
   let isHome = $derived(game.Home === "Somerville United FC");
-  const hasLivestream = $derived(gameHasYouTubeVideo(game));
+  const hasYouTubeId = $derived(gameHasYouTubeId(game));
+  const hasVideoUrl = $derived(gameHasVideoUrl(game));
 </script>
 
 <div class="wrapper">
@@ -24,7 +26,7 @@
           <span class="address">{game.Address}</span>
         {/if}
       </h3>
-      {#if hasLivestream}
+      {#if hasYouTubeId}
         <div class="video-wrapper">
           <iframe width="560" height="315" 
             src="https://www.youtube.com/embed/{game.YouTubeId}"
@@ -34,6 +36,13 @@
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen>
           </iframe>
+        </div>
+      {/if}
+      {#if hasVideoUrl}
+        <div class="video-link-wrapper">
+          <a href={game.YouTubeId} target="_blank" rel="noopener noreferrer" name="livestream">
+            <YouTubeLogo size=100 color="#ffffff"  />
+          </a>
         </div>
       {/if}
 
@@ -60,6 +69,7 @@ h3 {
   color: white;
   margin-top: 1rem;
   text-align: center;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
 }
 
 .address {
@@ -80,6 +90,7 @@ h3 {
   display: inline-flex;
   white-space: nowrap;
   margin: 0;
+  opacity: 0.5;
   animation: marquee 15s linear infinite;
 }
 
@@ -101,5 +112,18 @@ h3 {
   to {
     transform: translateX(-33.3333%);
   }
+}
+
+.video-link-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+  transition: transform 0.2s ease;
+}
+
+.video-link-wrapper:hover {
+  transform: scale(1.2);
 }
 </style>
