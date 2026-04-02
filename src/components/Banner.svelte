@@ -1,9 +1,9 @@
-<div class="banner">
+<!--<div class="banner">
   <div class="container">
     ⚽️🍕 <a href="https://www.instagram.com/p/DWPllingd1X/">Our first *free* youth soccer clinic is 3/28 @ 10am</a> 🍕⚽️
   </div>
 </div>
-
+-->
 
 <style>
   .banner {
