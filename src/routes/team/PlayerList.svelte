@@ -1,21 +1,56 @@
 <script>
     import PlayerCard from './PlayerCard.svelte';
-    import { TableOfContents, Grid3x3 } from 'lucide-svelte';
-    
+    import { TableOfContents, Grid3x3, ArrowUp, ArrowDown } from 'lucide-svelte';
+
     export const POSITION_ALL = 'All';
     export const POSITION_GK = 'GK';
     export const POSITION_DF = 'DF';
     export const POSITION_MF = 'MF';
     export const POSITION_FW = 'FW';
-    
+
     export const VIEW_CARD_GRID = 'CARD_GRID';
     export const VIEW_TABLE = 'TABLE';
     let view = $state(VIEW_CARD_GRID);
 
+    let sortColumn = $state('name');
+    let sortDirection = $state('asc');
+
+    function toggleSort(column) {
+        if (sortColumn === column) {
+            sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+        } else {
+            sortColumn = column;
+            sortDirection = 'asc';
+        }
+    }
+
+    function compareBy(column, dir) {
+        return (a, b) => {
+            let valA, valB;
+            if (column === 'name') {
+                valA = a['Last Name'] + ' ' + a['First Name'];
+                valB = b['Last Name'] + ' ' + b['First Name'];
+            } else if (column === 'number') {
+                const numA = a.Number !== '' ? Number(a.Number) : Infinity;
+                const numB = b.Number !== '' ? Number(b.Number) : Infinity;
+                return dir === 'asc' ? numA - numB : numB - numA;
+            } else if (column === 'position') {
+                valA = a.Position;
+                valB = b.Position;
+            } else if (column === 'hometown') {
+                valA = a.Hometown;
+                valB = b.Hometown;
+            } else if (column === 'college') {
+                valA = a['College NCAA/NJCAA Athlete'];
+                valB = b['College NCAA/NJCAA Athlete'];
+            }
+            const cmp = (valA || '').localeCompare(valB || '');
+            return dir === 'asc' ? cmp : -cmp;
+        };
+    }
+
     let { players = [], positionFilter =  POSITION_ALL} = $props();
-    const sortedPlayers = $derived(players.sort((a, b) => {
-        return a['Last Name'].localeCompare(b['Last Name']);
-    }));
+    const sortedPlayers = $derived([...players].sort(compareBy(sortColumn, sortDirection)));
     const filteredPlayers = $derived(
         positionFilter === POSITION_ALL ? sortedPlayers : sortedPlayers.filter(
             player => player.Position === positionFilter));
@@ -57,19 +92,48 @@
         <table>
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>
+                    <th onclick={() => toggleSort('name')} class="sortable">
+                        Name
+                        {#if sortColumn === 'name'}
+                            {#if sortDirection === 'asc'}<ArrowUp size={14} />{:else}<ArrowDown size={14} />{/if}
+                        {/if}
+                    </th>
+                    <th onclick={() => toggleSort('number')} class="sortable col-number">
+                        <span class="desktop-label">Jersey #</span>
+                        <span class="mobile-label">#</span>
+                        {#if sortColumn === 'number'}
+                            {#if sortDirection === 'asc'}<ArrowUp size={14} />{:else}<ArrowDown size={14} />{/if}
+                        {/if}
+                    </th>
+                    <th onclick={() => toggleSort('position')} class="sortable col-position">
                         <span class="desktop-label">Position</span>
                         <span class="mobile-label">Pos</span>
+                        {#if sortColumn === 'position'}
+                            {#if sortDirection === 'asc'}<ArrowUp size={14} />{:else}<ArrowDown size={14} />{/if}
+                        {/if}
                     </th>
-                    <th>Hometown</th>
-                    <th>College</th>
+                    <!-- <th onclick={() => toggleSort('hometown')} class="sortable">
+                        Hometown
+                        {#if sortColumn === 'hometown'}
+                            {#if sortDirection === 'asc'}<ArrowUp size={14} />{:else}<ArrowDown size={14} />{/if}
+                        {/if}
+                    </th> -->
+                    <th>
+                        Hometown
+                    </th>
+                    <th onclick={() => toggleSort('college')} class="sortable">
+                        College
+                        {#if sortColumn === 'college'}
+                            {#if sortDirection === 'asc'}<ArrowUp size={14} />{:else}<ArrowDown size={14} />{/if}
+                        {/if}
+                    </th>
                 </tr>
             </thead>
             <tbody>
                 {#each filteredPlayers as player}
                     <tr>
                         <td>{player['Last Name']}, {player['First Name']}</td>
+                        <td>{player.Number}</td>
                         <td>{player.Position}</td>
                         <td>{player.Hometown} {player.flag || '🇺🇸'}</td>
                         <td>{player['College NCAA/NJCAA Athlete']}</td>
@@ -132,6 +196,25 @@ table {
         z-index: 10;
         font-family: var(--font-heading);
     }
+    th.sortable {
+        cursor: pointer;
+        user-select: none;
+        white-space: nowrap;
+        & :global(svg) {
+            display: inline;
+            vertical-align: middle;
+            margin-left: 0.25rem;
+        }
+        &:hover {
+            background-color: color-mix(in srgb, var(--secondary-color) 85%, black);
+        }
+    }
+    th.col-number {
+        min-width: 6rem;
+    }
+    th.col-position {
+        min-width: 6rem;
+    }
     tr {
         vertical-align: top;
         &:nth-child(even) {
@@ -149,6 +232,15 @@ table {
         }
         th, td {
             padding: 2px;
+            font-size: 12px;
+        }
+        th.col-number, td:nth-child(2) {
+            width: 2rem;
+            min-width: unset;
+        }
+        th.col-position, td:nth-child(3) {
+            width: 2rem;
+            min-width: unset;
         }
     }
 }
