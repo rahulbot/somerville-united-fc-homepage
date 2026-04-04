@@ -1,6 +1,7 @@
 <script>
     import CardOverlay from './CardOverlay.svelte';
     import CardLowerThird from './CardLowerThird.svelte';
+    import { PlaySquare } from 'lucide-svelte';
     let { player } = $props(); // keys: Position, First Name, Last Name, Hometown, College NCAA/NJCAA Athlete
     const positionLookup = {
         'GK': 'Goalkeeper',
@@ -14,12 +15,20 @@
 <div class="card">
     <CardOverlay />
     <div class="photo-wrap">
-        <img class="photo" src={player.photoFileName} alt="{player['First Name']} {player['Last Name']}" />
+        {#if player.Photo == 'N'}
+            <img class="photo" src="/images/teams/mens/default-man.png" alt="{player['First Name']} {player['Last Name']}" />
+        {:else }
+            <img class="photo" src={player.photoFileName} alt="{player['First Name']} {player['Last Name']}" />
+        {/if }
     </div>
     <CardLowerThird />
     <div class="info">
         <h3 class="name">{player['First Name']} {player['Last Name']}</h3>
-        <p class="position">{position}</p>
+        <p class="position">{position}
+            {#if player.Number}
+                #{player.Number}
+            {/if}
+        </p>
         <p class="flag">{player.flag || '🇺🇸'}</p>
     </div>
 </div>
