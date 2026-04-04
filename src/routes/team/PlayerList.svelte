@@ -2,6 +2,12 @@
     import PlayerCard from './PlayerCard.svelte';
     import { TableOfContents, Grid3x3, ArrowUp, ArrowDown } from 'lucide-svelte';
 
+    const positionLookup = {
+        'GK': 'Goalkeeper',
+        'DF': 'Defender',
+        'MF': 'Midfielder',
+        'FW': 'Forward'
+    };
     export const POSITION_ALL = 'All';
     export const POSITION_GK = 'GK';
     export const POSITION_DF = 'DF';
@@ -49,7 +55,8 @@
         };
     }
 
-    let { players = [], positionFilter =  POSITION_ALL} = $props();
+    let { players = [] } = $props();
+    let positionFilter = $state(POSITION_ALL);
     const sortedPlayers = $derived([...players].sort(compareBy(sortColumn, sortDirection)));
     const filteredPlayers = $derived(
         positionFilter === POSITION_ALL ? sortedPlayers : sortedPlayers.filter(
@@ -57,27 +64,43 @@
 </script>
 
 
-<div class="view-toggle" role="group" aria-label="Player list view toggle">
-    <button
-        type="button"
-        class="toggle-button"
-        class:selected={view === VIEW_CARD_GRID}
-        aria-pressed={view === VIEW_CARD_GRID}
-        onclick={() => (view = VIEW_CARD_GRID)}
-    >
-        <Grid3x3 size={16} />
-        <span>Cards</span>
-    </button>
-    <button
-        type="button"
-        class="toggle-button"
-        class:selected={view === VIEW_TABLE}
-        aria-pressed={view === VIEW_TABLE}
-        onclick={() => (view = VIEW_TABLE)}
-    >
-        <TableOfContents size={16} />
-        <span>Table</span>
-    </button>
+<div class="controls">
+    <div class="view-toggle" role="group" aria-label="Player list view toggle">
+        <button
+            type="button"
+            class="toggle-button"
+            class:selected={view === VIEW_CARD_GRID}
+            aria-pressed={view === VIEW_CARD_GRID}
+            onclick={() => (view = VIEW_CARD_GRID)}
+        >
+            <Grid3x3 size={16} />
+            <span>Cards</span>
+        </button>
+        <button
+            type="button"
+            class="toggle-button"
+            class:selected={view === VIEW_TABLE}
+            aria-pressed={view === VIEW_TABLE}
+            onclick={() => (view = VIEW_TABLE)}
+        >
+            <TableOfContents size={16} />
+            <span>Table</span>
+        </button>
+    </div>
+    <div class="position-filter" role="group" aria-label="Filter by position">
+        <span class="filter-label">Filter</span>
+        <select
+            class="filter-select"
+            bind:value={positionFilter}
+            aria-label="Position filter"
+        >
+            <option value={POSITION_ALL}>All</option>
+            <option value={POSITION_GK}>{positionLookup[POSITION_GK]}</option>
+            <option value={POSITION_DF}>{positionLookup[POSITION_DF]}</option>
+            <option value={POSITION_MF}>{positionLookup[POSITION_MF]}</option>
+            <option value={POSITION_FW}>{positionLookup[POSITION_FW]}</option>
+        </select>
+    </div>
 </div>
 
 
@@ -145,6 +168,15 @@
 {/if}
 
 <style>
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin: 0 auto 4rem;
+    flex-wrap: wrap;
+}
+
 .view-toggle {
     display: flex;
     width: fit-content;
@@ -153,7 +185,36 @@
     border: 1px solid var(--muted-color);
     border-radius: var(--radius);
     padding: 0.25rem;
-    margin: 0 auto 4rem;
+}
+
+.position-filter {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid var(--muted-color);
+    border-radius: var(--radius);
+    padding: 0.5rem 0.75rem;
+}
+
+.filter-label {
+    font-size: var(--font-size-sm);
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+.filter-select {
+    border: none;
+    background: transparent;
+    color: var(--dark-color);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.2rem 0.1rem;
+    &:focus {
+        outline: none;
+    }
 }
 
 .toggle-button {
@@ -232,7 +293,7 @@ table {
         }
         th, td {
             padding: 2px;
-            font-size: 12px;
+            font-size: 14px;
         }
         th.col-number, td:nth-child(2) {
             width: 2rem;

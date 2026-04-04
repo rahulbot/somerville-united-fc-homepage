@@ -1,7 +1,6 @@
 <script>
     import CardOverlay from './CardOverlay.svelte';
     import CardLowerThird from './CardLowerThird.svelte';
-    import { PlaySquare } from 'lucide-svelte';
     let { player } = $props(); // keys: Position, First Name, Last Name, Hometown, College NCAA/NJCAA Athlete
     const positionLookup = {
         'GK': 'Goalkeeper',
