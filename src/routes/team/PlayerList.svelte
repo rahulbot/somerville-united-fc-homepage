@@ -155,7 +155,16 @@
             <tbody>
                 {#each filteredPlayers as player}
                     <tr>
-                        <td>{player['Last Name']}, {player['First Name']}</td>
+                        <td>
+                            <div class="photo-wrap">
+                                {#if player.Photo == 'N'}
+                                    <img class="photo" src="/images/teams/mens/default-man.png" alt="{player['First Name']} {player['Last Name']}" />
+                                {:else }
+                                    <img class="photo" src={player.photoFileName} alt="{player['First Name']} {player['Last Name']}" />
+                                {/if }
+                            </div>
+                            {player['Last Name']}, {player['First Name']}
+                        </td>
                         <td>{player.Number}</td>
                         <td>{player.Position}</td>
                         <td>{player.Hometown} {player.flag || '🇺🇸'}</td>
@@ -282,9 +291,22 @@ table {
             background-color: #f9f9f9;
         }
     }
+    .photo-wrap {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        overflow: hidden;
+        display: inline-block;
+        margin-right: 0.75rem;
+        vertical-align: middle;
+        border: 1px solid var(--muted-color);
+    }
 }
 @media (max-width: 600px) {
     table {
+        .photo-wrap {
+            display: none;
+        }
         .desktop-label {
             display: none;
         }
