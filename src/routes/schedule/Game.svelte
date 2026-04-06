@@ -25,7 +25,7 @@
   });
 </script>
 
-<div class="game-row" class:past={inPast}>
+<div class="game-row" class:past={inPast || game.Result}>
   <div class="date-wrapper">
     <div class="date-circle">
       <span class="game-date">{displayDate}</span>
@@ -57,7 +57,7 @@
   <div class="status-wrapper">
     {#if isPostponed}
       <span class="chip postponed">Postponed</span>
-    {:else if inPast}
+    {:else if inPast || game.Result}
       {#if game.Result == 'W'}
         <span class="chip win">
           Win
@@ -158,6 +158,7 @@
 
   .status-wrapper {
     padding-right: 10px;
+    text-align: center;
   }
 
   .chip {
@@ -167,10 +168,10 @@
     border-radius: var(--radius);
     font-family: var(--font-heading);
     text-transform: uppercase;
+    text-align: center;
     font-weight: 600;
-    align-items: center;
-    justify-content: center;
-    padding: 0.75rem 1.5rem;
+    padding: 0.5rem 1rem;
+    min-width: 100px;
     border-radius: var(--radius);
     float: right;
     &.postponed {
@@ -231,6 +232,9 @@
     }
     .game-row > div:nth-child(3) {
       flex: 0 0 20%;
+    }
+    .chip {
+      padding: 0.5rem 0.25rem;
     }
   }
 </style>
