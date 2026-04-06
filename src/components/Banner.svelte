@@ -1,8 +1,8 @@
-<div class="banner">
+<!--<div class="banner">
   <div class="container">
     Rematch with league leader Scrub Nation this Sat! <a href="/schedule">Details on our schedule</a>.
   </div>
-</div>
+</div>-->
 
 
 <style>
