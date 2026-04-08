@@ -14,7 +14,8 @@
     return (
       gameDate.getFullYear() === today.getFullYear() &&
       gameDate.getMonth() === today.getMonth() &&
-      gameDate.getDate() === today.getDate()
+      gameDate.getDate() === today.getDate() &&
+      (game.Result === null || game.Result.length == 0) // because some games might be foreited already
     );
   }));
 
