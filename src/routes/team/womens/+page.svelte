@@ -4,7 +4,9 @@
   import headshotAC from "@assets/staff/angela-cornacchio.png";
   import headershotPlaceholder from "@assets/placeholder-female.jpg";
   import headshotMK from "@assets/staff/malaika-kironde.jpg";
-
+  import headshotPMC from "@assets/staff/phoebe-martell-crawford.jpg";
+  import headshotCN from "@assets/staff/courtney-nunheimer.jpg";
+  
   const womensLeadership = [
     {
       name: "Emily Mendes",
@@ -19,6 +21,18 @@
       image: headshotAC
     },
     {
+      name: "Courtney Nunheimer",
+      title: "Player Recruitment",
+      description: "Courtney is a Somerville resident and the General Manger at Teddy’s on the Hill restaurant. She holds brings a wealth of expreince from studies in Business Management & Graphic Design, Marketing,  Photography, and Strategy. She is a current player in the EMWSL & for the Boston Dream. Country comes to us with background in player recruitment and plans to help our women grow and have successful tryouts by scouting colleges and working with coaching staff.",
+      image: headshotCN
+    },
+    {
+      name: "Phoebe Martell Crawford",
+      title: "Player Development",
+      description: "Phoebe is from Vermont, where she worked as an assistant coach for Middlebury College’s Womens soccer program. She's coached at the youth, high school, and college levels. Soccer creates connection and builds community, and Phoebe is eager to be part of growing the game.",
+      image: headshotPMC
+    },
+    {
       name: "Malaika Kironde",
       title: "Analyst",
       description: "Malaika started playing soccer after watching the 2010 World Cup with her dad and fell in love with the game shortly after. As an engineer, Malaika is looking forward to helping Somerville FC with analytical tasks and is excited to be a part of bringing soccer to Somerville.",
@@ -29,7 +43,7 @@
       title: "Volunteer",
       description: "",
       image: headershotPlaceholder
-    },
+    }
   ];
 </script>
 

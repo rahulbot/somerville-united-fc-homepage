@@ -16,7 +16,7 @@
 
     export const VIEW_CARD_GRID = 'CARD_GRID';
     export const VIEW_TABLE = 'TABLE';
-    let view = $state(VIEW_CARD_GRID);
+    let view = $state(VIEW_TABLE);
 
     let sortColumn = $state('name');
     let sortDirection = $state('asc');
@@ -69,22 +69,22 @@
         <button
             type="button"
             class="toggle-button"
-            class:selected={view === VIEW_CARD_GRID}
-            aria-pressed={view === VIEW_CARD_GRID}
-            onclick={() => (view = VIEW_CARD_GRID)}
-        >
-            <Grid3x3 size={16} />
-            <span>Cards</span>
-        </button>
-        <button
-            type="button"
-            class="toggle-button"
             class:selected={view === VIEW_TABLE}
             aria-pressed={view === VIEW_TABLE}
             onclick={() => (view = VIEW_TABLE)}
         >
             <TableOfContents size={16} />
             <span>Table</span>
+        </button>
+        <button
+            type="button"
+            class="toggle-button"
+            class:selected={view === VIEW_CARD_GRID}
+            aria-pressed={view === VIEW_CARD_GRID}
+            onclick={() => (view = VIEW_CARD_GRID)}
+        >
+            <Grid3x3 size={16} />
+            <span>Cards</span>
         </button>
     </div>
     <div class="position-filter" role="group" aria-label="Filter by position">

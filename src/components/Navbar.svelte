@@ -10,7 +10,7 @@
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/schedule", label: "Schedule & Tickets" },
-    { href: "/team", label: "Teams" },
+    { href: "/club", label: "Club" },
     { href: "https://somervilleunitedfc.beehiiv.com", label: "Newsletter" },
     { href: "/shop", label: "Shop" },
     { href: "/about", label: "About" },
@@ -63,12 +63,12 @@
     
     <div class="navbar-links desktop-links">
       {#each navLinks as link}
-        {#if link.label === "Teams"}
+        {#if link.label === "Club"}
           <div class="dropdown">
             <button 
               class="nav-link dropdown-toggle"
               onclick={toggleTeamsDropdown}
-              class:active={$page.url.pathname.startsWith('/team')}
+              class:active={$page.url.pathname.startsWith('club')}
             >
               {link.label}
               <ChevronDown size={16} class={teamsDropdownOpen ? "chevron rotate" : "chevron"} />
