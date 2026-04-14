@@ -27,6 +27,8 @@
   import headshotBL from "@assets/staff/billy-limperis.png";
   import headshotRB from "@assets/staff/rahul-bhargava.jpg";
   import headshotAPD from "@assets/staff/andrew-pham-do.jpg";
+  import headshotPMC from "@assets/staff/phoebe-martell-crawford.jpg";
+  import headshotCN from "@assets/staff/courtney-nunheimer.jpg";
 
   const people = [
     {
@@ -125,6 +127,18 @@
       description: "Patrick is a five-year resident of Somerville and avid sports fan. Bringing experience from the Harwich Mariners of the Cape Cod Baseball League, Patrick understands the importance of connection between teams and the communities they represent. As community liaison, he uses his experience in outreach, communication and community building to create lasting and meaningful relationships between our club and Somerville as a whole.",
       image: headshotPM
     }, 
+    {
+      name: "Courtney Nunheimer",
+      title: "Player Recruitment",
+      description: "Courtney is a Somerville resident and the General Manger at Teddy’s on the Hill restaurant. She holds brings a wealth of expreince from studies in Business Management & Graphic Design, Marketing,  Photography, and Strategy. She is a current player in the EMWSL & for the Boston Dream. Country comes to us with background in player recruitment and plans to help our women grow and have successful tryouts by scouting colleges and working with coaching staff.",
+      image: headshotCN
+    },
+    {
+      name: "Phoebe Martell Crawford",
+      title: "Player Development",
+      description: "Phoebe is from Vermont, where she worked as an assistant coach for Middlebury College’s Womens soccer program. She's coached at the youth, high school, and college levels. Soccer creates connection and builds community, and Phoebe is eager to be part of growing the game.",
+      image: headshotPMC
+    },
     {
       name: "Ty Wilhelmsen",
       title: "Players Health and Fitness",
