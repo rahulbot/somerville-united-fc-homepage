@@ -186,3 +186,50 @@ h1 {
 a {
   color: var(--secondary-color);
 }
+
+/* FORM STYLES */
+form {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+
+  p.error-message {
+    padding: 1rem;
+    background-color: rgba(255, 170, 0, 0.1);
+    border-radius: 10px;
+    display: inline-block;
+    margin-left: 20px;
+  }
+
+  button {
+    font-size: var(--font-size-lg);
+    &.is-invalid {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  label {
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    font-weight: bold;
+    display: block;
+    font-size: var(--font-size-sm);
+    margin-bottom: 5px;
+  }
+
+  fieldset {
+    border: 0px;
+    margin-bottom: 1.5rem;
+    &.honeypot-field {
+      display: none;
+    }
+  }
+
+  input, textarea {
+    font-size: (var(--font-size-md));
+    padding: 0.5rem;
+    width: 100%;
+    font-weight: bold;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+  }
+}

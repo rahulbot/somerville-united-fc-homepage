@@ -73,49 +73,5 @@ let validData = $derived(name.trim() !== "" && email.trim() !== "" && message.tr
     margin-bottom: 1rem;
     font-weight: 700;
   }
-  form {
-    margin-top: 2rem;
 
-    p.error-message {
-      padding: 1rem;
-      background-color: rgba(255, 170, 0, 0.1);
-      border-radius: 10px;
-      display: inline-block;
-      margin-left: 20px;
-    }
-  }
-
-  button {
-    &.is-invalid {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-  }
-  label {
-    color: var(--secondary-color);
-    text-transform: uppercase;
-    font-weight: bold;
-    display: block;
-    font-size: var(--font-size-sm);
-    margin-bottom: 5px;
-  }
-
-  fieldset {
-    border: 0px;
-    margin-bottom: 1.5rem;
-  }
-
-  input, textarea {
-    font-size: (var(--font-size-md));
-    padding: 0.5rem;
-    width: 100%;
-    font-weight: bold;
-    border: 1px solid rgba(226, 232, 240, 0.8);
-  }
-  button {
-    font-size: var(--font-size-lg);
-  }
-  form {
-    margin-bottom: 3rem;
-  }
 </style>
