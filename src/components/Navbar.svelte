@@ -359,4 +359,9 @@
       font-weight: 700;
     }
   }
+
+  button {
+    box-shadow: 0px 0px;
+  }
+
 </style>

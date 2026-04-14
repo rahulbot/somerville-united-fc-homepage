@@ -1,4 +1,10 @@
 <script>
+import { page } from '$app/stores';
+const { data } = $props();
+const scheduleApsl = $derived(data.gamesApsl);
+const ticketableGames = $derived(scheduleApsl.filter(game => game.RSVPable));
+const gameParam = $derived($page.url.searchParams.get('game'));
+
 // copied the approach from https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server
 
 // This is the URL of the Google Apps Script that will handle the form submission and write to 
@@ -117,34 +123,34 @@ function disableAllButtons(form) {
           onSubmit={handleFormSubmit} data-sheet="ticket_responses">
 
       <div class="form-elements">
-        <fieldset>
+        <fieldset class="inline">
           <label for="name">Game:</label>
           <select name="game" id="game">
-            <option value="2024-09-14">2024-09-14 vs. Boston City FC</option>
-            <option value="2024-10-05">2024-10-05 vs. New York Cosmos</option>
+            {#each ticketableGames as game}
+              <option value={`APSL-${game.Date}-${game.opponent}`} selected={gameParam === game.id}>
+                {game.Date} vs. {game.opponent} @ {game.Venue}
+              </option>
+            {/each}
           </select>
         </fieldset>
 
         <fieldset>
-          <label for="email"><em>Your</em> Email Address:</label>
-          <input id="email" name="email" type="email" value=""
-          required placeholder="your.name@email.com"/>
+          <label for="email">Your Email Address:</label>
+          <input id="email" name="email" type="email" value="" required placeholder="your.name@email.com"/>
         </fieldset>
 
         <fieldset>
           <label for="guests">Number of People: </label>
-          <input type="number" id="guests" name="guests" placeholder="1" min="1" max="10" />
+          <input type="number" id="guests" name="guests" placeholder="1" min="1" max="10" style="width: 100px" />
         </fieldset>
 
-        <fieldset>
+        <fieldset class="inline">
           <label for="newsletter">Subscribe to our newsletter: </label>
           <input type="checkbox" id="newsletter" name="newsletter" />
         </fieldset>
 
-        <fieldset class="honeypot-field">
-          <label for="honeypot">To help avoid spam, utilize a Honeypot technique with a hidden text field; must be empty to submit the form! Otherwise, we assume the user is a spam bot.</label>
-          <input id="honeypot" type="text" name="honeypot" value="" />
-        </fieldset>
+        <!-- To help avoid spam, utilize a Honeypot technique with a hidden text field; must be empty to submit the form! Otherwise, we assume the user is a spam bot. -->
+        <input id="honeypot" type="text" name="honeypot" value="" />
 
         <button type="submit" class="btn-primary">
           <i class="fa fa-paper-plane"></i>&nbsp;Send
@@ -162,4 +168,7 @@ function disableAllButtons(form) {
 </div>
 
 <style>
+#honeypot {
+  display: none;
+}
 </style>
