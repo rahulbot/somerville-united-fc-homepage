@@ -98,7 +98,7 @@ function handleFormSubmit(event) {  // handles form submit without any jquery
 
           <fieldset>
             <label for="email">Your Email Address:</label>
-            <input id="email" name="email" type="email" required placeholder="your.name@email.com" bind:value={email} />
+            <input id="email" name="email" type="email" required bind:value={email} />
           </fieldset>
 
           <fieldset>
@@ -107,8 +107,8 @@ function handleFormSubmit(event) {  // handles form submit without any jquery
           </fieldset>
 
           <fieldset class="inline">
-            <label for="newsletter">Subscribe to our newsletter: </label>
             <input type="checkbox" id="newsletter" name="newsletter" bind:checked={newsletter}/>
+            <label for="newsletter">Subscribe to our newsletter</label>
           </fieldset>
 
           <!-- To help avoid spam, utilize a Honeypot technique with a hidden text field; must be empty to submit the form! Otherwise, we assume the user is a spam bot. -->
@@ -143,14 +143,32 @@ function handleFormSubmit(event) {  // handles form submit without any jquery
   display: none;
 }
 
+input[type="checkbox"] {
+  /** need to override defaults for width*/
+  width: auto;
+  /** doing some CSS nonsense to align with text vertically */
+  transform: scale(1.5);
+  transform-origin: left center;
+  margin-right: 10px;
+  margin-top: -5px;
+  vertical-align: middle;
+}
+
 form {
-  width: 50%;
+  width: 60%;
+  padding: 10px;
   margin: 0 auto;
 }
 
 @media (max-width: 768px) {
   form {
     width: 100%;
+  }
+}
+
+.thankyou_message {
+  p {
+    margin-bottom: 2rem;
   }
 }
 </style>
