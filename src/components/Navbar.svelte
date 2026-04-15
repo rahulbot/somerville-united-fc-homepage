@@ -10,7 +10,7 @@
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/schedule", label: "Schedule & Tickets" },
-    { href: "/club", label: "Club" },
+    { href: "/team", label: "Club" },
     { href: "https://somervilleunitedfc.beehiiv.com", label: "Newsletter" },
     { href: "/shop", label: "Shop" },
     { href: "/about", label: "About" },
@@ -68,7 +68,7 @@
             <button 
               class="nav-link dropdown-toggle"
               onclick={toggleTeamsDropdown}
-              class:active={$page.url.pathname.startsWith('club')}
+              class:active={$page.url.pathname.startsWith('team')}
             >
               {link.label}
               <ChevronDown size={16} class={teamsDropdownOpen ? "chevron rotate" : "chevron"} />
