@@ -87,8 +87,8 @@ export async function loadCalendars(fetch) {
     const augmentGame = (g, league) => {
       g.league = league;
       g.opponent = g.Home.includes("Somerville United") ? g.Away : g.Home;
-      g.id = MD5(`${g.league}-${g.Date}-${g.Opponent}`);
       g.parsedDate = parseDate(g.Date)
+      g.id = MD5(`${g.league}-${g.parsedDate}`); // should be relatively stable across calendar edits
       g.finished = g.Result && g.Result.trim() !== "";
       g.RSVPable = !g.finished && (g.Tickets == "RSVP");
     };
