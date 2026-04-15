@@ -56,11 +56,6 @@ img {
   display: block;
 }
 
-button {
-  cursor: pointer;
-  font-family: inherit;
-}
-
 /* Layout Utilities */
 .container {
   width: 100%;
@@ -79,6 +74,8 @@ button {
 
 /* Component Utilities */
 button, .btn {
+  cursor: pointer;
+  font-family: inherit;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -91,9 +88,11 @@ button, .btn {
   border: none;
   transition: box-shadow 0.2s ease;
   text-decoration: none;
+  box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.9);
 
   &:hover {
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    transform: translate(-2px, -2px);
   }
 
   a {
@@ -213,23 +212,28 @@ form {
     text-transform: uppercase;
     font-weight: bold;
     display: block;
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-md);
     margin-bottom: 5px;
+
   }
 
   fieldset {
     border: 0px;
     margin-bottom: 1.5rem;
-    &.honeypot-field {
-      display: none;
+    &.inline {
+      label {
+        display: inline;
+      }
     }
   }
 
-  input, textarea {
+  input, textarea, select {
     font-size: (var(--font-size-md));
     padding: 0.5rem;
-    width: 100%;
-    font-weight: bold;
     border: 1px solid rgba(226, 232, 240, 0.8);
+  }
+  input, textarea {
+    font-weight: bold;
+    width: 100%;
   }
 }

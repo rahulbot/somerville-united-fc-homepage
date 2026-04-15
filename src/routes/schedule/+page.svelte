@@ -1,4 +1,5 @@
 <script>
+  import PhotoTrio from '../../components/PhotoTrio.svelte';
   import GameList from './GameList.svelte';
   import { Calendar, Copy, X } from 'lucide-svelte';
   import apslLogo from "@assets/APSL.gif";
@@ -208,6 +209,10 @@
         </div>
       </div>
     {/if}
+  </section>
+
+  <section>
+    <PhotoTrio />
   </section>
 </div>
 

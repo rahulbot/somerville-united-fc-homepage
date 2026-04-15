@@ -1,4 +1,5 @@
 import Papa from "papaparse";
+import { MD5 } from "$lib/string.js";
 
 // Use local browser state to cache calendar data for a short period to avoid excessive network requests and parsing on every page load. This is especially helpful if the underlying data doesn't change frequently.
 
@@ -83,8 +84,16 @@ export async function loadCalendars(fetch) {
         return null;
       }
     };
-    gamesAPSL.forEach(g => g.parsedDate = parseDate(g.Date));
-    gamesCasa.forEach(g => g.parsedDate = parseDate(g.Date));
+    const augmentGame = (g, league) => {
+      g.league = league;
+      g.opponent = g.Home.includes("Somerville United") ? g.Away : g.Home;
+      g.id = MD5(`${g.league}-${g.Date}-${g.Opponent}`);
+      g.parsedDate = parseDate(g.Date)
+      g.finished = g.Result && g.Result.trim() !== "";
+      g.RSVPable = !g.finished && (g.Tickets == "RSVP");
+    };
+    gamesAPSL.forEach(g => augmentGame(g, 'APSL'));
+    gamesCasa.forEach(g => augmentGame(g, 'CASA'));
 
     const calendarData = { gamesApsl: gamesAPSL, gamesCasa: gamesCasa };
     writeCachedCalendars(calendarData);

@@ -75,8 +75,12 @@
         </span>
       {/if}
     {:else if hasTicketLink}
-      <a href={game.Tickets} target="_blank" rel="noopener noreferrer">
+      <a href={game.Tickets} target="_blank">
         <button class="btn-primary">Get Tickets</button>
+      </a>
+    {:else if game.RSVPable}
+      <a href="tickets?game={game.id}">
+        <button class="btn-primary">RSVP</button>
       </a>
     {/if}
   </div>
@@ -171,20 +175,24 @@
     text-align: center;
     font-weight: 600;
     padding: 0.5rem 1rem;
-    min-width: 100px;
+    min-width: 80px;
     border-radius: var(--radius);
     float: right;
     &.postponed {
-      background-color: #cccccc;
+      border: 2px solid #666666;
+      color: #666666;
     }
     &.win {
-      background-color: #4caf50;
+      border: 2px solid #4caf50;
+      color: #4caf50;
     }
     &.loss {
-      background-color: #f44336;
+      border: 2px solid #f44336;
+      color: #f44336;
     }
     &.draw {
-      background-color: #cccccc;
+      border: 2px solid #666666;
+      color: #666666;
     }
   }
 
