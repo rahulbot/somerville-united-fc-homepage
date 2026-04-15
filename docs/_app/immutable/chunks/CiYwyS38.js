@@ -1,0 +1,1 @@
+import{k as y,m as _,_ as u,$ as o,h as t,C as g,Y as i,v as l,s as n,w as m,n as p}from"./Bn3PHEWP.js";function C(d,r){let s=null,E=t;var a;if(t){s=m;for(var e=p(document.head);e!==null&&(e.nodeType!==g||e.data!==d);)e=i(e);if(e===null)l(!1);else{var f=i(e);e.remove(),n(f)}}t||(a=document.head.appendChild(y()));try{_(()=>r(a),u|o)}finally{E&&(l(!0),n(s))}}export{C as h};
