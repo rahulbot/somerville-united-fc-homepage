@@ -1,5 +1,6 @@
 <script>
 import { page } from '$app/stores';
+import { LoaderCircle } from 'lucide-svelte';
 import PhotoTrio from '../../components/PhotoTrio.svelte';
 
 const { data } = $props();
@@ -115,9 +116,15 @@ function handleFormSubmit(event) {  // handles form submit without any jquery
           <!-- To help avoid spam, utilize a Honeypot technique with a hidden text field; must be empty to submit the form! Otherwise, we assume the user is a spam bot. -->
           <input id="honeypot" type="text" name="honeypot" bind:value={honeypot} />
 
-          <button type="submit" class="btn-primary" disable={submitting}>
+          <button type="submit" class="btn-primary" class:is-invalid={submitting} disabled={submitting}>
             RSVP
           </button>
+          {#if submitting}
+            <p>
+              <LoaderCircle class="spinning" />
+              (we're saving your RSVP now)
+            </p>
+          {/if}
         </div>
       {/if}
 
@@ -174,5 +181,22 @@ form {
   p {
     margin-bottom: 2rem;
   }
+}
+
+.form-elements {
+  p {
+    margin-top: 1rem;
+  }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+:global(.spinning) {
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
 }
 </style>
