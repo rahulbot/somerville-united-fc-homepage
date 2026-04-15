@@ -1,0 +1,1 @@
+function e(u){return/^[a-zA-Z0-9_-]{11}$/.test(u)}function o(u){return u.YouTubeId&&e(u.YouTubeId)}function d(u){return u.YouTubeId&&u.YouTubeId.trim()!==""&&u.YouTubeId.startsWith("http")}export{d as a,o as g};
