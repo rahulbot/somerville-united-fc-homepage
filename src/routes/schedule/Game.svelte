@@ -175,7 +175,7 @@
     text-align: center;
     font-weight: 600;
     padding: 0.5rem 1rem;
-    min-width: 100px;
+    min-width: 80px;
     border-radius: var(--radius);
     float: right;
     &.postponed {

@@ -1,5 +1,6 @@
 <script>
 import { page } from '$app/stores';
+    import { tick } from 'svelte';
 const { data } = $props();
 const scheduleApsl = $derived(data.gamesApsl);
 const ticketableGames = $derived(scheduleApsl.filter(game => game.RSVPable));
@@ -11,85 +12,53 @@ const gameParam = $derived($page.url.searchParams.get('game'));
 // the Google Sheet
 const TICKET_URL = "https://script.google.com/macros/s/AKfycbxFg5Nxms9p3x9h9s47skbvD0FTvYa33tRC4BA6CSqAe-19Ih2k0H_exKeQs5qvO-QiOg/exec";
 
-// This is all copied from their code
-function getFormData(form) {
-  var elements = form.elements;
-  var honeypot;
+let submitting = $state(false);
+let submitted = $state(false);
+let guests = $state(1);
+let email = $state("");
+let gameId = $state(gameParam || null); // only catches initial value, but that's fine because we don't expect it to change after the page loads
+let honeypot = $state(""); // for spam prevention
+let newsletter = $state(false);
+let selectedGame = $derived.by(() => ticketableGames.find(g => g.id == gameId));
+let selectedGameDescription = $derived.by(() => `APSL-${selectedGame.Date}-${selectedGame.opponent}`);
 
-  var fields = Object.keys(elements).filter(function(k) {
-    if (elements[k].name === "honeypot") {
-      honeypot = elements[k].value;
-      return false;
-    }
-    return true;
-  }).map(function(k) {
-    if(elements[k].name !== undefined) {
-      return elements[k].name;
-    // special case for Edge's html collection
-    }else if(elements[k].length > 0){
-      return elements[k].item(0).name;
-    }
-  }).filter(function(item, pos, self) {
-    return self.indexOf(item) == pos && item;
-  });
 
-  var formData = {};
-  fields.forEach(function(name){
-    var element = elements[name];
-    
-    // singular form elements just have one value
-    formData[name] = element.value;
-
-    // when our element has multiple items, get their values
-    if (element.length) {
-      var data = [];
-      for (var i = 0; i < element.length; i++) {
-        var item = element.item(i);
-        if (item.checked || item.selected) {
-          data.push(item.value);
-        }
-      }
-      formData[name] = data.join(', ');
-    }
-  });
-
-  // add form-specific values into the data
-  formData.formDataNameOrder = JSON.stringify(fields);
-  formData.formGoogleSheetName = form.dataset.sheet || "responses"; // default sheet name
-  formData.formGoogleSendEmail
-    = form.dataset.email || ""; // no email by default
-
-  return {data: formData, honeypot: honeypot};
+// Adapted from the `getFormData` function from the tutorial
+function assembleFormData(){
+  // these keys have to exactly match the column names in the Google Sheet
+  const formData = {
+    game: selectedGameDescription,  // a computed readable format
+    email,
+    guests,
+    newsletter: newsletter ? "Yes" : "No"
+  };
+  // add form-specific values into the data 
+  formData.formDataNameOrder = ['game', 'email', 'guests', 'newsletter'].join(',');
+  formData.formGoogleSheetName = "responses"; // default sheet name
+  formData.formGoogleSendEmail = "";
+  return formData;
 }
 
 function handleFormSubmit(event) {  // handles form submit without any jquery
   event.preventDefault();           // we are submitting via xhr below
-  var form = event.target;
-  var formData = getFormData(form);
-  var data = formData.data;
+  submitting = true;  // to disable submit buttons
+  var data = assembleFormData();
 
   // If a honeypot field is filled, assume it was done so by a spam bot.
-  if (formData.honeypot) {
+  if (honeypot) {
     return false;
   }
 
-  disableAllButtons(form);
-  var url = form.action;
+  var url = TICKET_URL;
   var xhr = new XMLHttpRequest();
   xhr.open('POST', url);
   // xhr.withCredentials = true;
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   xhr.onreadystatechange = function() {
       if (xhr.readyState === 4 && xhr.status === 200) {
-        form.reset();
-        var formElements = form.querySelector(".form-elements")
-        if (formElements) {
-          formElements.style.display = "none"; // hide form
-        }
-        var thankYouMessage = form.querySelector(".thankyou_message");
-        if (thankYouMessage) {
-          thankYouMessage.style.display = "block";
-        }
+        // reset form?
+        submitted = true;
+        submitting = false;
       }
   };
   // url encode form data for sending as post data
@@ -97,13 +66,6 @@ function handleFormSubmit(event) {  // handles form submit without any jquery
       return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
   }).join('&');
   xhr.send(encoded);
-}
-
-function disableAllButtons(form) {
-  var buttons = form.querySelectorAll("button");
-  for (var i = 0; i < buttons.length; i++) {
-    buttons[i].disabled = true;
-  }
 }
 </script>
 
@@ -116,51 +78,60 @@ function disableAllButtons(form) {
   <section>
     <h1>Ticket RSVP</h1>
     <p class="page-subtitle">
-      We'd love to have you join our upcoming games!
+      Our games are free to attend, but RSVP so we can reserve you a spot!
     </p>
 
-    <form method="POST" action={TICKET_URL}
-          onSubmit={handleFormSubmit} data-sheet="ticket_responses">
+    <form method="POST" onsubmit={handleFormSubmit} data-sheet="ticket_responses">
 
-      <div class="form-elements">
-        <fieldset class="inline">
-          <label for="name">Game:</label>
-          <select name="game" id="game">
-            {#each ticketableGames as game}
-              <option value={`APSL-${game.Date}-${game.opponent}`} selected={gameParam === game.id}>
-                {game.Date} vs. {game.opponent} @ {game.Venue}
-              </option>
-            {/each}
-          </select>
-        </fieldset>
+      {#if !submitted}
+        <div class="form-elements">
+          <fieldset class="inline">
+            <label for="name">Game:</label>
+            <select name="game" id="game" bind:value={gameId} required>
+              {#each ticketableGames as game}
+                <option value={game.id} selected={gameParam === game.id}>
+                  {game.Date} vs. {game.opponent} @ {game.Venue}
+                </option>
+              {/each}
+            </select>
+          </fieldset>
 
-        <fieldset>
-          <label for="email">Your Email Address:</label>
-          <input id="email" name="email" type="email" value="" required placeholder="your.name@email.com"/>
-        </fieldset>
+          <fieldset>
+            <label for="email">Your Email Address:</label>
+            <input id="email" name="email" type="email" required placeholder="your.name@email.com" bind:value={email} />
+          </fieldset>
 
-        <fieldset>
-          <label for="guests">Number of People: </label>
-          <input type="number" id="guests" name="guests" placeholder="1" min="1" max="10" style="width: 100px" />
-        </fieldset>
+          <fieldset>
+            <label for="guests">Number of People: </label>
+            <input type="number" id="guests" name="guests" min="1" max="10" style="width: 100px" bind:value={guests} />
+          </fieldset>
 
-        <fieldset class="inline">
-          <label for="newsletter">Subscribe to our newsletter: </label>
-          <input type="checkbox" id="newsletter" name="newsletter" />
-        </fieldset>
+          <fieldset class="inline">
+            <label for="newsletter">Subscribe to our newsletter: </label>
+            <input type="checkbox" id="newsletter" name="newsletter" bind:checked={newsletter}/>
+          </fieldset>
 
-        <!-- To help avoid spam, utilize a Honeypot technique with a hidden text field; must be empty to submit the form! Otherwise, we assume the user is a spam bot. -->
-        <input id="honeypot" type="text" name="honeypot" value="" />
+          <!-- To help avoid spam, utilize a Honeypot technique with a hidden text field; must be empty to submit the form! Otherwise, we assume the user is a spam bot. -->
+          <input id="honeypot" type="text" name="honeypot" bind:value={honeypot} />
 
-        <button type="submit" class="btn-primary">
-          <i class="fa fa-paper-plane"></i>&nbsp;Send
-        </button>
-      </div>
+          <button type="submit" class="btn-primary" disable={submitting}>
+            RSVP
+          </button>
+        </div>
+      {/if}
 
-      <!-- Shows up after they submit the RSVP -->
-      <div class="thankyou_message" style="display:none;">
-        <h3><em>Thanks for RSVPig</em>! We're excited to see you at our game ⚽️🎉</h3>
-      </div>
+      {#if submitted}
+        <!-- Shows up after they submit the RSVP -->
+        <div class="thankyou_message">
+          <h3>Thanks for the RSVP!</h3>
+          <p>We're excited to see you at our game on {selectedGame.Date} at {selectedGame.Venue} vs. {selectedGame.opponent} ⚽️🎉</p>
+          <a href="/schedule">
+            <button class="btn-primary">
+              Back to our Schedule
+            </button>
+          </a>
+        </div>
+      {/if}
 
     </form>
     
@@ -170,5 +141,16 @@ function disableAllButtons(form) {
 <style>
 #honeypot {
   display: none;
+}
+
+form {
+  width: 50%;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  form {
+    width: 100%;
+  }
 }
 </style>

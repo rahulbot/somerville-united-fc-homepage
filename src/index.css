@@ -211,7 +211,7 @@ form {
     text-transform: uppercase;
     font-weight: bold;
     display: block;
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-md);
     margin-bottom: 5px;
 
   }
