@@ -1,6 +1,7 @@
 <script>
 import { page } from '$app/stores';
-    import { tick } from 'svelte';
+import PhotoTrio from '../../components/PhotoTrio.svelte';
+
 const { data } = $props();
 const scheduleApsl = $derived(data.gamesApsl);
 const ticketableGames = $derived(scheduleApsl.filter(game => game.RSVPable));
@@ -135,6 +136,9 @@ function handleFormSubmit(event) {  // handles form submit without any jquery
 
     </form>
     
+  </section>
+  <section>
+    <PhotoTrio />
   </section>
 </div>
 
