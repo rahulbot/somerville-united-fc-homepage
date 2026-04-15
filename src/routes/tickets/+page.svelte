@@ -76,7 +76,7 @@ function handleFormSubmit(event) {  // handles form submit without any jquery
 
 <div class="container">
   <section>
-    <h1>Ticket RSVP</h1>
+    <h1>RSVP to a Game</h1>
     <p class="page-subtitle">
       Our games are free to attend, but RSVP so we can reserve you a spot!
     </p>
