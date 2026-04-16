@@ -1,5 +1,6 @@
 <script>
   import missingMoneyLogo from "@assets/sponsors/missing-money.png";
+  import PhotoTrio from "../../components/PhotoTrio.svelte";
 </script>
 
 <section id="community" class="community-section">
@@ -30,6 +31,9 @@
         </p>
       </div>
     </div>
+
+    <PhotoTrio />
+    
   </div>
 </section>
 
