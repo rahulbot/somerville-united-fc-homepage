@@ -21,8 +21,8 @@
         Est. 2025 • Massachusetts
       </div>
       <h1 class="hero-title animate-fade-in" style="--delay: 0.4s">
-        More Than <br/>
-        <span class="highlight-text">Just A Game</span>
+        Now Playing
+        <span class="highlight-text">more than just a game</span>
       </h1>
       <p class="hero-subtitle animate-fade-in" style="--delay: 0.6s">
         Redefining soccer in Massachusetts by proving that passion, community, and opportunity can 
@@ -128,15 +128,17 @@
   }
 
   .highlight-text {
+    display: block;
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
+    font-size: 4rem;
     background-image: linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0.8));
   }
 
   .hero-subtitle {
-    font-size: var(--font-size-md);
-    line-height: 1.625;
+    font-size: var(--font-size-lg) !important;
+    line-height: 1.3;
     font-weight: 300;
     color: rgba(255, 255, 255, 0.9);
     max-width: 42rem;
