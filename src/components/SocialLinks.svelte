@@ -3,6 +3,7 @@
   import YouTubeLogo from "./icons/YouTubeLogo.svelte";
   import LinkedInLogo from "./icons/LinkedInLogo.svelte";
   import FacebookLogo from "./icons/FacebookLogo.svelte";
+  import BlueskyLogo from "./icons/BlueskyLogo.svelte";
   
   let { size=28, color="#000000" } = $props();
 </script>
@@ -14,6 +15,10 @@
 
   <a href="https://www.youtube.com/@SomervilleUnitedFC">
     <YouTubeLogo {size} {color}  />
+  </a>
+  
+  <a href="https://bsky.app/profile/somervilleunitedfc.bsky.social">
+    <BlueskyLogo {size} {color}  />
   </a>
 
   <a href="https://www.linkedin.com/company/somerville-united-fc-inc/">
