@@ -14,6 +14,10 @@ const photos = [
   '/images/action/coaches.jpg',
   '/images/action/players.jpg',
   '/images/action/swag-table.jpg',
+  '/images/action/goaline.jpeg',
+  '/images/action/11.jpeg',
+  '/images/action/in-air.jpeg',
+  '/images/action/kick-swing.jpeg',
 ];
 
 function pickThree(arr) {
