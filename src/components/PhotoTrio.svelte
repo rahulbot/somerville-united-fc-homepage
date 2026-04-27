@@ -21,7 +21,9 @@ const photos = [
   '/images/action/6Q1A9216.JPG',
   '/images/action/6Q1A9221.JPG',
   '/images/action/6Q1A9459.JPG',
-  '/images/action/6Q1A9472.JPG'
+  '/images/action/6Q1A9472.JPG',
+  '/images/action/team1.jpg',
+  '/images/action/team2.jpg'
 ];
 
 function pickThree(arr) {
