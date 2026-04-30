@@ -6,11 +6,17 @@
 
 <section class="hero">
   <div class="hero-bg">
+    <video autoplay loop muted width="100%">
+      <source src="/videos/stadium-loop.mov" type="video/mp4"/>
+      Your browser does not support the video tag.
+    </video>
+<!--  
     <img 
       src={heroImage} 
       alt="Somerville United FC Team Huddle" 
       class="hero-img"
     />
+-->
     <div class="overlay-gradient"></div>
     <div class="overlay-dark"></div>
   </div>
