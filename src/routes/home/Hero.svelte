@@ -6,7 +6,7 @@
 
 <section class="hero">
   <div class="hero-bg">
-    <video autoplay loop muted width="100%">
+    <video autoplay loop muted class="hero-video">
       <source src="/videos/stadium-loop.mov" type="video/mp4"/>
       Your browser does not support the video tag.
     </video>
@@ -71,7 +71,8 @@
     z-index: 0;
   }
 
-  .hero-img {
+  .hero-img,
+  .hero-video {
     width: 100%;
     height: 100%;
     object-fit: cover;
