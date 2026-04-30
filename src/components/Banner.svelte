@@ -1,8 +1,8 @@
-<!--<div class="banner">
+<div class="banner">
   <div class="container">
-    Rematch with league leader Scrub Nation this Sat! <a href="/schedule">Details on our schedule</a>.
+    Congrats to <a href="https://www.instagram.com/p/DXudbg6Ecyz/">our 5 players</a> that made this week's <a href="https://www.instagram.com/p/DXuZM3xgXA8/?img_index=5">APSL Team of the Week</a>! 
   </div>
-</div>-->
+</div>
 
 
 <style>
