@@ -6,7 +6,7 @@
 
 <section class="hero">
   <div class="hero-bg">
-    <video autoplay loop muted class="hero-video">
+    <video autoplay loop muted playsinline class="hero-video">
       <source src="/videos/stadium-loop.mov" type="video/mp4"/>
       Your browser does not support the video tag.
     </video>
