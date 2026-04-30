@@ -1,6 +1,6 @@
 <div class="banner">
   <div class="container">
-    Congrats to <a href="https://www.instagram.com/p/DXudbg6Ecyz/">our 5 players</a> that made this week's <a href="https://www.instagram.com/p/DXuZM3xgXA8/?img_index=5">APSL Team of the Week</a>! 
+    Congrats to <a href="https://www.instagram.com/p/DXudbg6Ecyz/">our 5 players</a> on the <a href="https://www.instagram.com/p/DXuZM3xgXA8/?img_index=5">APSL Team of the Week</a>! 
   </div>
 </div>
 
