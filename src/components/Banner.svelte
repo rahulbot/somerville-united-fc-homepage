@@ -1,6 +1,6 @@
 <div class="banner">
   <div class="container">
-    Playoffs berth secured 🎉 Final home game Tuesday night 🗓️
+    Final regular season game Saturday 🗓️ Then playoffs 🎉
   </div>
 </div>
 
