@@ -25,7 +25,11 @@ const photos = [
   '/images/action/team1.jpg',
   '/images/action/team2.jpg',
   '/images/action/dilboy-drone1.jpg',
-  '/images/action/dilboy-drone2.jpg'
+  '/images/action/dilboy-drone2.jpg',
+  '/images/action/DSC_0957.jpg',
+  '/images/action/DSC_0342.jpg',
+  '/images/action/DSC_0173.jpg',
+  '/images/action/DSC_0120.jpg'
 ];
 
 function pickThree(arr) {
