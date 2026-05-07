@@ -1,6 +1,6 @@
 <div class="banner">
   <div class="container">
-    Final regular season game Saturday 🗓️ Then playoffs 🎉
+    Men's squad summer tryouts start May 12th. <a href="https://www.instagram.com/p/DYDTO0Mge_8/">Learn more.</a>
   </div>
 </div>
 
