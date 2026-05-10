@@ -174,7 +174,7 @@
             add Men's Reserve games to your calendar
           </button>
         </div>
-        <p>Our reserve men's team plays in the CASA Boston league. Home games are at Conway Park in Somerville.</p>
+        <p>Our reserve men's team plays in the CASA Select Liga 1. Home games are at Conway Park in Somerville.</p>
         <GameList games={scheduleCasa} teamName="Somerville United FC II" includeTicketButton={false} />
       </div>
     {/if}
