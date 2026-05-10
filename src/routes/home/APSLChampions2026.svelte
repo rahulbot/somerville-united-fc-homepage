@@ -39,7 +39,7 @@
       <h2>🎉 APSL Mayflower Conference Champs 🎉</h2>
       <div class="row champions-row">
         <div class="champions-text">
-          <p>We're thrilled to announce that Somerville United FC's Men's Flagship team has been crowned the champions of the American Premier Soccer League (APSL) for the 2026 season! This is a milestone for our club, it in's first season, and is a testament to the hard work, dedication, and passion of our players, coaching staff, and supporters.</p>
+          <p>We're thrilled to announce that Somerville United FC's Men's Flagship team has finished top in the American Premier Soccer League (APSL) Mayflower Conference for the 2026 Spring season! This is a milestone for our club, it in's first season, and is a testament to the hard work, dedication, and passion of our players, coaching staff, and supporters.</p>
           <p>Stay tuned for our playoff games on the schedule, and come out to support us as we aim to win the championship trophy!</p>
         </div>
         <div class="champions-image">
