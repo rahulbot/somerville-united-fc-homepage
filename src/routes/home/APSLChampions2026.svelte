@@ -36,7 +36,7 @@
     </div>
 
     <div class="container">
-      <h2>🎉 APSL Champions 🎉</h2>
+      <h2>🎉 APSL Mayflower Conference Champs 🎉</h2>
       <div class="row champions-row">
         <div class="champions-text">
           <p>We're thrilled to announce that Somerville United FC's Men's Flagship team has been crowned the champions of the American Premier Soccer League (APSL) for the 2026 season! This is a milestone for our club, it in's first season, and is a testament to the hard work, dedication, and passion of our players, coaching staff, and supporters.</p>
@@ -89,20 +89,19 @@ p {
 }
 .confetti-piece {
   position: absolute;
-  top: -10%;
+  top: 0;
   display: block;
   border-radius: 1px;
   opacity: 0.9;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
-  will-change: transform, top;
+  will-change: transform;
   animation-name: confetti-fall;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
 @keyframes confetti-fall {
   0% {
-    top: -10%;
-    transform: translateX(0) rotate(0deg);
+    transform: translate3d(0, -2rem, 0) rotate(0deg);
     opacity: 0;
   }
   10% {
@@ -112,8 +111,7 @@ p {
     opacity: 0.95;
   }
   100% {
-    top: 110%;
-    transform: translateX(var(--drift)) rotate(var(--rotation));
+    transform: translate3d(var(--drift), 100vh, 0) rotate(var(--rotation));
     opacity: 0;
   }
 }
