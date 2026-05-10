@@ -1,4 +1,6 @@
 <script>
+const { photoCount = 3 } = $props();
+
 const photos = [
   '/images/action/fan-with-shirt.jpeg',
   '/images/action/motion.jpeg',
@@ -32,12 +34,10 @@ const photos = [
   '/images/action/DSC_0120.jpg'
 ];
 
-function pickThree(arr) {
-  const shuffled = [...arr].sort(() => Math.random() - 0.5);
-  return shuffled.slice(0, 3);
-}
-
-const displayed = pickThree(photos);
+const displayed = $derived.by(() => {
+  const shuffled = [...photos].sort(() => Math.random() - 0.5);
+  return shuffled.slice(0, photoCount);
+});
 </script>
 
 <div class="photo-trio">
@@ -51,9 +51,9 @@ const displayed = pickThree(photos);
 
 <style>
 .photo-trio {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
   align-items: center;
   gap: 3.5rem;
   padding: 1.5rem 0;
@@ -62,9 +62,8 @@ const displayed = pickThree(photos);
 
 .photo-wrapper {
   position: relative;
-  width: 28%;
+  width: 85%;
   aspect-ratio: 1 / 1;
-  flex-shrink: 0;
   transition: transform 0.25s ease;
 }
 
@@ -73,11 +72,11 @@ const displayed = pickThree(photos);
   z-index: 2;
 }
 
-/* middle photo sits a bit higher */
-.photo-1 {
+/* middle column sits a bit higher */
+.photo-wrapper:nth-child(3n + 2) {
   transform: translateY(-1.25rem);
 }
-.photo-1:hover {
+.photo-wrapper:nth-child(3n + 2):hover {
   transform: translateY(-1.25rem) scale(1.04);
 }
 
@@ -87,23 +86,23 @@ const displayed = pickThree(photos);
   border-radius: 1.1rem;
 }
 
-.photo-0 {
+.photo-wrapper:nth-child(3n + 1) {
   transform: rotate(-2deg);
 }
-.photo-0 .photo-accent {
+.photo-wrapper:nth-child(3n + 1) .photo-accent {
   background-color: rgba(var(--primary-color-rgb), 0.18);
   transform: rotate(-4deg);
 }
 
-.photo-1 .photo-accent {
+.photo-wrapper:nth-child(3n + 2) .photo-accent {
   background-color: rgba(var(--secondary-color-rgb), 0.2);
   transform: rotate(3deg);
 }
 
-.photo-2 {
-    transform: rotate(2deg);
+.photo-wrapper:nth-child(3n) {
+  transform: rotate(2deg);
 }
-.photo-2 .photo-accent {
+.photo-wrapper:nth-child(3n) .photo-accent {
   background-color: rgba(var(--primary-color-rgb), 0.18);
   transform: rotate(4deg);
 }
@@ -121,18 +120,21 @@ const displayed = pickThree(photos);
 
 @media (max-width: 600px) {
   .photo-trio {
-    flex-direction: column;
-    align-items: center;
+    grid-template-columns: 1fr;
     gap: 2.5rem;
   }
 
   .photo-wrapper,
-  .photo-1 {
+  .photo-wrapper:nth-child(3n + 1),
+  .photo-wrapper:nth-child(3n + 2),
+  .photo-wrapper:nth-child(3n) {
     width: 75%;
     transform: none;
   }
-  .photo-1:hover,
-  .photo-wrapper:hover {
+  .photo-wrapper:hover,
+  .photo-wrapper:nth-child(3n + 1):hover,
+  .photo-wrapper:nth-child(3n + 2):hover,
+  .photo-wrapper:nth-child(3n):hover {
     transform: scale(1.04);
   }
 }
