@@ -3,6 +3,7 @@
   import Mission from "./home/Mission.svelte";
   import Values from "./home/Values.svelte";
   import GameDayHighlight from "./home/GameDayHighlight.svelte";
+  import APSLChampions2026 from "./home/APSLChampions2026.svelte";
   import Latest from "./home/Latest.svelte";
 
   const { data } = $props();
@@ -37,7 +38,14 @@
   <GameDayHighlight game={gameToday} />
 {/if}
 
+<APSLChampions2026 />
+
+<!--
 <Hero {scrollTo} />
+
 <Mission />
+
 <Values />
+
 <Latest />
+-->
