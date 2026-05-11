@@ -8,7 +8,7 @@
 
   const { data } = $props();
 
-  const scheduleApsl = $derived(data.gamesApsl);
+  const scheduleApsl = $derived(data.APSL);
   const gameToday = $derived(scheduleApsl.find((game) => {
     const today = new Date();
     const gameDate = new Date(game.parsedDate);

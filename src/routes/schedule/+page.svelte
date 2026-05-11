@@ -7,8 +7,8 @@
 
   let { data } = $props();
 
-  let scheduleApsl = $derived(data.gamesApsl);
-  let scheduleCasa = $derived(data.gamesCasa);
+  let scheduleApsl = $derived(data.APSL);
+  let scheduleCasa = $derived(data.CASA);
 
   // show optional countdown if first game date is valid
   const firstGameDate = new Date("2026-03-15"); // set to `null` if no upcoming game

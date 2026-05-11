@@ -5,6 +5,7 @@
   const { game, teamName, includeTicketButton } = $props(); // keys: Day, Date, Time, Venue, Address, Home, Away, Postponed
   const isHome = $derived(game.Home === teamName);
   const isPostponed = $derived(game.Postponed === 'Yes');
+  const isPlayoffs = $derived(game.Round === 'Playoffs');
   const inPast = $derived(!isNaN(new Date(game.Date)) && (new Date() > new Date(game.Date)));
   const hasTicketLink = $derived((includeTicketButton && isHome) && (game.Tickets && game.Tickets.startsWith('http')));
   const hasYouTubeId = $derived(gameHasYouTubeId(game));
@@ -27,7 +28,7 @@
 
 <div class="game-row" class:past={inPast || game.Result}>
   <div class="date-wrapper">
-    <div class="date-circle">
+    <div class="date-circle" class:playoffs={isPlayoffs}>
       <span class="game-date">{displayDate}</span>
       <span class="game-time">{game.Time}</span>
     </div>
@@ -45,6 +46,9 @@
         <a href={game.YouTubeId} target="_blank" rel="noopener noreferrer">
           <YouTubeLogo size=30 color="#C1132E"  />
         </a>
+      {/if}
+      {#if isPlayoffs}
+        <span class="game-annotation">Playoffs</span>
       {/if}
     </span>        
     <br />
@@ -125,8 +129,12 @@
     align-items: center;
     justify-content: center;
     margin-right: 15px;
+    color: white;
+    &.playoffs {
+      background-color: var(--alert-color);
+      color: black;
+    }
     .game-date {
-      color: #fff;
       font-size: 0.9rem;
       text-transform: uppercase;
       font-weight: bold;
@@ -134,7 +142,6 @@
     }
     .game-time {
       font-size: 0.7rem;
-      color: var(--muted-color);
     }
   }
 
@@ -149,6 +156,17 @@
     font-family: var(--font-heading);
     font-size: 2.5rem;
     font-weight: bold;
+  }
+  .game-annotation {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 2px 8px;
+    font-size: 1rem;
+    background-color: var(--alert-color);
+    border: 1px solid var(--alert-color);
+    border-radius: 4px;
+    text-transform: uppercase;
+    vertical-align: middle;
   }
   .game-venue {
     font-style: italic;

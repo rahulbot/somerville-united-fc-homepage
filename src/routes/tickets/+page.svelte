@@ -4,7 +4,7 @@ import { LoaderCircle } from 'lucide-svelte';
 import PhotoTrio from '../../components/PhotoTrio.svelte';
 
 const { data } = $props();
-const scheduleApsl = $derived(data.gamesApsl);
+const scheduleApsl = $derived(data.APSL);
 const ticketableGames = $derived(scheduleApsl.filter(game => game.RSVPable));
 const gameParam = $derived($page.url.searchParams.get('game'));
 
@@ -18,7 +18,7 @@ let submitting = $state(false);
 let submitted = $state(false);
 let guests = $state(1);
 let email = $state("");
-let gameId = $state(gameParam || null); // only catches initial value, but that's fine because we don't expect it to change after the page loads
+let gameId = $state(gameParam || ticketableGames[0]?.id); // only catches initial value, but that's fine because we don't expect it to change after the page loads
 let honeypot = $state(""); // for spam prevention
 let newsletter = $state(false);
 let selectedGame = $derived.by(() => ticketableGames.find(g => g.id == gameId));
@@ -93,6 +93,9 @@ function handleFormSubmit(event) {  // handles form submit without any jquery
               {#each ticketableGames as game}
                 <option value={game.id} selected={gameParam === game.id}>
                   {game.Date} vs. {game.opponent} @ {game.Venue}
+                  {#if game.Round == 'Playoffs'}
+                    (Playoffs)
+                  {/if}
                 </option>
               {/each}
             </select>
