@@ -1,6 +1,6 @@
 <div class="banner">
   <div class="container">
-    Men's squad summer tryouts start May 12th. <a href="https://www.instagram.com/p/DYDTO0Mge_8/">Learn more.</a>
+    🏆 Playoff semifinal Sat @ Dilboy. Free Tix. <a href="/tickets">RSVP now</a>! 🏆
   </div>
 </div>
 
