@@ -1,5 +1,5 @@
 import Papa from "papaparse";
-import { MD5 } from "$lib/string.js";
+import { MD5 } from "./string.js";
 
 // Use local browser state to cache calendar data for a short period to avoid excessive 
 // network requests and parsing on every page load. This is especially helpful because
@@ -63,7 +63,7 @@ const parseDate = (dateStr) => {
   }
 };
 
-export async function loadCalendars(fetch) {
+export async function loadCalendars(fetch = globalThis.fetch) {
   const cachedCalendars = readCachedCalendars();
   if (cachedCalendars) {
     return cachedCalendars;

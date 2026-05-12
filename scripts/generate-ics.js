@@ -2,12 +2,7 @@ import Papa from "papaparse";
 import { promises as fs } from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-
-// Game schedule URLs from Google Sheets
-const MENS_LIVE_APSL_URL =
-  "https://docs.google.com/spreadsheets/d/e/2PACX-1vRTV0vjhzAxcA7MvOtOWiuwrp9u7pMCr3CjWLXwgxhi3KuRveFvgFPVor98FVt1XuIAHWzdnyyE2fM-/pub?gid=0&single=true&output=csv";
-const MENS_LIVE_CASA_URL =
-  "https://docs.google.com/spreadsheets/d/e/2PACX-1vRTV0vjhzAxcA7MvOtOWiuwrp9u7pMCr3CjWLXwgxhi3KuRveFvgFPVor98FVt1XuIAHWzdnyyE2fM-/pub?gid=1397827381&single=true&output=csv";
+import { loadCalendars } from "../src/lib/schedules.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -212,25 +207,9 @@ async function generateCalendarFile(games, filename, teamFilter = null) {
 async function main() {
   try {
     console.log("Fetching game schedules...");
-    const [responseApsl, responseCasa] = await Promise.all([
-      fetch(MENS_LIVE_APSL_URL),
-      fetch(MENS_LIVE_CASA_URL),
-    ]);
-
-    const csvApsl = await responseApsl.text();
-    const csvCasa = await responseCasa.text();
-
-    console.log("Parsing CSV data...");
-    const parsedAPSL = Papa.parse(csvApsl, { header: true });
-    const gamesAPSL = parsedAPSL.data.filter(
-      (row) => Object.keys(row).some((key) => row[key])
-    );
-
-    const parsedCasa = Papa.parse(csvCasa, { header: true });
-    const gamesCasa = parsedCasa.data.filter(
-      (row) => Object.keys(row).some((key) => row[key])
-    );
-
+    const data = await loadCalendars();
+    const gamesAPSL = data["APSL"] || [];
+    const gamesCasa = data["CASA"] || [];
     console.log(`Found ${gamesAPSL.length} APSL games and ${gamesCasa.length} CASA games`);
 
     // Generate calendars
