@@ -1,5 +1,6 @@
 <script>
-import FoundingSupportOffer from '@assets/founding-supporter-options.jpeg';
+import MerchTable from '@assets/merch-table.jpg';
+import DecoratedImage from "../../components/DecoratedImage.svelte";
 </script>
 
 <svelte:head>
@@ -9,29 +10,34 @@ import FoundingSupportOffer from '@assets/founding-supporter-options.jpeg';
 
 <div class="container">
   <section>
-<!--      <h1 class="page-title">Shop</h1>
+    <h1 class="page-title">Shop</h1>
     <p class="page-subtitle">
-      Get official Somerville United FC merchandise
-    </p>-->
+      Order your official Somerville United FC merchandise today. We have a variety of items available, 
+      including t-shirts, hoodies, and more. Show your support for the team and look great doing it!
+    </p>
 
-    <a href="https://docs.google.com/forms/d/1jfy9OIDY-U3MoxSlgJH99xv1XjnDK0eX4A9J2m38ze0/viewform">
-      <img src="{FoundingSupportOffer}" class="img-fluid" alt="click for founding supporter offers"/>
+    <button class="btn-primary">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSegQycdkkNpWBKMrtJ7hi2KzE2qpq9afyYUxK513t411L8iug/viewform">
+        Order Now
+      </a>
+    </button>
+
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSegQycdkkNpWBKMrtJ7hi2KzE2qpq9afyYUxK513t411L8iug/viewform">
+      <DecoratedImage src={MerchTable} alt="Various merchandise on a table" aspectRatio="12 / 4"/>
     </a>
-
-    <center>
-      <button class="btn-primary">
-        <a href="https://docs.google.com/forms/d/1jfy9OIDY-U3MoxSlgJH99xv1XjnDK0eX4A9J2m38ze0/viewform">
-          Buy Your Founding Supporter Package Now
-        </a>
-      </button>
-    </center>
 
   </section>
 </div>
 
 <style>
   button {
-    margin: 3rem auto 0 auto;
+    margin-bottom: 4rem;
     font-size: var(--font-size-lg);
+  }
+
+
+  section {
+    text-align: center;
+    margin-bottom: 3rem;
   }
 </style>
