@@ -31,7 +31,15 @@ const photos = [
   '/images/action/DSC_0957.jpg',
   '/images/action/DSC_0342.jpg',
   '/images/action/DSC_0173.jpg',
-  '/images/action/DSC_0120.jpg'
+  '/images/action/DSC_0120.jpg',
+  '/images/action/practice1.JPG',
+  '/images/action/practice2.JPG',
+  '/images/action/practice3.JPG',
+  '/images/action/practice4.JPG',
+  '/images/action/practice5.JPG',
+  '/images/action/win1.jpg',
+  '/images/action/win2.jpg',
+  '/images/action/win3.jpg'
 ];
 
 const displayed = $derived.by(() => {
