@@ -1,6 +1,6 @@
 <div class="banner">
   <div class="container">
-    🏆 Playoff semifinal Sat @ Dilboy. Free Tix. <a href="/tickets">RSVP now</a>! 🏆
+    🏆 Playoff semifinal Sat 4pm @ Dilboy. Free Tix. <a href="/tickets">RSVP now</a>! 🏆
   </div>
 </div>
 
