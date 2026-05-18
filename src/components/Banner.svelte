@@ -1,6 +1,6 @@
 <div class="banner">
   <div class="container">
-    🏆 Playoff semifinal Sat 4pm @ Dilboy. Free Tix. <a href="/tickets">RSVP now</a>! 🏆
+    🏆 Division Final vs 🧽 on Sun 5pm @ West Roxbury High! 🏆
   </div>
 </div>
 

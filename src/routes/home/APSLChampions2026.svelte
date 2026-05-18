@@ -1,6 +1,7 @@
 <script>
   import PhotoTrio from "../../components/PhotoTrio.svelte";
   import standings from "@assets/teams/APSL-standings-spring-2026.png";
+  import DecoratedImage from "../../components/DecoratedImage.svelte";
 
   const confettiColors = ['#ffd700', '#ff4d6d', '#4ecdc4', '#a78bfa', '#ffffff', '#ff8c42'];
   const confettiPieces = Array.from({ length: 70 }, () => ({
@@ -51,12 +52,21 @@
   </div>
 
   <div class="container">
+    <div class="cup-lifting">
+      <DecoratedImage aspectRatio="25 / 9" src={"/images/action/apsl-mayflower-cup-raise.jpg"} alt="Raising the Mayflower Cup after clinching the conference title!" />
+    </div>
+  </div>
+
+  <div class="container">
     <PhotoTrio photoCount={9} />
   </div>
 
 </div>
 
 <style>
+.cup-lifting {
+  margin: 5rem 0;
+}
 h2 {
   text-align: center;
   margin-bottom: 1rem;
