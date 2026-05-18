@@ -5,7 +5,7 @@
   const { game, teamName, includeTicketButton } = $props(); // keys: Day, Date, Time, Venue, Address, Home, Away, Postponed
   const isHome = $derived(game.Home === teamName);
   const isPostponed = $derived(game.Postponed === 'Yes');
-  const isPlayoffs = $derived(game.Round === 'Playoffs');
+  const isPostSeason = $derived(game.Round != 'Regular Season');
   const inPast = $derived(!isNaN(new Date(game.Date)) && (new Date() > new Date(game.Date)));
   const hasTicketLink = $derived((includeTicketButton && isHome) && (game.Tickets && game.Tickets.startsWith('http')));
   const hasYouTubeId = $derived(gameHasYouTubeId(game));
@@ -28,7 +28,7 @@
 
 <div class="game-row" class:past={inPast || game.Result}>
   <div class="date-wrapper">
-    <div class="date-circle" class:playoffs={isPlayoffs}>
+    <div class="date-circle" class:playoffs={isPostSeason}>
       <span class="game-date">{displayDate}</span>
       <span class="game-time">{game.Time}</span>
     </div>
@@ -47,8 +47,8 @@
           <YouTubeLogo size=30 color="#C1132E"  />
         </a>
       {/if}
-      {#if isPlayoffs}
-        <span class="game-annotation">Playoffs</span>
+      {#if isPostSeason}
+        <span class="game-annotation">{game.Round}</span>
       {/if}
     </span>        
     <br />
