@@ -3,11 +3,14 @@
   import Footer from "../components/Footer.svelte";
   import Banner from "../components/Banner.svelte";
   import "../index.css";
+
+  const { data } = $props();
+  console.log(data);
 </script>
 
 <div class="page-wrapper">
   <Navbar />
-  <Banner />
+  <Banner text={data.banner} />
   <main>
     <slot />
   </main>

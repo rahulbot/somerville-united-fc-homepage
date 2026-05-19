@@ -1,9 +1,14 @@
+<script>
+const { text } = $props();
+</script>
+
+{#if text.length > 0}
 <div class="banner">
   <div class="container">
-    🏆 Division Final vs 🧽 on Sun 30th 5pm @ West Roxbury High! 🏆
+    {text}
   </div>
 </div>
-
+{/if}
 
 <style>
   .banner {
