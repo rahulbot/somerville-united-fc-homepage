@@ -1,6 +1,6 @@
 <div class="banner">
   <div class="container">
-    🏆 Division Final vs 🧽 on Sun 5pm @ West Roxbury High! 🏆
+    🏆 Division Final vs 🧽 on Sun 30th 5pm @ West Roxbury High! 🏆
   </div>
 </div>
 
