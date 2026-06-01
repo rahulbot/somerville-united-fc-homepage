@@ -2,7 +2,7 @@ import Papa from "papaparse";
 import { promises as fs } from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import { loadCalendars } from "../src/lib/schedules.js";
+import { loadCalendars, getCalendarNameForLeague, getCurrentSeasonName, getLeagueTeamName } from "../src/lib/schedules.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -198,7 +198,7 @@ async function generateCalendarFile(games, filename, teamFilter = null) {
   // Write the file
   const filepath = path.join(OUTPUT_DIR, filename);
   await fs.writeFile(filepath, icsContent, "utf-8");
-  console.log(`✓ Generated ${filename} (${eventStrings.length} events)`);
+  console.log(`. ✓ Generated ${filename} (${eventStrings.length} events)`);
 }
 
 /**
@@ -208,15 +208,25 @@ async function main() {
   try {
     console.log("Fetching game schedules...");
     const data = await loadCalendars();
-    const gamesAPSL = data["APSL"] || [];
-    const gamesCasa = data["CASA"] || [];
-    console.log(`Found ${gamesAPSL.length} APSL games and ${gamesCasa.length} CASA games`);
+    const currentSeasonKey = getCurrentSeasonName(data);
+    console.log(`Current season: ${currentSeasonKey}`);
+    const currentSeasonData = data[currentSeasonKey];
+    if (!currentSeasonData) {
+      console.error("No schedule data found for current season");
+      process.exit(1);
+    }
+    const leagues = Object.keys(currentSeasonData);
+    for (const league of leagues) {
+      console.log(`  League: ${league}, Games: ${currentSeasonData[league].length}`);
+      const leagueGames = currentSeasonData[league];
+      // determine team name from first game
+      const teamName = getLeagueTeamName(leagueGames);
+      const leagueIcsFilename = getCalendarNameForLeague(league);
+      await generateCalendarFile(leagueGames, leagueIcsFilename, teamName);
+      console.log(`  wrote calendar for ${teamName} to ${leagueIcsFilename}`);
+    }
 
-    // Generate calendars
-    await generateCalendarFile(gamesAPSL, "sufc-mens-apsl.ics", "Somerville United FC");
-    await generateCalendarFile(gamesCasa, "sufc-mens-casa.ics", "Somerville United FC II");
-
-    console.log("\n✓ Calendar generation complete!");
+    console.log("\n  Done");
   } catch (error) {
     console.error("Error generating calendars:", error);
     process.exit(1);

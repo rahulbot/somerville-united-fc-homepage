@@ -5,20 +5,11 @@
   import GameDayHighlight from "./home/GameDayHighlight.svelte";
   import APSLChampions2026 from "./home/APSLChampions2026.svelte";
   import Latest from "./home/Latest.svelte";
+  import { getGamesToday } from "../lib/schedules.js";
 
   const { data } = $props();
 
-  const scheduleApsl = $derived(data.APSL);
-  const gameToday = $derived(scheduleApsl.find((game) => {
-    const today = new Date();
-    const gameDate = new Date(game.parsedDate);
-    return (
-      gameDate.getFullYear() === today.getFullYear() &&
-      gameDate.getMonth() === today.getMonth() &&
-      gameDate.getDate() === today.getDate() &&
-      (game.Result === null || game.Result.length == 0) // because some games might be foreited already
-    );
-  }));
+  const gamesToday = $derived(getGamesToday(data.calendars));
 
   // Scroll handler for anchors
   function scrollTo(id) {
@@ -34,8 +25,8 @@
   <meta name="description" content="Somerville United FC - Building community through soccer" />
 </svelte:head>
 
-{#if gameToday}
-  <GameDayHighlight game={gameToday} />
+{#if gamesToday.length > 0}
+  <GameDayHighlight game={gamesToday[0]} />
 {/if}
 
 <APSLChampions2026 />

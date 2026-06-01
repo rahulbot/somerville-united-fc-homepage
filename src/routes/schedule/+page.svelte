@@ -4,41 +4,76 @@
   import { Calendar, Copy, X } from 'lucide-svelte';
   import apslLogo from "@assets/APSL.gif";
   import casaLogo from "@assets/casa-logo-white.png";
+  import { getCurrentSeasonName, getLeagueTeamName } from "../../lib/schedules.js";
 
-  let { data } = $props();
+  const { data } = $props();
 
-  let scheduleApsl = $derived(data.APSL);
-  let scheduleCasa = $derived(data.CASA);
+  const currentSeason = $derived(getCurrentSeasonName(data));
+  const currentScheduleByLeague = $derived(data[currentSeason]);
+  const leagueNames = $derived(Object.keys(currentScheduleByLeague));
+
+  const getLeagueDescription = (league) => {
+    switch(league) {
+      case 'APSL':
+        return "Our flagship men's team plays in the APSL Mayflower Conference. Home games are at Dilboy Stadum in Somerville.";
+      case 'CASA':
+        return "Our reserve men's team plays in the CASA Select Liga 1. Home games are at Conway Park in Somerville.";
+      default:
+        return "";
+    }
+  };
 
   // show optional countdown if first game date is valid
-  const firstGameDate = new Date("2026-03-15"); // set to `null` if no upcoming game
-  let countdownDays = $state(undefined);;
-  try {
-    const today = new Date();
-    if (firstGameDate && (today < firstGameDate)) {
-      const diff = (new Date(firstGameDate) - today) / (1000 * 60 * 60 * 24);
-      countdownDays = Math.ceil(diff);
+  const firstSeasonGameDate = $derived(currentScheduleByLeague[0].parsedDate);
+  let countdownDays = $derived.by( () => {
+    let daysToGo;
+    try {
+      const today = new Date();
+      if (firstSeasonGameDate && (today < firstSeasonGameDate)) {
+        const diff = (new Date(firstSeasonGameDate) - today) / (1000 * 60 * 60 * 24);
+        daysToGo = Math.ceil(diff);
+      }
+    } catch (error) {
+      daysToGo = undefined;
     }
-  } catch (error) {
-    countdownDays = undefined;
-  }
+    return daysToGo;
+  });
 
-  let activeTab = $state('apsl');
+  let activeTab = $state(leagueNames[0]); // OK to just use initial value as default
   let isCalendarModalOpen = $state(false);
   let selectedCalendarUrl = $state('');
   let selectedTeamLabel = $state('');
   let copyNoticeVisible = $state(false);
 
-  const calendarFeeds = {
-    apsl: {
-      label: "Men's Flagship",
-      url: '/calendars/sufc-mens-apsl.ics'
-    },
-    casa: {
-      label: "Men's Reserve",
-      url: '/calendars/sufc-mens-casa.ics'
+  const teamNameLookup = {
+    "Somerville United FC": "Men's Flagship",
+    "Somerville United FC II": "Men's Reserve"
+  };
+
+  const getLeagueLogo = (league) => {
+    switch(league) {
+      case 'APSL':
+        return apslLogo;
+      case 'CASA':
+        return casaLogo;
+      default:
+        return null;
     }
   };
+
+  const calendarFeeds = $derived.by(() => {
+    feeds = {};
+    leagueNames.forEach(league => {
+      const leagueGames = currentScheduleByLeague[league];
+      const teamName = leagueGames[0].Home.includes("Somerville United") ? leagueGames[0].Home : leagueGames[0].Away;
+      const teamLabel = teamNameLookup[teamName] || teamName;
+      feeds[league] = {
+        label: teamLabel,
+        url: `/calendars/${getCalendarNameForLeague(league)}`
+      };
+    });
+    return feeds;
+  });
 
   function handleKeydown(event) {
     if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
@@ -103,81 +138,55 @@
       {#if countdownDays}
         <em>{countdownDays}</em> Days Till Our Home Opener
       {:else}
-        2026 Spring Season Schedule
+        {currentSeason} Season Schedule
       {/if}
     </h1>
     <p class="page-subtitle">
-      Somerville United FC fields men's teams in the <a href="https://apslsoccer.com/APSL/Tables/">semi-pro APSL Mayflower Conference</a> and the <a href="https://www.casasoccerleagues.com/massachusetts">amatuer CASA Massachusetts Select Liga 1</a>. We'd love to have you join at one of our upcoming games!
+      Somerville United FC fields men's teams in various local leagues:
+      <a href="https://apslsoccer.com/APSL/Tables/">APSL Mayflower Conference</a>,
+      <a href="https://www.casasoccerleagues.com/massachusetts">CASA Massachusetts Select Liga 1</a>,
+      and the <a href="https://www.instagram.com/d1soccerleague/">D-1 Soccer League</a>.
+      We'd love to have you join at one of our upcoming games!
     </p>
 
     <div class="tabs" role="tablist" aria-label="Select Team">
-      <button 
-        class="tab" 
-        class:active={activeTab === 'apsl'}
-        class:inactive={activeTab !== 'apsl'}
-        onclick={() => activeTab = 'apsl'}
-        onkeydown={handleKeydown}
-        role="tab"
-        aria-selected={activeTab === 'apsl'}
-        aria-controls="apsl-panel"
-        id="apsl-tab"
-        tabindex={activeTab === 'apsl' ? 0 : -1}
-      >
-        <img src="{apslLogo}" alt="APSL" height="32"/>
-        Men's Flagship
-      </button>
-      <button 
-        class="tab" 
-        class:active={activeTab === 'casa'}
-        class:inactive={activeTab !== 'casa'}
-        onclick={() => activeTab = 'casa'}
-        onkeydown={handleKeydown}
-        role="tab"
-        aria-selected={activeTab === 'casa'}
-        aria-controls="casa-panel"
-        id="casa-tab"
-        tabindex={activeTab === 'casa' ? 0 : -1}
-      >
-        <img src="{casaLogo}" alt="CASA" height="32"/>
-        Men's Reserve
-      </button>
+      {#each leagueNames as league}
+        <button 
+          class="tab" 
+          class:active={activeTab === league}
+          class:inactive={activeTab !== league}
+          onclick={() => activeTab = league}
+          onkeydown={handleKeydown}
+          role="tab"
+          aria-selected={activeTab === league}
+          aria-controls={`${league}-panel`}
+          id={`${league}-tab`}
+          tabindex={activeTab === league ? 0 : -1}
+        >
+          {#if getLeagueLogo(league) }
+            <img src="{getLeagueLogo(league)}" alt="{league} logo" height="32"/>
+          {/if}
+          {league}
+        </button>
+      {/each}
     </div>
 
-    {#if activeTab === 'apsl'}
-      <div role="tabpanel" id="apsl-panel" aria-labelledby="apsl-tab" class="tab-panel">
-        <div class="panel-heading">
-          <h3>Men's Flagship: Somerville United FC</h3>
-          <button
-            class="btn-subscribe"
-            type="button"
-            onclick={() => openCalendarModal('apsl')}
-            aria-label="Subscribe to our calendar for the Men's Flagship team"
-          >
-            <Calendar size={16} aria-hidden="true" />
-            add Men's Flagship games to your calendar 
-          </button>
-        </div>
-        <p>Our flagship men's team plays in the APSL Mayflower Conference. Home games are at Dilboy Stadum in Somerville.</p>
-        <GameList games={scheduleApsl} teamName="Somerville United FC" includeTicketButton={true} />
+    <div role="tabpanel" id={`${activeTab}-panel`} aria-labelledby={`${activeTab}-tab`} class="tab-panel">
+      <div class="panel-heading">
+        <h3>{getLeagueTeamName(currentScheduleByLeague[activeTab])}</h3>
+        <button
+          class="btn-subscribe"
+          type="button"
+          onclick={() => openCalendarModal(activeTab)}
+          aria-label={`Subscribe to our ${activeTab} league calendar`}
+        >
+          <Calendar size={16} aria-hidden="true" />
+          add {activeTab} games to your calendar 
+        </button>
       </div>
-    {:else}
-      <div role="tabpanel" id="casa-panel" aria-labelledby="casa-tab" class="tab-panel">
-        <div class="panel-heading">
-          <h3>Men's Reserve: Somerville United FC II</h3>
-          <button
-            class="btn-subscribe"
-            type="button"
-            onclick={() => openCalendarModal('casa')}
-            aria-label="Subscribe to our calendar for the Men's Reserve team"
-          >
-            <Calendar size={16} aria-hidden="true" />
-            add Men's Reserve games to your calendar
-          </button>
-        </div>
-        <p>Our reserve men's team plays in the CASA Select Liga 1. Home games are at Conway Park in Somerville.</p>
-        <GameList games={scheduleCasa} teamName="Somerville United FC II" includeTicketButton={false} />
-      </div>
-    {/if}
+      <p>{getLeagueDescription(activeTab)}</p>
+      <GameList games={currentScheduleByLeague[activeTab]} teamName="Somerville United FC" includeTicketButton={true} />
+    </div>
 
     {#if isCalendarModalOpen}
       <div class="modal-backdrop" role="presentation" onclick={handleBackdropClick} onkeydown={handleModalKeydown}>
