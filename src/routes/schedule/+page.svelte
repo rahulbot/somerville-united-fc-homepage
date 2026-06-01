@@ -4,24 +4,35 @@
   import { Calendar, Copy, X } from 'lucide-svelte';
   import apslLogo from "@assets/APSL.gif";
   import casaLogo from "@assets/casa-logo-white.png";
+  import dOneLogo from "@assets/d-one-logo-white.png";
   import { getCurrentSeasonName, getLeagueTeamName } from "../../lib/schedules.js";
 
   const { data } = $props();
 
-  const currentSeason = $derived(getCurrentSeasonName(data));
-  const currentScheduleByLeague = $derived(data[currentSeason]);
-  const leagueNames = $derived(Object.keys(currentScheduleByLeague));
+  const seasonNames = $derived(Object.keys(data.calendar));
+  const currentSeason = getCurrentSeasonName(data.calendar); // which one are we in right now
+  let selectedSeason = $state(currentSeason); // which one is selected
+  let currentScheduleByLeague = $derived(data.calendar[selectedSeason]);
+  let leagueNames = $derived(Object.keys(currentScheduleByLeague));
+  let selectedLeagueOverride = $state(null);
+  let selectedLeague = $derived(
+    selectedLeagueOverride && leagueNames.includes(selectedLeagueOverride)
+      ? selectedLeagueOverride
+      : leagueNames[0]
+  );
 
-  const getLeagueDescription = (league) => {
+  function getLeagueDescription(league) {
     switch(league) {
       case 'APSL':
         return "Our flagship men's team plays in the APSL Mayflower Conference. Home games are at Dilboy Stadum in Somerville.";
       case 'CASA':
         return "Our reserve men's team plays in the CASA Select Liga 1. Home games are at Conway Park in Somerville.";
+      case 'D-One':
+        return "Our flagship men's team plays in the D-One Soccer League.";
       default:
         return "";
     }
-  };
+  }
 
   // show optional countdown if first game date is valid
   const firstSeasonGameDate = $derived(currentScheduleByLeague[0].parsedDate);
@@ -39,7 +50,6 @@
     return daysToGo;
   });
 
-  let activeTab = $state(leagueNames[0]); // OK to just use initial value as default
   let isCalendarModalOpen = $state(false);
   let selectedCalendarUrl = $state('');
   let selectedTeamLabel = $state('');
@@ -56,6 +66,8 @@
         return apslLogo;
       case 'CASA':
         return casaLogo;
+      case 'D-One':
+        return dOneLogo;
       default:
         return null;
     }
@@ -78,10 +90,10 @@
   function handleKeydown(event) {
     if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
       event.preventDefault();
-      activeTab = activeTab === 'apsl' ? 'casa' : 'apsl';
+      selectedLeague = selectedLeague === 'apsl' ? 'casa' : 'apsl';
       // Focus the newly active tab
       setTimeout(() => {
-        document.getElementById(`${activeTab}-tab`)?.focus();
+        document.getElementById(`${selectedLeague}-tab`)?.focus();
       }, 0);
     }
   }
@@ -149,19 +161,28 @@
       We'd love to have you join at one of our upcoming games!
     </p>
 
+    <div class="season-picker">
+      <label for="season-select">Season</label>
+      <select id="season-select" bind:value={selectedSeason}>
+        {#each seasonNames as season}
+          <option value={season}>{season}</option>
+        {/each}
+      </select>
+    </div>
+
     <div class="tabs" role="tablist" aria-label="Select Team">
       {#each leagueNames as league}
         <button 
           class="tab" 
-          class:active={activeTab === league}
-          class:inactive={activeTab !== league}
-          onclick={() => activeTab = league}
+          class:active={selectedLeague === league}
+          class:inactive={selectedLeague !== league}
+          onclick={() => selectedLeague = league}
           onkeydown={handleKeydown}
           role="tab"
-          aria-selected={activeTab === league}
+          aria-selected={selectedLeague === league}
           aria-controls={`${league}-panel`}
           id={`${league}-tab`}
-          tabindex={activeTab === league ? 0 : -1}
+          tabindex={selectedLeague === league ? 0 : -1}
         >
           {#if getLeagueLogo(league) }
             <img src="{getLeagueLogo(league)}" alt="{league} logo" height="32"/>
@@ -171,21 +192,21 @@
       {/each}
     </div>
 
-    <div role="tabpanel" id={`${activeTab}-panel`} aria-labelledby={`${activeTab}-tab`} class="tab-panel">
+    <div role="tabpanel" id={`${selectedLeague}-panel`} aria-labelledby={`${selectedLeague}-tab`} class="tab-panel">
       <div class="panel-heading">
-        <h3>{getLeagueTeamName(currentScheduleByLeague[activeTab])}</h3>
+        <h3>{getLeagueTeamName(currentScheduleByLeague[selectedLeague])}</h3>
         <button
           class="btn-subscribe"
           type="button"
-          onclick={() => openCalendarModal(activeTab)}
-          aria-label={`Subscribe to our ${activeTab} league calendar`}
+          onclick={() => openCalendarModal(selectedLeague)}
+          aria-label={`Subscribe to our ${selectedLeague} league calendar`}
         >
           <Calendar size={16} aria-hidden="true" />
-          add {activeTab} games to your calendar 
+          add {selectedLeague} games to your calendar 
         </button>
       </div>
-      <p>{getLeagueDescription(activeTab)}</p>
-      <GameList games={currentScheduleByLeague[activeTab]} teamName="Somerville United FC" includeTicketButton={true} />
+      <p>{getLeagueDescription(selectedLeague)}</p>
+      <GameList games={currentScheduleByLeague[selectedLeague]} teamName="Somerville United FC" includeTicketButton={true} />
     </div>
 
     {#if isCalendarModalOpen}
@@ -236,6 +257,30 @@
     gap: 0.5rem;
     margin-bottom: 2rem;
     justify-content: center;
+  }
+
+  .season-picker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin: 1.5rem 0 1rem;
+  }
+
+  .season-picker label {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+  }
+
+  .season-picker select {
+    padding: 0.55rem 0.8rem;
+    border-radius: var(--radius);
+    border: 1px solid rgba(var(--primary-color-rgb), 0.3);
+    font: inherit;
+    background: white;
+    color: var(--dark-color);
   }
 
   .tab {
