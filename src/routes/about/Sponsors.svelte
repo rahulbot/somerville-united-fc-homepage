@@ -15,7 +15,6 @@
   import soccerWithoutBorders from "@assets/sponsors/soccer-without-borders.png";
   import extendedFamilyProductions from "@assets/sponsors/extended-family-productions.jpeg";
   import jMassStudios from "@assets/sponsors/j-mass-studios.jpeg";
-  import apsl from "@assets/sponsors/apsl.png";
   import newLeafEspresso from "@assets/sponsors/new-leaf-espresso.png";
   import missingMoney from "@assets/sponsors/missing-money.png";
 </script>
@@ -57,9 +56,6 @@
     </a>
     <a href="https://www.winterhillbrewing.com/" target="_blank" class="sponsor-logo">
       <img src={winterHillBrewingCompany} alt="Winter Hill Brewing Company" />
-    </a>
-    <a href="https://apslsoccer.com" target="_blank" class="sponsor-logo">
-      <img src={apsl} alt="American Premier Soccer League" />
     </a>
     <a href="https://www.mass-soccer.org" target="_blank" class="sponsor-logo">
       <img src={massSoccer} alt="Mass Soccer" />

@@ -37,7 +37,7 @@
               <span class="text-primary">✨</span> Build a culture of unity, family, and ambition
             </li>
           </ul>
-          <p>Our <a href="team/mens">men's team</a> joined the APSL and CASA in Spring of 2026, 
+          <p>Our <a href="team/mens">men's team</a> started playing in Spring of 2026, 
             and our <a href="team/womens">women's team</a> will follow in 2027.
             <a href="https://somervilleunitedfc.beehiiv.com">Subscribe to our newsletter</a> below to stay updated!</p>
         </div>

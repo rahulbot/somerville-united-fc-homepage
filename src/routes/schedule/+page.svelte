@@ -3,6 +3,7 @@
   import GameList from './GameList.svelte';
   import { Calendar, Copy, X } from 'lucide-svelte';
   import apslLogo from "@assets/APSL.gif";
+  import upslLogo from "@assets/UPSL.gif";
   import casaLogo from "@assets/casa-logo-white.png";
   import dOneLogo from "@assets/d-one-logo-white.png";
   import { getCurrentSeasonName, getLeagueTeamName } from "../../lib/schedules.js";
@@ -23,6 +24,8 @@
 
   function getLeagueDescription(league) {
     switch(league) {
+      case 'UPSL':
+        return "Our flagship men's team plays in the UPSL New England Conference. Home games are at Dilboy Stadum in Somerville.";
       case 'APSL':
         return "Our flagship men's team plays in the APSL Mayflower Conference. Home games are at Dilboy Stadum in Somerville.";
       case 'CASA':
@@ -62,6 +65,8 @@
 
   const getLeagueLogo = (league) => {
     switch(league) {
+      case 'UPSL':
+        return upslLogo;
       case 'APSL':
         return apslLogo;
       case 'CASA':
@@ -155,6 +160,7 @@
     </h1>
     <p class="page-subtitle">
       Somerville United FC fields men's teams in various local leagues:
+      <a href="https://premier.upsl.com/teams/?state=false&division=false&conference=28">UPSL New England conference</a>, 
       <a href="https://apslsoccer.com/APSL/Tables/">APSL Mayflower Conference</a>,
       <a href="https://www.casasoccerleagues.com/massachusetts">CASA Massachusetts Select Liga 1</a>,
       and the <a href="https://www.instagram.com/d1soccerleague/">D-1 Soccer League</a>.

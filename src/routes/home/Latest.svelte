@@ -13,7 +13,7 @@
         </h3>
         <div class="community-text">
           <p class="text-md">
-            Our men's teams are now playing in the APSL and CASA leagues. <a href="/schedule">Check out our schedule</a> to join us at one of our upcoming games.  
+            Our men's teams are now playing in various local leagues leagues. <a href="/schedule">Check out our schedule</a> to join us at one of our upcoming games.  
           </p>
         </div>
       </div>
