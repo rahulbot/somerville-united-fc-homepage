@@ -5,6 +5,7 @@ import SocialLinks from "./SocialLinks.svelte";
 import fifa from "@assets/fifa.gif";
 import usaSoccer from "@assets/usa-soccer.gif";
 import concacaf from "@assets/CONCACAF.gif";
+import upsl from "@assets/UPSL.gif";
 import apsl from "@assets/APSL.gif";
 import casa from "@assets/casa-logo-white.png";
 
@@ -23,6 +24,7 @@ import casa from "@assets/casa-logo-white.png";
         </p>
         <SocialLinks size={40} color="#FFFFFF" />
         <div class="footer-links">
+          <a href="https://premier.upsl.com"><img src="{upsl}" alt="UPSL" class="footer-logo" /></a>
           <a href="https://apslsoccer.com/APSL/Team/131978"><img src="{apsl}" alt="APSL" class="footer-logo" /></a>
           <a href="https://www.casasoccerleagues.com/"><img src="{casa}" alt="CASA" class="footer-logo" /></a>
           <a href="https://www.ussoccer.com"><img src="{usaSoccer}" alt="US Soccer" class="footer-logo" /></a>

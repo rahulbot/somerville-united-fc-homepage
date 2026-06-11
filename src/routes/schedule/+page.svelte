@@ -3,50 +3,102 @@
   import GameList from './GameList.svelte';
   import { Calendar, Copy, X } from 'lucide-svelte';
   import apslLogo from "@assets/APSL.gif";
+  import upslLogo from "@assets/UPSL.gif";
   import casaLogo from "@assets/casa-logo-white.png";
+  import dOneLogo from "@assets/d-one-logo-white.png";
+  import { getCurrentSeasonName, getLeagueTeamName } from "../../lib/schedules.js";
 
-  let { data } = $props();
+  const { data } = $props();
 
-  let scheduleApsl = $derived(data.APSL);
-  let scheduleCasa = $derived(data.CASA);
+  const seasonNames = $derived(Object.keys(data.calendar));
+  const currentSeason = getCurrentSeasonName(data.calendar); // which one are we in right now
+  let selectedSeason = $state(currentSeason); // which one is selected
+  let currentScheduleByLeague = $derived(data.calendar[selectedSeason]);
+  let leagueNames = $derived(Object.keys(currentScheduleByLeague));
+  let selectedLeagueOverride = $state(null);
+  let selectedLeague = $derived(
+    selectedLeagueOverride && leagueNames.includes(selectedLeagueOverride)
+      ? selectedLeagueOverride
+      : leagueNames[0]
+  );
 
-  // show optional countdown if first game date is valid
-  const firstGameDate = new Date("2026-03-15"); // set to `null` if no upcoming game
-  let countdownDays = $state(undefined);;
-  try {
-    const today = new Date();
-    if (firstGameDate && (today < firstGameDate)) {
-      const diff = (new Date(firstGameDate) - today) / (1000 * 60 * 60 * 24);
-      countdownDays = Math.ceil(diff);
+  function getLeagueDescription(league) {
+    switch(league) {
+      case 'UPSL':
+        return "Our flagship men's team plays in the UPSL New England Conference. Home games are at Dilboy Stadum in Somerville.";
+      case 'APSL':
+        return "Our flagship men's team plays in the APSL Mayflower Conference. Home games are at Dilboy Stadum in Somerville.";
+      case 'CASA':
+        return "Our reserve men's team plays in the CASA Select Liga 1. Home games are at Conway Park in Somerville.";
+      case 'D-One':
+        return "Our flagship men's team plays in the D-One Soccer League.";
+      default:
+        return "";
     }
-  } catch (error) {
-    countdownDays = undefined;
   }
 
-  let activeTab = $state('apsl');
+  // show optional countdown if first game date is valid
+  const firstSeasonGameDate = $derived(currentScheduleByLeague[0].parsedDate);
+  let countdownDays = $derived.by( () => {
+    let daysToGo;
+    try {
+      const today = new Date();
+      if (firstSeasonGameDate && (today < firstSeasonGameDate)) {
+        const diff = (new Date(firstSeasonGameDate) - today) / (1000 * 60 * 60 * 24);
+        daysToGo = Math.ceil(diff);
+      }
+    } catch (error) {
+      daysToGo = undefined;
+    }
+    return daysToGo;
+  });
+
   let isCalendarModalOpen = $state(false);
   let selectedCalendarUrl = $state('');
   let selectedTeamLabel = $state('');
   let copyNoticeVisible = $state(false);
 
-  const calendarFeeds = {
-    apsl: {
-      label: "Men's Flagship",
-      url: '/calendars/sufc-mens-apsl.ics'
-    },
-    casa: {
-      label: "Men's Reserve",
-      url: '/calendars/sufc-mens-casa.ics'
+  const teamNameLookup = {
+    "Somerville United FC": "Men's Flagship",
+    "Somerville United FC II": "Men's Reserve"
+  };
+
+  const getLeagueLogo = (league) => {
+    switch(league) {
+      case 'UPSL':
+        return upslLogo;
+      case 'APSL':
+        return apslLogo;
+      case 'CASA':
+        return casaLogo;
+      case 'D-One':
+        return dOneLogo;
+      default:
+        return null;
     }
   };
+
+  const calendarFeeds = $derived.by(() => {
+    feeds = {};
+    leagueNames.forEach(league => {
+      const leagueGames = currentScheduleByLeague[league];
+      const teamName = leagueGames[0].Home.includes("Somerville United") ? leagueGames[0].Home : leagueGames[0].Away;
+      const teamLabel = teamNameLookup[teamName] || teamName;
+      feeds[league] = {
+        label: teamLabel,
+        url: `/calendars/${getCalendarNameForLeague(league)}`
+      };
+    });
+    return feeds;
+  });
 
   function handleKeydown(event) {
     if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
       event.preventDefault();
-      activeTab = activeTab === 'apsl' ? 'casa' : 'apsl';
+      selectedLeague = selectedLeague === 'apsl' ? 'casa' : 'apsl';
       // Focus the newly active tab
       setTimeout(() => {
-        document.getElementById(`${activeTab}-tab`)?.focus();
+        document.getElementById(`${selectedLeague}-tab`)?.focus();
       }, 0);
     }
   }
@@ -103,81 +155,65 @@
       {#if countdownDays}
         <em>{countdownDays}</em> Days Till Our Home Opener
       {:else}
-        2026 Spring Season Schedule
+        {currentSeason} Season Schedule
       {/if}
     </h1>
     <p class="page-subtitle">
-      Somerville United FC fields men's teams in the <a href="https://apslsoccer.com/APSL/Tables/">semi-pro APSL Mayflower Conference</a> and the <a href="https://www.casasoccerleagues.com/massachusetts">amatuer CASA Massachusetts Select Liga 1</a>. We'd love to have you join at one of our upcoming games!
+      Somerville United FC fields men's teams in various local leagues:
+      <a href="https://premier.upsl.com/teams/?state=false&division=false&conference=28">UPSL New England conference</a>, 
+      <a href="https://apslsoccer.com/APSL/Tables/">APSL Mayflower Conference</a>,
+      <a href="https://www.casasoccerleagues.com/massachusetts">CASA Massachusetts Select Liga 1</a>,
+      and the <a href="https://www.instagram.com/d1soccerleague/">D-1 Soccer League</a>.
+      We'd love to have you join at one of our upcoming games!
     </p>
 
-    <div class="tabs" role="tablist" aria-label="Select Team">
-      <button 
-        class="tab" 
-        class:active={activeTab === 'apsl'}
-        class:inactive={activeTab !== 'apsl'}
-        onclick={() => activeTab = 'apsl'}
-        onkeydown={handleKeydown}
-        role="tab"
-        aria-selected={activeTab === 'apsl'}
-        aria-controls="apsl-panel"
-        id="apsl-tab"
-        tabindex={activeTab === 'apsl' ? 0 : -1}
-      >
-        <img src="{apslLogo}" alt="APSL" height="32"/>
-        Men's Flagship
-      </button>
-      <button 
-        class="tab" 
-        class:active={activeTab === 'casa'}
-        class:inactive={activeTab !== 'casa'}
-        onclick={() => activeTab = 'casa'}
-        onkeydown={handleKeydown}
-        role="tab"
-        aria-selected={activeTab === 'casa'}
-        aria-controls="casa-panel"
-        id="casa-tab"
-        tabindex={activeTab === 'casa' ? 0 : -1}
-      >
-        <img src="{casaLogo}" alt="CASA" height="32"/>
-        Men's Reserve
-      </button>
+    <div class="season-picker">
+      <label for="season-select">Season</label>
+      <select id="season-select" bind:value={selectedSeason}>
+        {#each seasonNames as season}
+          <option value={season}>{season}</option>
+        {/each}
+      </select>
     </div>
 
-    {#if activeTab === 'apsl'}
-      <div role="tabpanel" id="apsl-panel" aria-labelledby="apsl-tab" class="tab-panel">
-        <div class="panel-heading">
-          <h3>Men's Flagship: Somerville United FC</h3>
-          <button
-            class="btn-subscribe"
-            type="button"
-            onclick={() => openCalendarModal('apsl')}
-            aria-label="Subscribe to our calendar for the Men's Flagship team"
-          >
-            <Calendar size={16} aria-hidden="true" />
-            add Men's Flagship games to your calendar 
-          </button>
-        </div>
-        <p>Our flagship men's team plays in the APSL Mayflower Conference. Home games are at Dilboy Stadum in Somerville.</p>
-        <GameList games={scheduleApsl} teamName="Somerville United FC" includeTicketButton={true} />
+    <div class="tabs" role="tablist" aria-label="Select Team">
+      {#each leagueNames as league}
+        <button 
+          class="tab" 
+          class:active={selectedLeague === league}
+          class:inactive={selectedLeague !== league}
+          onclick={() => selectedLeague = league}
+          onkeydown={handleKeydown}
+          role="tab"
+          aria-selected={selectedLeague === league}
+          aria-controls={`${league}-panel`}
+          id={`${league}-tab`}
+          tabindex={selectedLeague === league ? 0 : -1}
+        >
+          {#if getLeagueLogo(league) }
+            <img src="{getLeagueLogo(league)}" alt="{league} logo" height="32"/>
+          {/if}
+          {league}
+        </button>
+      {/each}
+    </div>
+
+    <div role="tabpanel" id={`${selectedLeague}-panel`} aria-labelledby={`${selectedLeague}-tab`} class="tab-panel">
+      <div class="panel-heading">
+        <h3>{getLeagueTeamName(currentScheduleByLeague[selectedLeague])}</h3>
+        <button
+          class="btn-subscribe"
+          type="button"
+          onclick={() => openCalendarModal(selectedLeague)}
+          aria-label={`Subscribe to our ${selectedLeague} league calendar`}
+        >
+          <Calendar size={16} aria-hidden="true" />
+          add {selectedLeague} games to your calendar 
+        </button>
       </div>
-    {:else}
-      <div role="tabpanel" id="casa-panel" aria-labelledby="casa-tab" class="tab-panel">
-        <div class="panel-heading">
-          <h3>Men's Reserve: Somerville United FC II</h3>
-          <button
-            class="btn-subscribe"
-            type="button"
-            onclick={() => openCalendarModal('casa')}
-            aria-label="Subscribe to our calendar for the Men's Reserve team"
-          >
-            <Calendar size={16} aria-hidden="true" />
-            add Men's Reserve games to your calendar
-          </button>
-        </div>
-        <p>Our reserve men's team plays in the CASA Select Liga 1. Home games are at Conway Park in Somerville.</p>
-        <GameList games={scheduleCasa} teamName="Somerville United FC II" includeTicketButton={false} />
-      </div>
-    {/if}
+      <p>{getLeagueDescription(selectedLeague)}</p>
+      <GameList games={currentScheduleByLeague[selectedLeague]} teamName="Somerville United FC" includeTicketButton={true} />
+    </div>
 
     {#if isCalendarModalOpen}
       <div class="modal-backdrop" role="presentation" onclick={handleBackdropClick} onkeydown={handleModalKeydown}>
@@ -227,6 +263,30 @@
     gap: 0.5rem;
     margin-bottom: 2rem;
     justify-content: center;
+  }
+
+  .season-picker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin: 1.5rem 0 1rem;
+  }
+
+  .season-picker label {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+  }
+
+  .season-picker select {
+    padding: 0.55rem 0.8rem;
+    border-radius: var(--radius);
+    border: 1px solid rgba(var(--primary-color-rgb), 0.3);
+    font: inherit;
+    background: white;
+    color: var(--dark-color);
   }
 
   .tab {

@@ -2,10 +2,10 @@
 import { page } from '$app/stores';
 import { LoaderCircle } from 'lucide-svelte';
 import PhotoTrio from '../../components/PhotoTrio.svelte';
+import { getTicketableGames } from '../../lib/schedules.js';
 
 const { data } = $props();
-const scheduleApsl = $derived(data.APSL);
-const ticketableGames = $derived(scheduleApsl.filter(game => game.RSVPable));
+const ticketableGames = $derived(getTicketableGames(data));
 const gameParam = $derived($page.url.searchParams.get('game'));
 
 // copied the approach from https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server
@@ -22,7 +22,7 @@ let gameId = $state(gameParam || ticketableGames[0]?.id); // only catches initia
 let honeypot = $state(""); // for spam prevention
 let newsletter = $state(false);
 let selectedGame = $derived.by(() => ticketableGames.find(g => g.id == gameId));
-let selectedGameDescription = $derived.by(() => `APSL-${selectedGame.Date}-${selectedGame.opponent}`);
+let selectedGameDescription = $derived.by(() => `${selectedGame.Season}-${selectedGame.League}-${selectedGame.Date}-${selectedGame.opponent}`);
 
 
 // Adapted from the `getFormData` function from the tutorial
@@ -80,72 +80,77 @@ function handleFormSubmit(event) {  // handles form submit without any jquery
   <section>
     <h1>RSVP to a Game</h1>
     <p class="page-subtitle">
-      Our games are free to attend, but RSVP so we can reserve you a spot!
+      {#if ticketableGames.length === 0}
+        Keep an eye out here for upcoming games you can get tickets for!
+      {:else}
+        Our games are free to attend, but RSVP so we can reserve you a spot!
+      {/if}
     </p>
 
-    <form method="POST" onsubmit={handleFormSubmit} data-sheet="ticket_responses">
+    {#if ticketableGames.length > 0}
+      <form method="POST" onsubmit={handleFormSubmit} data-sheet="ticket_responses">
 
-      {#if !submitted}
-        <div class="form-elements">
-          <fieldset class="inline">
-            <label for="name">Game:</label>
-            <select name="game" id="game" bind:value={gameId} required>
-              {#each ticketableGames as game}
-                <option value={game.id} selected={gameParam === game.id}>
-                  {game.Date} vs. {game.opponent} @ {game.Venue}
-                  {#if game.Round == 'Playoffs'}
-                    (Playoffs)
-                  {/if}
-                </option>
-              {/each}
-            </select>
-          </fieldset>
+        {#if !submitted}
+          <div class="form-elements">
+            <fieldset class="inline">
+              <label for="name">Game:</label>
+              <select name="game" id="game" bind:value={gameId} required>
+                {#each ticketableGames as game}
+                  <option value={game.id} selected={gameParam === game.id}>
+                    {game.Date} vs. {game.opponent} @ {game.Venue}
+                    {#if game.Round == 'Playoffs'}
+                      (Playoffs)
+                    {/if}
+                  </option>
+                {/each}
+              </select>
+            </fieldset>
 
-          <fieldset>
-            <label for="email">Your Email Address:</label>
-            <input id="email" name="email" type="email" required bind:value={email} />
-          </fieldset>
+            <fieldset>
+              <label for="email">Your Email Address:</label>
+              <input id="email" name="email" type="email" required bind:value={email} />
+            </fieldset>
 
-          <fieldset>
-            <label for="guests">Number of People: </label>
-            <input type="number" id="guests" name="guests" min="1" max="10" style="width: 100px" bind:value={guests} />
-          </fieldset>
+            <fieldset>
+              <label for="guests">Number of People: </label>
+              <input type="number" id="guests" name="guests" min="1" max="10" style="width: 100px" bind:value={guests} />
+            </fieldset>
 
-          <fieldset class="inline">
-            <input type="checkbox" id="newsletter" name="newsletter" bind:checked={newsletter}/>
-            <label for="newsletter">Subscribe to our newsletter</label>
-          </fieldset>
+            <fieldset class="inline">
+              <input type="checkbox" id="newsletter" name="newsletter" bind:checked={newsletter}/>
+              <label for="newsletter">Subscribe to our newsletter</label>
+            </fieldset>
 
-          <!-- To help avoid spam, utilize a Honeypot technique with a hidden text field; must be empty to submit the form! Otherwise, we assume the user is a spam bot. -->
-          <input id="honeypot" type="text" name="honeypot" bind:value={honeypot} />
+            <!-- To help avoid spam, utilize a Honeypot technique with a hidden text field; must be empty to submit the form! Otherwise, we assume the user is a spam bot. -->
+            <input id="honeypot" type="text" name="honeypot" bind:value={honeypot} />
 
-          <button type="submit" class="btn-primary" class:is-invalid={submitting} disabled={submitting}>
-            RSVP
-          </button>
-          {#if submitting}
-            <p>
-              <LoaderCircle class="spinning" />
-              (we're saving your RSVP now)
-            </p>
-          {/if}
-        </div>
-      {/if}
-
-      {#if submitted}
-        <!-- Shows up after they submit the RSVP -->
-        <div class="thankyou_message">
-          <h3>Thanks for the RSVP!</h3>
-          <p>We're excited to see you at our game on {selectedGame.Date} at {selectedGame.Venue} vs. {selectedGame.opponent} ⚽️🎉</p>
-          <a href="/schedule">
-            <button class="btn-primary">
-              Back to our Schedule
+            <button type="submit" class="btn-primary" class:is-invalid={submitting} disabled={submitting}>
+              RSVP
             </button>
-          </a>
-        </div>
-      {/if}
+            {#if submitting}
+              <p>
+                <LoaderCircle class="spinning" />
+                (we're saving your RSVP now)
+              </p>
+            {/if}
+          </div>
+        {/if}
 
-    </form>
-    
+        {#if submitted}
+          <!-- Shows up after they submit the RSVP -->
+          <div class="thankyou_message">
+            <h3>Thanks for the RSVP!</h3>
+            <p>We're excited to see you at our game on {selectedGame.Date} at {selectedGame.Venue} vs. {selectedGame.opponent} ⚽️🎉</p>
+            <a href="/schedule">
+              <button class="btn-primary">
+                Back to our Schedule
+              </button>
+            </a>
+          </div>
+        {/if}
+
+      </form>
+    {/if}
   </section>
   <section>
     <PhotoTrio />

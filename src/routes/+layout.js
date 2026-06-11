@@ -6,6 +6,6 @@ export const ssr = false;
 export const load = async ({fetch, params}) => {
   const metadata = await loadMetadata();
   return {
-    ...metadata
+    ...metadata,
   };
 };

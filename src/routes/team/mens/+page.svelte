@@ -4,16 +4,17 @@
 </script>
 
 <svelte:head>
-  <title>Men's APSL Team - Somerville United FC</title>
-  <meta name="description" content="Meet the Somerville United FC Men's APSL team" />
+  <title>Men's Team - Somerville United FC</title>
+  <meta name="description" content="Meet the Somerville United FC Men's team" />
 </svelte:head>
 
 <section>
   <div class="container">
     <h1 class="page-title">Men's Team</h1>
     <p class="page-subtitle">
-      The Men's team plays in the <a href="https://apslsoccer.com/APSL/Teams/">Mayflower Conference of the American Premier Soccer League (APSL)</a>.
-      The team is made up of a mix of homegrown talent and players from around the country, many of whom have played at the collegiate level.
+      The Men's team plays in various leagues.
+      The team is made up of a mix of homegrown talent and players from around the country, 
+      many of whom have played at the collegiate level.
       <br />
       <a href="/team">Explore our other teams</a>.
     </p>
