@@ -5,19 +5,37 @@
 
 <section id="mission" class="mission-section">
   <div class="container">
+    <h3>
+      Uplifting Players. Mentoring Youth. Celebrating Somerville.
+    </h3>
     <div class="mission-grid">
       <div class="mission-content">
         <h2 class="section-eyebrow">Our Mission</h2>
-        <h3>
-          Uplifting Players. <br/>
-          Mentoring Youth. <br/>
-          Celebrating Somerville.
-        </h3>
         <div class="mission-text">
           <p>
             Somerville deserves a club that belongs to everyone. A place where talent is nurtured, players are supported, and community comes first.
           </p>
-          <p>
+          <p>Our <a href="team/mens">men's team</a> started playing in Spring of 2026, winning the APSL Mayflower Conference in their first season! 
+            Our <a href="team/womens">women's team</a> will follow in 2027.
+            <a href="https://somervilleunitedfc.beehiiv.com">Subscribe to our newsletter</a> below to stay updated!</p>
+        </div>
+<!--    <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value">100%</div>
+            <div class="stat-label">Community Owned</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">50+</div>
+            <div class="stat-label">Local Players</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">1</div>
+            <div class="stat-label">Goal</div>
+          </div>
+        </div> -->
+      </div>
+      <div>
+        <p>
             Somerville United FC is here to:
           </p>
           <ul class="mission-list">
@@ -37,27 +55,9 @@
               <span class="text-primary">✨</span> Build a culture of unity, family, and ambition
             </li>
           </ul>
-          <p>Our <a href="team/mens">men's team</a> started playing in Spring of 2026, 
-            and our <a href="team/womens">women's team</a> will follow in 2027.
-            <a href="https://somervilleunitedfc.beehiiv.com">Subscribe to our newsletter</a> below to stay updated!</p>
-        </div>
-<!--    <div class="stats-grid">
-          <div class="stat-card">
-            <div class="stat-value">100%</div>
-            <div class="stat-label">Community Owned</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-value">50+</div>
-            <div class="stat-label">Local Players</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-value">1</div>
-            <div class="stat-label">Goal</div>
-          </div>
-        </div> -->
       </div>
-      <DecoratedImage src={ballImage} alt="Soccer ball on field"  />
     </div>
+    <DecoratedImage aspectRatio="25 / 9" src={"/images/action/apsl-mayflower-cup-raise.jpg"} alt="Raising the Mayflower Cup after clinching the conference title!" />
   </div>
 </section>
 
@@ -66,6 +66,7 @@
     display: grid;
     gap: 4rem;
     align-items: center;
+    margin-bottom: 4rem;
   }
 
   @media (min-width: 1024px) {

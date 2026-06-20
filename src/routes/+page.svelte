@@ -3,7 +3,6 @@
   import Mission from "./home/Mission.svelte";
   import Values from "./home/Values.svelte";
   import GameDayHighlight from "./home/GameDayHighlight.svelte";
-  import APSLChampions2026 from "./home/APSLChampions2026.svelte";
   import Latest from "./home/Latest.svelte";
   import { getGamesToday } from "../lib/schedules.js";
 
@@ -29,9 +28,6 @@
   <GameDayHighlight game={gamesToday[0]} />
 {/if}
 
-<APSLChampions2026 />
-
-<!--
 <Hero {scrollTo} />
 
 <Mission />
@@ -39,4 +35,3 @@
 <Values />
 
 <Latest />
--->
