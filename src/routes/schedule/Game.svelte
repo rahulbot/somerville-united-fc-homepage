@@ -1,6 +1,6 @@
 <script>
-  import { gameHasYouTubeId, gameHasVideoUrl } from '$lib/video.js';
-  import YouTubeLogo from '../../components/icons/YouTubeLogo.svelte';
+  import GameDate from './GameDate.svelte';
+  import GameLocation from './GameLocation.svelte';
 
   const { game, teamName, includeTicketButton } = $props(); // keys: Day, Date, Time, Venue, Address, Home, Away, Postponed
   const isHome = $derived(game.Home === teamName);
@@ -8,56 +8,14 @@
   const isPostSeason = $derived(game.Round != 'Regular Season');
   const inPast = $derived(!isNaN(new Date(game.Date)) && (new Date() > new Date(game.Date)));
   const hasTicketLink = $derived((includeTicketButton && isHome) && (game.Tickets && game.Tickets.startsWith('http')));
-  const hasYouTubeId = $derived(gameHasYouTubeId(game));
-  const hasVideoUrl = $derived(gameHasVideoUrl(game));
-
-  // try to parse game.Date as a date, otherwise leave it as is because it might be TBD
-  let displayDate = $derived.by(() => {
-    let dateStr;
-    try {
-      if (isNaN(new Date(game.Date))) {
-        throw new Error("Invalid date");
-      }
-      dateStr = (new Date(game.Date)).toLocaleDateString("en-US", { month: 'short', day: 'numeric' });
-    } catch {
-      dateStr = game.Date;
-    }
-    return dateStr;
-  });
 </script>
 
 <div class="game-row" class:past={inPast || game.Result}>
-  <div class="date-wrapper">
-    <div class="date-circle" class:playoffs={isPostSeason}>
-      <span class="game-date">{displayDate}</span>
-      <span class="game-time">{game.Time}</span>
-    </div>
-  </div>
-  <div>
-    <span class="game-prefix">{isHome ? 'vs' : 'at'}</span>
-    <span class="game-opponent">
-      {isHome ? game.Away : game.Home}
-      {#if hasYouTubeId}
-        <a href="https://www.youtube.com/watch?v={game.YouTubeId}">
-          <YouTubeLogo size=30 color="#C1132E"  />
-        </a>
-      {/if}
-      {#if hasVideoUrl}
-        <a href={game.YouTubeId} target="_blank" rel="noopener noreferrer">
-          <YouTubeLogo size=30 color="#C1132E"  />
-        </a>
-      {/if}
-      {#if isPostSeason}
-        <span class="game-annotation">{game.Round}</span>
-      {/if}
-    </span>        
-    <br />
-    <span class="game-venue">{game.Venue}
-      {#if game.Address}
-        - {game.Address}
-      {/if}
-    </span>
-  </div>
+  
+  <div><GameDate {game} {isPostSeason} /></div>
+  
+  <div><GameLocation {game} {isHome} {isPostSeason} /></div>
+  
   <div class="status-wrapper">
     {#if isPostponed}
       <span class="chip postponed">Postponed</span>
@@ -88,6 +46,7 @@
       </a>
     {/if}
   </div>
+
 </div>
 
 <style>
@@ -114,62 +73,6 @@
   }
   .game-row > div:nth-child(3) {
     flex: 0 0 30%;
-  }
-
-  .date-wrapper {
-    padding-left: 10px;
-  }  
-  .date-circle {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background-color: var(--secondary-color);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-right: 15px;
-    color: white;
-    &.playoffs {
-      background-color: var(--alert-color);
-      color: black;
-    }
-    .game-date {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      font-weight: bold;
-      display: block;
-    }
-    .game-time {
-      font-size: 0.7rem;
-    }
-  }
-
-  .game-prefix {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    color: var(--secondary-color);
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-  .game-opponent {
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
-    font-weight: bold;
-  }
-  .game-annotation {
-    display: inline-block;
-    margin-left: 10px;
-    padding: 2px 8px;
-    font-size: 1rem;
-    background-color: var(--alert-color);
-    border: 1px solid var(--alert-color);
-    border-radius: 4px;
-    text-transform: uppercase;
-    vertical-align: middle;
-  }
-  .game-venue {
-    font-style: italic;
   }
 
   .note {
@@ -224,28 +127,8 @@
       padding: 15px 0;
       height: auto;
     }
-    .date-wrapper, .status-wrapper {
+    .status-wrapper {
       padding-left: 0px;
-    }  
-    .date-circle {
-      width: 60px;
-      height: 60px;
-      margin-right: 10px;
-    }
-    .game-date {
-      font-size: 0.6rem !important;
-    }
-    .game-time {
-      font-size: 0.5rem !important;
-    }
-    .game-prefix {
-      font-size: 1rem;
-    }
-    .game-opponent {
-      font-size: 1.5rem;
-    }
-    .game-venue {
-      font-size: 0.8rem;
     }
     button {
       font-size: 0.8rem;
