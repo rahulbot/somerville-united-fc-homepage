@@ -5,7 +5,6 @@
   import "../index.css";
 
   const { data } = $props();
-  console.log(data);
 </script>
 
 <div class="page-wrapper">
