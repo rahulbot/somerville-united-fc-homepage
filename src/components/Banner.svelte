@@ -5,7 +5,7 @@ const { text } = $props();
 {#if text.length > 0}
 <div class="banner">
   <div class="container">
-    {text}
+    {@html text}
   </div>
 </div>
 {/if}
@@ -21,8 +21,8 @@ const { text } = $props();
     color: white;
   }
 
-  a {
-    color: var(--primary-color-foreground);
+  :global(.banner a) {
+    color: var(--primary-color-foreground) !important;
     font-weight: 600;
     text-decoration: underline;
   }
