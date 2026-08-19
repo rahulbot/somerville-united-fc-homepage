@@ -1,7 +1,8 @@
-# Somerville United FC Homepage
+Somerville United FC Homepage
+=============================
 
 Homepage for the Somerville United FC soccer organization. This is built as a SvelteKit app and deployed 
-via a static compiliant to vanilla HTML/CSS/JS. Deployed and hosted via GH Pages.
+via a static pre-compiled to vanilla HTML/CSS/JS. Deployed and hosted via GH Pages.
 
 ## Developing
 
