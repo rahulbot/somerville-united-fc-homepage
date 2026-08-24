@@ -2,12 +2,17 @@
 import { page } from '$app/stores';
 import { LoaderCircle } from 'lucide-svelte';
 import PhotoTrio from '../../components/PhotoTrio.svelte';
+import Spinner from '../../components/Spinner.svelte';
 import { getTicketableGames } from '../../lib/schedules.js';
 import GameDate from '../schedule/GameDate.svelte';
     import GameLocation from '../schedule/GameLocation.svelte';
 
 const { data } = $props();
-const ticketableGames = $derived(getTicketableGames(data));
+
+let calendars = $state(null);
+data.calendars.then(c => calendars = c);
+
+const ticketableGames = $derived(calendars ? getTicketableGames(calendars) : []);
 const gameParam = $derived($page.url.searchParams.get('game'));
 
 // copied the approach from https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server
@@ -21,7 +26,18 @@ let submitted = $state(false);
 let guests = $state(1);
 let email = $state("");
 let name = $state("");
-let gameId = $state(gameParam || ticketableGames[0]?.id); // only catches initial value, but that's fine because we don't expect it to change after the page loads
+let gameId = $state(gameParam || undefined);
+let gameIdInitialized = false;
+$effect(() => {
+  // pick the first ticketable game once data has loaded, but only once, so it doesn't
+  // clobber a game the user has since picked from the list
+  if (!gameIdInitialized && ticketableGames.length > 0) {
+    gameIdInitialized = true;
+    if (gameId === undefined) {
+      gameId = ticketableGames[0].id;
+    }
+  }
+});
 let honeypot = $state(""); // for spam prevention
 let newsletter = $state(false);
 let hearAbout = $state("");
@@ -86,7 +102,9 @@ function handleFormSubmit(event) {  // handles form submit without any jquery
   <section>
     <h1>RSVP to a Game</h1>
 
-    {#if ticketableGames.length === 0}
+    {#if calendars === null}
+      <div class="tickets-loading"><Spinner size={28} label="Loading games" /></div>
+    {:else if ticketableGames.length === 0}
       <p class="page-subtitle">
         Keep an eye out here for upcoming games you can get tickets for!
       </p>
@@ -311,15 +329,8 @@ form {
   }
 }
 
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-:global(.spinning) {
-  animation: spin 1s linear infinite;
-  display: inline-block;
-  vertical-align: middle;
+.tickets-loading {
+  padding: 2rem 0;
 }
 
 .page-subtitle {
