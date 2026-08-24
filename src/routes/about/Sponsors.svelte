@@ -16,7 +16,6 @@
   import extendedFamilyProductions from "@assets/sponsors/extended-family-productions.jpeg";
   import jMassStudios from "@assets/sponsors/j-mass-studios.jpeg";
   import newLeafEspresso from "@assets/sponsors/new-leaf-espresso.png";
-  import missingMoney from "@assets/sponsors/missing-money.png";
 </script>
 
 <section>
@@ -25,14 +24,6 @@
     <p class="page-subtitle">
       We are proud to be supported by an amazing group of local businesses and organizations. Their generous support makes our community team possible. Visit each to learn more.
     </p>
-  </div>
-
-  <div class="container">
-    <div class="lead-sponsors">
-      <a href="https://https://missingmoney.com" target="_blank" class="sponsor-logo">
-        <img src={missingMoney} alt="Missing Money" />
-      </a>
-    </div>
   </div>
 
   <div class="sponsor-logo-grid">

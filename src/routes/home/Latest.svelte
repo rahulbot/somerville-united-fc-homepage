@@ -1,5 +1,4 @@
 <script>
-  import missingMoneyLogo from "@assets/sponsors/missing-money.png";
   import PhotoTrio from "../../components/PhotoTrio.svelte";
 </script>
 
@@ -18,20 +17,6 @@
         </div>
       </div>
       
-      <div class="community-image">
-        <a href="https://www.missingmoney.com" target="_blank" rel="noopener noreferrer"><img src={missingMoneyLogo} alt="Missing Money Logo" class="logo-large" /></a> 
-        <p class="text-sm">
-            <a href="https://www.missingmoney.com" target="_blank" rel="noopener noreferrer">MissingMoney.com</a>
-            is our jersey sponsor for the 2026 season. They are a free online database 
-            that helps people find and claim unclaimed property, such as forgotten bank accounts, uncashed 
-            checks, and other assets. We are proud to partner with 
-            <a href="https://www.missingmoney.com" target="_blank" rel="noopener noreferrer">MissingMoney.com</a> 
-            to help raise awareness 
-            about their valuable service while also supporting our team on the field.
-        </p>
-      </div>
-    </div>
-
     <PhotoTrio />
     
   </div>
