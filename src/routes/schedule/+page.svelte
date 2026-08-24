@@ -6,15 +6,25 @@
   import upslLogo from "@assets/UPSL.gif";
   import casaLogo from "@assets/casa-logo-white.png";
   import dOneLogo from "@assets/d-one-logo-white.png";
-  import { getCurrentSeasonName, getLeagueTeamName } from "../../lib/schedules.js";
+  import Spinner from "../../components/Spinner.svelte";
+  import { getCurrentSeasonName, getLeagueTeamName, getCalendarNameForLeague } from "../../lib/schedules.js";
 
-  const { data } = $props();
+  const { data } = $props(); // calendar property is a promise that resolves once loaded from google sheet
 
-  const seasonNames = $derived(Object.keys(data.calendar));
-  const currentSeason = getCurrentSeasonName(data.calendar); // which one are we in right now
-  let selectedSeason = $state(currentSeason); // which one is selected
-  let currentScheduleByLeague = $derived(data.calendar[selectedSeason]);
-  let leagueNames = $derived(Object.keys(currentScheduleByLeague));
+  let loadingCalender = $state(true);
+  let calendar = $state(null);
+  let selectedSeason = $state(null); // which one is selected
+  data.calendar.then(c => {
+    calendar = c;
+    selectedSeason = getCurrentSeasonName(c); // default to whichever season we're in right now
+    loadingCalender = false;
+  });
+
+  const seasonNames = $derived(calendar ? Object.keys(calendar) : []);
+  const currentSeasonName = $derived(calendar ? getCurrentSeasonName(calendar) : null); // which one are we in right now
+  // this will be null until the async load of calendar is completed
+  let currentScheduleByLeague = $derived(calendar && selectedSeason ? calendar[selectedSeason] : null);
+  let leagueNames = $derived(currentScheduleByLeague ? Object.keys(currentScheduleByLeague) : []);
   let selectedLeagueOverride = $state(null);
   let selectedLeague = $derived(
     selectedLeagueOverride && leagueNames.includes(selectedLeagueOverride)
@@ -38,7 +48,7 @@
   }
 
   // show optional countdown if first game date is valid
-  const firstSeasonGameDate = $derived(currentScheduleByLeague[0].parsedDate);
+  const firstSeasonGameDate = $derived(currentScheduleByLeague ? currentScheduleByLeague[0].parsedDate : null);
   let countdownDays = $derived.by( () => {
     let daysToGo;
     try {
@@ -79,7 +89,7 @@
   };
 
   const calendarFeeds = $derived.by(() => {
-    feeds = {};
+    const feeds = {};
     leagueNames.forEach(league => {
       const leagueGames = currentScheduleByLeague[league];
       const teamName = leagueGames[0].Home.includes("Somerville United") ? leagueGames[0].Home : leagueGames[0].Away;
@@ -152,97 +162,105 @@
 <div class="container">
   <section>
     <h1>
-      {#if countdownDays}
-        <em>{countdownDays}</em> Days Till Our Home Opener
+      {#if loadingCalender}
+        <span>Loading calendar...</span>
       {:else}
-        {currentSeason} Season Schedule
+        {#if countdownDays}
+          <em>{countdownDays}</em> Days Till Our Home Opener
+        {:else}
+          {currentSeasonName} Season Schedule
+        {/if}
       {/if}
     </h1>
     <p class="page-subtitle">
-      Somerville United FC fields men's teams in various local leagues:
-      <a href="https://premier.upsl.com/teams/?state=false&division=false&conference=28">UPSL New England conference</a>, 
-      <a href="https://apslsoccer.com/APSL/Tables/">APSL Mayflower Conference</a>,
-      <a href="https://www.casasoccerleagues.com/massachusetts">CASA Massachusetts Select Liga 1</a>,
-      and the <a href="https://www.instagram.com/d1soccerleague/">D-1 Soccer League</a>.
+      Somerville United FC fields men's teams in various local leagues. We are currently playing in the 
+      <a href="https://premier.upsl.com/teams/?state=false&division=false&conference=28">UPSL New England conference</a>
+      and <a href="https://apslsoccer.com/APSL/Tables/">APSL Mayflower Conference</a>.
       We'd love to have you join at one of our upcoming games!
     </p>
 
-    <div class="season-picker">
-      <label for="season-select">Season</label>
-      <select id="season-select" bind:value={selectedSeason}>
-        {#each seasonNames as season}
-          <option value={season}>{season}</option>
-        {/each}
-      </select>
-    </div>
-
-    <div class="tabs" role="tablist" aria-label="Select Team">
-      {#each leagueNames as league}
-        <button 
-          class="tab" 
-          class:active={selectedLeague === league}
-          class:inactive={selectedLeague !== league}
-          onclick={() => selectedLeague = league}
-          onkeydown={handleKeydown}
-          role="tab"
-          aria-selected={selectedLeague === league}
-          aria-controls={`${league}-panel`}
-          id={`${league}-tab`}
-          tabindex={selectedLeague === league ? 0 : -1}
-        >
-          {#if getLeagueLogo(league) }
-            <img src="{getLeagueLogo(league)}" alt="{league} logo" height="32"/>
-          {/if}
-          {league}
-        </button>
-      {/each}
-    </div>
-
-    <div role="tabpanel" id={`${selectedLeague}-panel`} aria-labelledby={`${selectedLeague}-tab`} class="tab-panel">
-      <div class="panel-heading">
-        <h3>{getLeagueTeamName(currentScheduleByLeague[selectedLeague])}</h3>
-        <button
-          class="btn-subscribe"
-          type="button"
-          onclick={() => openCalendarModal(selectedLeague)}
-          aria-label={`Subscribe to our ${selectedLeague} league calendar`}
-        >
-          <Calendar size={16} aria-hidden="true" />
-          add {selectedLeague} games to your calendar 
-        </button>
+    {#if !loadingCalender}
+      <div class="season-picker">
+        <label for="season-select">Season</label>
+        <select id="season-select" bind:value={selectedSeason}>
+          {#each seasonNames as season}
+            <option value={season}>{season}</option>
+          {/each}
+        </select>
       </div>
-      <p>{getLeagueDescription(selectedLeague)}</p>
-      <GameList games={currentScheduleByLeague[selectedLeague]} teamName="Somerville United FC" includeTicketButton={true} />
-    </div>
 
-    {#if isCalendarModalOpen}
-      <div class="modal-backdrop" role="presentation" onclick={handleBackdropClick} onkeydown={handleModalKeydown}>
-        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="calendar-modal-title" tabindex="-1">
-          <button class="modal-close-icon" type="button" onclick={closeCalendarModal} aria-label="Close calendar subscription modal">
-            <X size={18} aria-hidden="true" />
+      <div class="tabs" role="tablist" aria-label="Select Team">
+        {#each leagueNames as league}
+          <button
+            class="tab"
+            class:active={selectedLeague === league}
+            class:inactive={selectedLeague !== league}
+            onclick={() => selectedLeague = league}
+            onkeydown={handleKeydown}
+            role="tab"
+            aria-selected={selectedLeague === league}
+            aria-controls={`${league}-panel`}
+            id={`${league}-tab`}
+            tabindex={selectedLeague === league ? 0 : -1}
+          >
+            {#if getLeagueLogo(league) }
+              <img src="{getLeagueLogo(league)}" alt="{league} logo" height="32"/>
+            {/if}
+            {league}
           </button>
+        {/each}
+      </div>
 
-          <h4 id="calendar-modal-title">Subscribe to {selectedTeamLabel} Calendar</h4>
-          <p>Subscribe to stay up-to-date with our latest games. Use this feed URL in your favorite calendar app:</p>
+      <div role="tabpanel" id={`${selectedLeague}-panel`} aria-labelledby={`${selectedLeague}-tab`} class="tab-panel">
+        <div class="panel-heading">
+          <h3>{getLeagueTeamName(currentScheduleByLeague[selectedLeague])}</h3>
+          <button
+            class="btn-subscribe"
+            type="button"
+            onclick={() => openCalendarModal(selectedLeague)}
+            aria-label={`Subscribe to our ${selectedLeague} league calendar`}
+          >
+            <Calendar size={16} aria-hidden="true" />
+            add {selectedLeague} games to your calendar
+          </button>
+        </div>
+        <p>{getLeagueDescription(selectedLeague)}</p>
+        <GameList games={currentScheduleByLeague[selectedLeague]} teamName="Somerville United FC" includeTicketButton={true} />
+      </div>
 
-          <div class="copy-field" role="group" aria-label="Calendar feed URL">
-            <span class="copy-field-url">{fullCalendarUrl}</span>
-            <button class="copy-field-btn" type="button" onclick={copyCalendarUrl} aria-label="Copy calendar feed URL to clipboard">
-              <Copy size={16} aria-hidden="true" />
+      {#if isCalendarModalOpen}
+        <div class="modal-backdrop" role="presentation" onclick={handleBackdropClick} onkeydown={handleModalKeydown}>
+          <div class="modal" role="dialog" aria-modal="true" aria-labelledby="calendar-modal-title" tabindex="-1">
+            <button class="modal-close-icon" type="button" onclick={closeCalendarModal} aria-label="Close calendar subscription modal">
+              <X size={18} aria-hidden="true" />
             </button>
-          </div>
-          {#if copyNoticeVisible}
-            <p class="copy-notice">copied to clipboard</p>
-          {/if}
 
-          <ul>
-            <li><strong>iPhone (Apple Calendar):</strong> Open Calendar, tap the calendar icon at the bottom right, scroll down and tap "Add Calendar". Pick "Add Subscription Calendar" and paste in the URL.</li>
-          </ul>
+            <h4 id="calendar-modal-title">Subscribe to {selectedTeamLabel} Calendar</h4>
+            <p>Subscribe to stay up-to-date with our latest games. Use this feed URL in your favorite calendar app:</p>
 
-          <div class="modal-actions">
-            <a class="btn-feed-link" href={selectedCalendarUrl} target="_blank" rel="noopener noreferrer">or download current .ics</a>
+            <div class="copy-field" role="group" aria-label="Calendar feed URL">
+              <span class="copy-field-url">{fullCalendarUrl}</span>
+              <button class="copy-field-btn" type="button" onclick={copyCalendarUrl} aria-label="Copy calendar feed URL to clipboard">
+                <Copy size={16} aria-hidden="true" />
+              </button>
+            </div>
+            {#if copyNoticeVisible}
+              <p class="copy-notice">copied to clipboard</p>
+            {/if}
+
+            <ul>
+              <li><strong>iPhone (Apple Calendar):</strong> Open Calendar, tap the calendar icon at the bottom right, scroll down and tap "Add Calendar". Pick "Add Subscription Calendar" and paste in the URL.</li>
+            </ul>
+
+            <div class="modal-actions">
+              <a class="btn-feed-link" href={selectedCalendarUrl} target="_blank" rel="noopener noreferrer">or download current .ics</a>
+            </div>
           </div>
         </div>
+      {/if}
+    {:else}
+      <div class="schedule-loading">
+        <Spinner size={28} label="Loading schedule" />
       </div>
     {/if}
   </section>
@@ -256,6 +274,10 @@
   em {
     color: var(--secondary-color);
     font-style: normal;
+  }
+
+  .schedule-loading {
+    padding: 3rem 0;
   }
 
   .tabs {

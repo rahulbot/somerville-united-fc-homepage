@@ -5,11 +5,10 @@
   import GameDayHighlight from "./home/GameDayHighlight.svelte";
   //import APSLChampions2026 from "./home/APSLChampions2026.svelte";
   import Latest from "./home/Latest.svelte";
+  import Spinner from "../components/Spinner.svelte";
   import { getGamesToday } from "../lib/schedules.js";
 
   const { data } = $props();
-
-  const gamesToday = $derived(getGamesToday(data.calendars));
 
   // Scroll handler for anchors
   function scrollTo(id) {
@@ -25,9 +24,15 @@
   <meta name="description" content="Somerville United FC - Building community through soccer" />
 </svelte:head>
 
-{#if gamesToday.length > 0}
-  <GameDayHighlight game={gamesToday[0]} />
-{/if}
+{#await data.calendars}
+  <div class="schedule-loading"><Spinner size={20} label="Checking today's schedule" /></div>
+{:then calendars}
+  {@const gamesToday = getGamesToday(calendars)}
+  {#if gamesToday.length > 0}
+    <GameDayHighlight game={gamesToday[0]} />
+  {/if}
+{:catch}
+{/await}
 
 <Hero {scrollTo} />
 
@@ -36,3 +41,9 @@
 <Values />
 
 <Latest />
+
+<style>
+  .schedule-loading {
+    padding: 0.5rem;
+  }
+</style>

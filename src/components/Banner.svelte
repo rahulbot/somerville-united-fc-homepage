@@ -2,7 +2,7 @@
 const { text } = $props();
 </script>
 
-{#if text.length > 0}
+{#if text && text.length > 0}
 <div class="banner">
   <div class="container">
     {@html text}

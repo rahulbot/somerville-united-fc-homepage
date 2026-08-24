@@ -3,9 +3,8 @@ import { loadMetadata } from "$lib/metadata.js";
 
 export const ssr = false;
 
-export const load = async ({fetch, params}) => {
-  const metadata = await loadMetadata();
+export const load = ({fetch, params}) => {
   return {
-    ...metadata,
+    metadata: loadMetadata(),
   };
 };
