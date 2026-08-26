@@ -3,6 +3,8 @@
   import { Menu, X, ChevronDown } from "lucide-svelte";
   import { page } from "$app/stores";
   
+  const DONATE_URL = "https://give.bonterra.network/f/support-our-mission-vezsth";
+
   let mobileMenuOpen = $state(false);
   let teamsDropdownOpen = $state(false);
   let aboutDropdownOpen = $state(false);
@@ -121,7 +123,7 @@
           </a>
         {/if}
       {/each}
-      <a href="https://account.venmo.com/u/SomervilleUnitedFC">
+      <a href="{DONATE_URL}">
         <button class="btn-primary">Donate</button>
       </a>
       
@@ -148,7 +150,7 @@
           {link.label}
         </a>
       {/each}
-      <a href="https://account.venmo.com/u/SomervilleUnitedFC">
+      <a href={DONATE_URL}>
         <button class="btn-primary">Donate</button>
       </a>
     </div>
