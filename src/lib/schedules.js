@@ -23,6 +23,7 @@ export function getTicketableGames(calendarData) {
     const leagueTicketableGames = schedule.filter(game => game.RSVPable);
     ticketableGames = ticketableGames.concat(leagueTicketableGames);
   }
+  ticketableGames.sort((a, b) => a.parsedDate - b.parsedDate);
   return ticketableGames;
 }
 

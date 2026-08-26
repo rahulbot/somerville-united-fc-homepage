@@ -2,12 +2,9 @@
   import PhotoTrio from '../../components/PhotoTrio.svelte';
   import GameList from './GameList.svelte';
   import { Calendar, Copy, X } from 'lucide-svelte';
-  import apslLogo from "@assets/APSL.gif";
-  import upslLogo from "@assets/UPSL.gif";
-  import casaLogo from "@assets/casa-logo-white.png";
-  import dOneLogo from "@assets/d-one-logo-white.png";
   import Spinner from "../../components/Spinner.svelte";
   import { getCurrentSeasonName, getLeagueTeamName, getCalendarNameForLeague } from "../../lib/schedules.js";
+  import LeagueLogo from './LeagueLogo.svelte';
 
   const { data } = $props(); // calendar property is a promise that resolves once loaded from google sheet
 
@@ -71,21 +68,6 @@
   const teamNameLookup = {
     "Somerville United FC": "Men's Flagship",
     "Somerville United FC II": "Men's Reserve"
-  };
-
-  const getLeagueLogo = (league) => {
-    switch(league) {
-      case 'UPSL':
-        return upslLogo;
-      case 'APSL':
-        return apslLogo;
-      case 'CASA':
-        return casaLogo;
-      case 'D-One':
-        return dOneLogo;
-      default:
-        return null;
-    }
   };
 
   const calendarFeeds = $derived.by(() => {
@@ -203,9 +185,9 @@
             id={`${league}-tab`}
             tabindex={selectedLeague === league ? 0 : -1}
           >
-            {#if getLeagueLogo(league) }
-              <img src="{getLeagueLogo(league)}" alt="{league} logo" height="32"/>
-            {/if}
+            <div class="league-logo">
+              <LeagueLogo {league}/>
+            </div>
             {league}
           </button>
         {/each}
@@ -321,7 +303,7 @@
     color: #666;
     transition: all 0.2s ease;
     margin-bottom: -2px;
-    img {
+    .league-logo {
       margin-right: 10px;
     }
   }
@@ -513,7 +495,7 @@
     .tab {
       padding: 10px 15px;
       font-size: var(--font-size-sm);
-      img {
+      .league-logo {
         height: 16px !important;
       }
     }

@@ -5,7 +5,8 @@ import PhotoTrio from '../../components/PhotoTrio.svelte';
 import Spinner from '../../components/Spinner.svelte';
 import { getTicketableGames } from '../../lib/schedules.js';
 import GameDate from '../schedule/GameDate.svelte';
-    import GameLocation from '../schedule/GameLocation.svelte';
+import GameLocation from '../schedule/GameLocation.svelte';
+import LeagueLogo from '../schedule/LeagueLogo.svelte';
 
 const { data } = $props();
 
@@ -136,11 +137,14 @@ function handleFormSubmit(event) {  // handles form submit without any jquery
           <div class="form-elements">
             <fieldset class="game-selection">
               {#if ticketableGames.length > 1}
-                <legend>Select a Game:</legend>
+                <legend>Pick a Game:</legend>
               {/if}
               <div class="games-list">
                 {#each ticketableGames as game}
                   <label class="game-box" class:selected={gameId === game.id}>
+                    {#if gameId === game.id}
+                      <div class="selected-badge">Selected</div>
+                    {/if}
                     <input
                       type="radio"
                       name="game"
@@ -151,6 +155,9 @@ function handleFormSubmit(event) {  // handles form submit without any jquery
                     <div class="game-box-content">
                       <GameDate {game} />
                       <GameLocation {game} />
+                      <div class="logo">
+                        <LeagueLogo league={game.league} color="#000000"/>
+                      </div>
                     </div>
                   </label>
                 {/each}
@@ -202,6 +209,12 @@ function handleFormSubmit(event) {  // handles form submit without any jquery
                 <LoaderCircle class="spinning" />
                 (we're saving your RSVP...)
               </p>
+            {:else}
+              <p class="payment-reminder">
+              After you RSVP be sure to <b>pay ${5*guests} for your tickets</b> via 
+              <a href="https://swipesimple.com/links/lnk_01b2b24053078931775ee44efb7535e2">Credit Card Payment</a> 
+              or Zelle to somervilleunitedfc@gmail.com. 
+            </p>
             {/if}
           </div>
         {/if}
@@ -211,7 +224,7 @@ function handleFormSubmit(event) {  // handles form submit without any jquery
           <div class="thankyou_message">
             <h3>Thanks for the RSVP!</h3>
             <p>We're excited to see you at our game on {selectedGame.Date} at {selectedGame.Venue} vs. {selectedGame.opponent} ⚽️🎉</p>
-            <p>⚠️Don't forget to <b>pay your $5 pre-order ticket price</b> via 
+            <p>⚠️Don't forget to <b>pay ${5*guests} for your pre-ordered tickets</b> via 
               <a href="https://swipesimple.com/links/lnk_01b2b24053078931775ee44efb7535e2">Credit Card Payment</a> 
               or Zelle to somervilleunitedfc@gmail.com. 
             </p>
@@ -250,7 +263,7 @@ input[type="radio"] {
 }
 
 form {
-  width: 60%;
+  width: 80%;
   padding: 10px;
   margin: 0 auto;
 }
@@ -280,27 +293,41 @@ form {
 }
 
 .game-box {
+  position: relative;
+  overflow: hidden;
   cursor: pointer;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   padding: 1.5rem;
-  border: none;
-  border-top: 1px dashed rgba(var(--secondary-color-rgb), 0.3);
-  transition: all 0.3s ease;
-  background-color: transparent;
+  border: 1px solid var(--muted-color);
   border-radius: var(--radius);
+  transition: all 0.3s ease;
 
   &:hover {
-    background-color: #f5f5f5;
+    border-color: var(--primary-color);
   }
 
   &.selected {
     border: 2px solid var(--primary-color);
-    border-top: 2px solid var(--primary-color);
-    background-color: transparent;
     padding: calc(1.5rem - 1px);
+    padding-top: 2.5rem;
   }
+}
+
+.selected-badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--primary-color);
+  color: var(--primary-color-foreground);
+  text-align: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0;
 }
 
 .game-box-content {
@@ -337,4 +364,27 @@ form {
   margin-bottom: 1.5rem;
   text-align: left;
 }
+
+.logo {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: var(--secondary-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+  @media (max-width: 640px) {
+    .logo {
+      width: 60px;
+      height: 60px;
+    }
+  }
+
+  .payment-reminder {
+    font-style: italic;
+  }
 </style>
