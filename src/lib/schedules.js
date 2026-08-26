@@ -137,7 +137,7 @@ export async function loadCalendars(fetch = globalThis.fetch) {
     const augmentGame = (g) => {
       g.league = g['League'];
       g.opponent = g.Home.includes("Somerville United") ? g.Away : g.Home;
-      g.parsedDate = parseDate(g.Dated);
+      g.parsedDate = parseDate(g.Date);
       g.day = g.parsedDate ? g.parsedDate.toLocaleDateString('en-US', { weekday: 'long' }) : null;
       g.id = MD5(`${g.league}-${g.parsedDate}`); // should be relatively stable across calendar edits
       g.finished = g.Result && g.Result.trim() !== "";
