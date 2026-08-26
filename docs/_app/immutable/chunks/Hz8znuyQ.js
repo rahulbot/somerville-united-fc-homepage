@@ -1,1 +1,0 @@
-import{G as y,b as u,a8 as _,a9 as o,h as t,M as g,a6 as i,f as l,s as d,L as p,J as m}from"./DtfSHSOh.js";function C(n,r){let a=null,f=t;var s;if(t){a=p;for(var e=m(document.head);e!==null&&(e.nodeType!==g||e.data!==n);)e=i(e);if(e===null)l(!1);else{var E=i(e);e.remove(),d(E)}}t||(s=document.head.appendChild(y()));try{u(()=>r(s),_|o)}finally{f&&(l(!0),d(a))}}export{C as h};
