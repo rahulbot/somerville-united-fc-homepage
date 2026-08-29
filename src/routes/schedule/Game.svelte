@@ -6,7 +6,11 @@
   const isHome = $derived(game.Home === teamName);
   const isPostponed = $derived(game.Postponed === 'Yes');
   const isPostSeason = $derived(game.Round != 'Regular Season');
-  const inPast = $derived(!isNaN(new Date(game.Date)) && (new Date() > new Date(game.Date)));
+
+  // game.parsedDate (from schedules.js) already combines the game's date and
+  // kickoff time into a real, Eastern-anchored instant, so comparing it to the
+  // current instant is correct regardless of the viewer's timezone.
+  const inPast = $derived(!!game.parsedDate && (new Date() > game.parsedDate));
   const hasTicketLink = $derived((includeTicketButton && isHome) && (game.Tickets && game.Tickets.startsWith('http')));
 </script>
 

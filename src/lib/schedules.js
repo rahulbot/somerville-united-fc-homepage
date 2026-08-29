@@ -29,18 +29,16 @@ export function getTicketableGames(calendarData) {
 
 export function getGamesToday(calendarData) {
   // return a list of game objects for any games across all seasons and leagues happening today
-  const today = new Date();
+  const todayKey = getDateKeyInTimeZone(new Date(), GAME_TIMEZONE);
   let gamesToday = [];
   for (const season in calendarData) {
     const seasonData = calendarData[season];
     for (const league in seasonData) {
-      const schedule = seasonData[league]; 
+      const schedule = seasonData[league];
       const todayGames = schedule.filter((game) => {
-        const gameDate = new Date(game.parsedDate);
         const isToday = (
-            gameDate.getFullYear() === today.getFullYear() &&
-            gameDate.getMonth() === today.getMonth() &&
-            gameDate.getDate() === today.getDate() &&
+            game.parsedDate &&
+            getDateKeyInTimeZone(game.parsedDate, GAME_TIMEZONE) === todayKey &&
             (game.Result === null || game.Result.length == 0) // because some games might be foreited already
         );
         return isToday;
@@ -113,9 +111,57 @@ function writeCachedCalendars(data) {
   } catch {}
 }
 
-const parseDate = (dateStr) => {
+const GAME_TIMEZONE = 'America/New_York'; // games are always scheduled in US Eastern time
+
+// ms to add to `date`'s real timestamp to get the value you'd see by taking its
+// wall-clock digits in `timeZone` and treating them as UTC instead
+const getTimeZoneOffsetMs = (date, timeZone) => {
+  const dtf = new Intl.DateTimeFormat('en-US', {
+    timeZone,
+    hourCycle: 'h23',
+    year: 'numeric', month: '2-digit', day: '2-digit',
+    hour: '2-digit', minute: '2-digit', second: '2-digit'
+  });
+  const parts = dtf.formatToParts(date).reduce((acc, { type, value }) => {
+    if (type !== 'literal') acc[type] = value;
+    return acc;
+  }, {});
+  const asUTC = Date.UTC(parts.year, parts.month - 1, parts.day, parts.hour, parts.minute, parts.second);
+  return asUTC - date.getTime();
+};
+
+// YYYY-MM-DD calendar date for `date` as seen in `timeZone`, for same-day comparisons
+const getDateKeyInTimeZone = (date, timeZone) => {
+  const dtf = new Intl.DateTimeFormat('en-CA', { timeZone, year: 'numeric', month: '2-digit', day: '2-digit' });
+  return dtf.format(date); // en-CA formats as YYYY-MM-DD
+};
+
+// parses strings like "4:00 PM" / "4:00PM" into {hours, minutes} (24h), or null if unparseable
+const parseTimeOfDay = (timeStr) => {
+  const match = typeof timeStr === 'string' && timeStr.match(/(\d{1,2}):(\d{2})\s*(AM|PM)?/i);
+  if (!match) return null;
+  let hours = parseInt(match[1], 10);
+  const minutes = parseInt(match[2], 10);
+  const meridiem = match[3] && match[3].toUpperCase();
+  if (meridiem === 'PM' && hours !== 12) hours += 12;
+  if (meridiem === 'AM' && hours === 12) hours = 0;
+  return { hours, minutes };
+};
+
+const parseDate = (dateStr, timeStr) => {
   try {
-    return new Date(dateStr);
+    // dateStr/timeStr have no timezone info, so new Date() reads their digits
+    // as the browser's local wall clock. Re-anchor those same digits (date,
+    // plus kickoff time when we have one) to America/New_York instead, so the
+    // result doesn't depend on the viewer's timezone (DST-aware).
+    const naive = new Date(dateStr);
+    if (isNaN(naive)) return null;
+    const timeOfDay = parseTimeOfDay(timeStr);
+    const digitsAsUTC = Date.UTC(
+      naive.getFullYear(), naive.getMonth(), naive.getDate(),
+      timeOfDay ? timeOfDay.hours : 0, timeOfDay ? timeOfDay.minutes : 0, 0
+    );
+    return new Date(digitsAsUTC - getTimeZoneOffsetMs(naive, GAME_TIMEZONE));
   } catch {
     return null;
   }
@@ -138,8 +184,8 @@ export async function loadCalendars(fetch = globalThis.fetch) {
     const augmentGame = (g) => {
       g.league = g['League'];
       g.opponent = g.Home.includes("Somerville United") ? g.Away : g.Home;
-      g.parsedDate = parseDate(g.Date);
-      g.day = g.parsedDate ? g.parsedDate.toLocaleDateString('en-US', { weekday: 'long' }) : null;
+      g.parsedDate = parseDate(g.Date, g.Time);
+      g.day = g.parsedDate ? g.parsedDate.toLocaleDateString('en-US', { weekday: 'long', timeZone: GAME_TIMEZONE }) : null;
       g.id = MD5(`${g.league}-${g.parsedDate}`); // should be relatively stable across calendar edits
       g.finished = g.Result && g.Result.trim() !== "";
       g.RSVPable = !g.finished && (g.Tickets == "RSVP");
