@@ -23,7 +23,8 @@ export function getTicketableGames(calendarData) {
     const leagueTicketableGames = schedule.filter(game => game.RSVPable);
     ticketableGames = ticketableGames.concat(leagueTicketableGames);
   }
-  ticketableGames.sort((a, b) => a.parsedDate - b.parsedDate);
+  // parsedDate may be a Date or an ISO string (cached calendars round-trip through JSON), so re-wrap before subtracting
+  ticketableGames.sort((a, b) => new Date(a.parsedDate) - new Date(b.parsedDate));
   return ticketableGames;
 }
 
@@ -130,10 +131,12 @@ const getTimeZoneOffsetMs = (date, timeZone) => {
   return asUTC - date.getTime();
 };
 
-// YYYY-MM-DD calendar date for `date` as seen in `timeZone`, for same-day comparisons
+// YYYY-MM-DD calendar date for `date` as seen in `timeZone`, for same-day comparisons.
+// `date` may be a Date instance or an ISO string (e.g. parsedDate round-tripped through
+// the localStorage cache as JSON, which turns Dates into strings), so re-wrap it here.
 const getDateKeyInTimeZone = (date, timeZone) => {
   const dtf = new Intl.DateTimeFormat('en-CA', { timeZone, year: 'numeric', month: '2-digit', day: '2-digit' });
-  return dtf.format(date); // en-CA formats as YYYY-MM-DD
+  return dtf.format(new Date(date)); // en-CA formats as YYYY-MM-DD
 };
 
 // parses strings like "4:00 PM" / "4:00PM" into {hours, minutes} (24h), or null if unparseable

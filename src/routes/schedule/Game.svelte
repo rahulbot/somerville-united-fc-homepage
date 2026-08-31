@@ -9,8 +9,10 @@
 
   // game.parsedDate (from schedules.js) already combines the game's date and
   // kickoff time into a real, Eastern-anchored instant, so comparing it to the
-  // current instant is correct regardless of the viewer's timezone.
-  const inPast = $derived(!!game.parsedDate && (new Date() > game.parsedDate));
+  // current instant is correct regardless of the viewer's timezone. It may come
+  // through as an ISO string instead of a Date (cached calendars round-trip
+  // through JSON), so re-wrap it before comparing.
+  const inPast = $derived(!!game.parsedDate && (new Date() > new Date(game.parsedDate)));
   const hasTicketLink = $derived((includeTicketButton && isHome) && (game.Tickets && game.Tickets.startsWith('http')));
 </script>
 
