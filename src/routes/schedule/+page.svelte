@@ -32,13 +32,15 @@
   function getLeagueDescription(league) {
     switch(league) {
       case 'UPSL':
-        return "Our flagship men's team plays in the UPSL New England Conference. Home games are at Dilboy Stadum in Somerville.";
+        return "Our men's team plays in the UPSL Division 1 New England Conference. Home games are at Dilboy Stadum in Somerville.";
       case 'APSL':
-        return "Our flagship men's team plays in the APSL Mayflower Conference. Home games are at Dilboy Stadum in Somerville.";
+        return "Our men's team plays in the APSL Mayflower Conference. Home games are at Dilboy Stadum in Somerville.";
       case 'CASA':
-        return "Our reserve men's team plays in the CASA Select Liga 1. Home games are at Conway Park in Somerville.";
+        return "Our men's team plays in the CASA Select Liga 1. Home games are at Conway Park in Somerville.";
       case 'D-One':
-        return "Our flagship men's team plays in the D-One Soccer League.";
+        return "Our men's team plays in the D-One Soccer League.";
+      case 'US Open Cup':
+        return "The US Open Cup is a knockout cup competition across all levels of American soccer. We play it in when we win a competition in one of our other leagues.";
       default:
         return "";
     }
@@ -156,8 +158,8 @@
     </h1>
     <p class="page-subtitle">
       Somerville United FC fields men's teams in various local leagues. We are currently playing in the 
-      <a href="https://premier.upsl.com/teams/?state=false&division=false&conference=28">UPSL New England conference</a>
-      and <a href="https://apslsoccer.com/APSL/Tables/">APSL Mayflower Conference</a>.
+      <a href="https://division1.upsl.com/teams/somerville-united-fc-936815/">UPSL Division 1 New England conference</a>
+      and <a href="https://apslsoccer.com/APSL/Team/165459">APSL Mayflower Conference</a>.
       We'd love to have you join at one of our upcoming games!
     </p>
 

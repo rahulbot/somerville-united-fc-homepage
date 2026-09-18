@@ -5,6 +5,7 @@
 	import upslLogo from "@assets/UPSL.gif";
 	import casaLogo from "@assets/casa-logo-white.png";
 	import dOneLogo from "@assets/d-one-logo-white.png";
+	import usOpenCupLogo from "@assets/us-open-cup-logo.png";
 
 	const getLeagueLogo = (league) => {
 		switch(league) {
@@ -16,6 +17,8 @@
 				return casaLogo;
 			case 'D-One':
 				return dOneLogo;
+			case 'US Open Cup':
+				return usOpenCupLogo;
 			default:
 				return null;
 		}
