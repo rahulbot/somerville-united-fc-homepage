@@ -16,6 +16,7 @@
   import extendedFamilyProductions from "@assets/sponsors/extended-family-productions.jpeg";
   import jMassStudios from "@assets/sponsors/j-mass-studios.jpeg";
   import newLeafEspresso from "@assets/sponsors/new-leaf-espresso.png";
+  import onjinkoOriginals from "@assets/sponsors/onjiko-originals.jpg";
 </script>
 
 <section>
@@ -75,6 +76,9 @@
     </a>
     <a href="https://www.instagram.com/extendedfamilyproductions/" target="_blank" class="sponsor-logo">
       <img src={extendedFamilyProductions} alt="Extended Family Productions" />
+    </a>
+    <a href="https://www.instagram.com/onjikooringinals_co/" target="_blank" class="sponsor-logo">
+      <img src={onjinkoOriginals} alt="Onjiko Originals" />
     </a>
   </div>
 </section>
