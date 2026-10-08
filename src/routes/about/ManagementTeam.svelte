@@ -13,13 +13,10 @@
   import headshotTW from "@assets/staff/ty-wilhelmsen.jpg";
   import headshotCA from "@assets/staff/christian-aquino.jpg";
   import headshotJS from "@assets/staff/john-senn.jpg";
-  import headshotMK from "@assets/staff/malaika-kironde.jpg";
   import headshotOJ from "@assets/staff/oliver-judd.jpg";
   import headshotJS2 from "@assets/staff/jessica-sumney.jpg";
-  import headshotMR from "@assets/staff/maximillian-ragosta.jpg";
   import headshotJG2 from "@assets/staff/jonah-giaquinto.jpg";
   import headshotSZ from "@assets/staff/samuel-zhou.jpg";
-  import headshotJR from "@assets/staff/jack-resnik.jpg";
   import headshotPM from "@assets/staff/patrick-mcquillen.jpg";
   import headshotEM from "@assets/staff/emily-mendes.png";
   import headshotAC from "@assets/staff/angela-cornacchio.png";
@@ -60,12 +57,6 @@
       title: "Treasurer",
       description: "Eyerusalem is an aspiring public health researcher born and raised in Addis Ababa, Ethiopia, whose love for football began with fond memories of weekends spent watching the Premier League with family. In high school, Eyerusalem discovered the joy of playing the game, forming lasting friendships on the field that showed the game's unique power to bring people together. After completing undergraduate studies, Eyerusalem moved to Boston and quickly found a welcoming football community that became central to life in a new city — a space where meaningful connections were made and a true sense of belonging was found. Inspired by the friendships and sense of belonging found in the game, Eyerusalem is excited to extend that experience to others through Somerville United FC. As a Board Member, Eyerusalem is dedicated to building a community where players can connect, grow, and find the same joy and camaraderie that football has brought to so many lives. Eyerusalem's background in community health and wellbeing fuels a commitment to creating equitable access to the beautiful game for all who are interested, regardless of background or socioeconomic status.",
       image: headshotEA
-    },
-    {
-      name: "Jack Resnik",
-      title: "Director of Operations",
-      description: "Jack serves as the Director of Operations and Programs for Somerville United FC. As an experienced Project Manager working in health care research and a passionate fan of the beautiful game, he is thrilled to blend professional expertise and love of football to support the goals and growth of this club. Jack fell in love with football while living and working in South America, where the power of football to unite communities, cross divides, uplift people and provide solace became clear. A native of Phoenix, Arizona, he has found a home in Massachusetts after moving here to study public health at Boston University. After 7 years in Jamaica Plain, Jack moved to Somerville in 2025 drawn by the vibrancy, diversity, and activism of this incredible community.",
-      image: headshotJR
     },
     {
       name: "John Massaquoi",
@@ -146,12 +137,6 @@
       image: headshotTW
     },
     {
-      name: "Malaika Kironde",
-      title: "Analyst (SUFC Women)",
-      description: "Malaika started playing soccer after watching the 2010 World Cup with her dad and fell in love with the game shortly after. As an engineer, Malaika is looking forward to helping Somerville FC with analytical tasks and is excited to be a part of bringing soccer to Somerville.",
-      image: headshotMK
-    },
-    {
       name: "Harry Flamm",
       title: "Facilities, Sustainability, and Game Day Operations Advisor",
       description: "Harry Flamm is a licensed Massachusetts Architect specializing in Sustainability, with 35 years of professional experience in the design, construction, and operation of buildings and facilities throughout the Boston area and the United States. He is a respected resource for building design and facility operations where sustainability, energy and water efficiency, carbon-reduction, resiliency, and health and wellness are a priority. Harry has enjoyed soccer since discovering the sport in his youth -- playing in high school (Long Island, NY champions), college, and forever with the Massachusetts Over The Hill Soccer League. His favorite team to cheer for is Fulham, in the English Premier League.",
@@ -174,12 +159,6 @@
       title: "Admin Support",
       description: "Christian Aquino is a Brazilian American based in Milford, MA. he has loved soccer his entire life, both as a player and a fan. Christian played throughout his childhood and has supported Manchester United since age 7. he currently attends Bridgewater State University where he majors in both General Business Management and Film Production. Christian also holds two jobs in Framingham and Marlborough.",
       image: headshotCA
-    },
-    {
-      name: "Maximillian Ragosta",
-      title: "Legal Intern",
-      description: "Max is joining the Somerville United team as a legal intern. He is from Providence and went to undergrad at NC State in Raleigh before moving back up to Boston, where he currently attends New England Law. Max is excited to help contribute to the club.",
-      image: headshotMR
     },
     {
       name: "Rahul Bhargava",
