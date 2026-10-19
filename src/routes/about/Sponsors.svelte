@@ -17,6 +17,7 @@
   import jMassStudios from "@assets/sponsors/j-mass-studios.jpeg";
   import newLeafEspresso from "@assets/sponsors/new-leaf-espresso.png";
   import onjinkoOriginals from "@assets/sponsors/onjiko-originals.jpg";
+  import mileMintMoving from "@assets/sponsors/mile-mint-moving.jpg";
 </script>
 
 <section>
@@ -79,6 +80,9 @@
     </a>
     <a href="https://www.instagram.com/onjikooringinals_co/" target="_blank" class="sponsor-logo">
       <img src={onjinkoOriginals} alt="Onjiko Originals" />
+    </a>
+    <a href="https://www.uhaul.com/MovingHelp/02132/1/Mile-Mint-Moving-Llc/?id=22AE11F31D9D45" target="_blank" class="sponsor-logo">
+      <img src={mileMintMoving} alt="Mile Mint Moving" />
     </a>
   </div>
 </section>

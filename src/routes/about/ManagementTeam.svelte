@@ -11,7 +11,6 @@
   import headshotJG from "@assets/staff/judd-galloway.jpg";
   import headshotCJ from "@assets/staff/cassandra-joyce.jpg";
   import headshotTW from "@assets/staff/ty-wilhelmsen.jpg";
-  import headshotCA from "@assets/staff/christian-aquino.jpg";
   import headshotJS from "@assets/staff/john-senn.jpg";
   import headshotOJ from "@assets/staff/oliver-judd.jpg";
   import headshotJS2 from "@assets/staff/jessica-sumney.jpg";
@@ -153,12 +152,6 @@
       title: "Internal Communications and Social Media Manager",
       description: "Francisco Jair Santos Landaverde is a first year Communications and Media student at Fitchburg State University and a lifelong member of the Somerville soccer community. With more than fifteen years in local youth programs and experience working for Somerville Recreation, Jair brings a strong understanding of the game and the people in it. He is an aspiring soccer social media manager who has already led major growth for the FSU Men's Soccer platforms through creative content, storytelling, and media production. Jair is excited to bring passion for soccer and digital branding to Somerville United FC and help share the club's mission with the community.",
       image: headshotFJSL
-    },
-    {
-      name: "Christian Aquino",
-      title: "Admin Support",
-      description: "Christian Aquino is a Brazilian American based in Milford, MA. he has loved soccer his entire life, both as a player and a fan. Christian played throughout his childhood and has supported Manchester United since age 7. he currently attends Bridgewater State University where he majors in both General Business Management and Film Production. Christian also holds two jobs in Framingham and Marlborough.",
-      image: headshotCA
     },
     {
       name: "Rahul Bhargava",
