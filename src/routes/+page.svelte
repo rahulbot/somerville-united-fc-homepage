@@ -1,5 +1,6 @@
 <script>
-  import Hero from "./home/Hero.svelte";
+  //import Hero from "./home/Hero.svelte";
+  import WomensFundraiser from "./home/WomensFundraiser.svelte";
   import Mission from "./home/Mission.svelte";
   import Values from "./home/Values.svelte";
   import GameDayHighlight from "./home/GameDayHighlight.svelte";
@@ -34,7 +35,8 @@
 {:catch}
 {/await}
 
-<Hero {scrollTo} />
+<!-- <Hero {scrollTo} /> -->
+<WomensFundraiser />
 
 <Mission />
 
