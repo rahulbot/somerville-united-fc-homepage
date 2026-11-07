@@ -1,5 +1,7 @@
 <script>
   import fundraiserImage from "@assets/202611-womens-fundraiser.jpg";
+
+  const TICKETS_URL = "https://www.zeffy.com/en-US/ticketing/get-womens-soccer-over-the-line";
 </script>
 
 <section class="fundraiser">
@@ -15,12 +17,17 @@
         <p class="fundraiser-subtitle animate-fade-in" style="--delay: 0.6s">
           Nov 14th @ <a href="https://winterhillbrewing.com">Winter Hill Brewing Company</a>
         </p>
+        <a href={TICKETS_URL} class="btn btn-primary tickets-btn animate-fade-in" style="--delay: 0.8s">
+          Buy Tickets
+        </a>
       </div>
       <div class="fundraiser-image animate-fade-in" style="--delay: 0.4s">
-        <img
-          src={fundraiserImage}
-          alt="Get women's soccer over the line: a fundraiser for Somerville United Women, Saturday November 14 at 7pm at Winter Hill Brewing Company"
-        />
+        <a href={TICKETS_URL}>
+          <img
+            src={fundraiserImage}
+            alt="Get women's soccer over the line: a fundraiser for Somerville United Women, Saturday November 14 at 7pm at Winter Hill Brewing Company"
+          />
+        </a>
       </div>
     </div>
   </div>
@@ -98,6 +105,11 @@
 
   .fundraiser-subtitle a {
     color: #fff;
+  }
+
+  .tickets-btn {
+    font-size: var(--font-size-lg);
+    padding: 1rem 2.5rem;
   }
 
   .fundraiser-image img {
