@@ -1,10 +1,10 @@
 <script>
-  //import Hero from "./home/Hero.svelte";
-  import WomensFundraiser from "./home/WomensFundraiser.svelte";
+  import Hero from "./home/Hero.svelte";
   import Mission from "./home/Mission.svelte";
   import Values from "./home/Values.svelte";
   import GameDayHighlight from "./home/GameDayHighlight.svelte";
   //import APSLChampions2026 from "./home/APSLChampions2026.svelte";
+  //import WomensFundraiser from "./home/WomensFundraiser.svelte";
   import Latest from "./home/Latest.svelte";
   import Spinner from "../components/Spinner.svelte";
   import { getGamesToday } from "../lib/schedules.js";
@@ -35,8 +35,7 @@
 {:catch}
 {/await}
 
-<!-- <Hero {scrollTo} /> -->
-<WomensFundraiser />
+<Hero {scrollTo} />
 
 <Mission />
 
