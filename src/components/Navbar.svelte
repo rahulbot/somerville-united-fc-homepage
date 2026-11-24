@@ -3,7 +3,7 @@
   import { Menu, X, ChevronDown } from "lucide-svelte";
   import { page } from "$app/stores";
   
-  const DONATE_URL = "https://give.bonterra.network/f/support-our-mission-vezsth";
+  const DONATE_URL = "https://www.zeffy.com/en-US/donation-form/donate-to-barrier-free-soccer";
 
   let mobileMenuOpen = $state(false);
   let teamsDropdownOpen = $state(false);
