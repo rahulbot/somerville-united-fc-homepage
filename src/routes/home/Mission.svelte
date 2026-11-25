@@ -40,19 +40,19 @@
           </p>
           <ul class="mission-list">
             <li>
-              <span class="text-primary">✨</span> Provide pathways for local players
+              <span class="text-primary">⚽️</span> Provide pathways for local players
             </li>
             <li>
-              <span class="text-primary">✨</span> Offer free/low-cost access to the game
+              <span class="text-primary">⚽️</span> Offer free/low-cost access to the game
             </li>
             <li>
-              <span class="text-primary">✨</span> Create mentorship programs
+              <span class="text-primary">⚽️</span> Create mentorship programs
             </li>
             <li>
-              <span class="text-primary">✨</span> Reinvest back into Somerville
+              <span class="text-primary">⚽️</span> Reinvest back into Somerville
             </li>
             <li>
-              <span class="text-primary">✨</span> Build a culture of unity, family, and ambition
+              <span class="text-primary">⚽️</span> Build a culture of unity, family, and ambition
             </li>
           </ul>
       </div>
