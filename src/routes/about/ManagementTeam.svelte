@@ -25,6 +25,7 @@
   import headshotAPD from "@assets/staff/andrew-pham-do.jpg";
   import headshotPMC from "@assets/staff/phoebe-martell-crawford.jpg";
   import headshotCN from "@assets/staff/courtney-nunheimer.jpg";
+  import headshotJA from "@assets/staff/jakiyah.jpg"
 
   const people = [
     {
@@ -104,6 +105,12 @@
       title: "Sales Lead",
       description: "Jonah Giaquinto is Massachusetts born and raised. he played soccer his whole life and even played at Dilboy stadium growing up for high school soccer. Currently working in finance and sales performance, Jonah is passionate about creating grassroots clubs in the US and expanding accessibility of the beautiful game.",
       image: headshotJG2
+    },
+    { 
+      name: "Jakiyah Jones-Robinson",
+      title: "Accountant",
+      description: "Jakiyah brings a a degree in Marketing and Accounting, and loves combining creativity with numbers in her work. Outside of her career, she enjoys spending time with family and coaching soccer and track, helping young athletes grow and reach their potential.",
+      image: headshotJA
     },
     {
       name: "Samuel Zhou",
